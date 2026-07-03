@@ -35,8 +35,10 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 - [x] Criterios de Fase A: resuelto por enmienda de gobernanza — la fase en curso se rige por el PREREG original del lab (ver `CRITERIOS_FASES.md`).
 - [x] Informe honesto de H-001: las 5 preguntas respondidas con evidencia en la ficha (2026-07-02, tras inventario del lab).
 - [x] Inventario del código existente: `docs/MIGRACION.md`.
-- [ ] Completar `DATA.md` con lo aprendido del inventario (fuente de velas, funding modelado vs. real).
+- [x] `DATA.md` completado con el inventario (2026-07-03): fuentes verificadas en código, sesgos con tratamiento, requisitos del Data Lake.
+- [x] `RISK_POLICY.md` completado (2026-07-03): límites transcritos del sistema vivo; pendientes de Fase C marcados (criterio de retiro, kill duro vs. blando).
+- [x] Test de sensibilidad 384/512/640: **verificado que NO se ejecutó** (solo listado como test futuro en VEREDICTO.md). Decisión de hacerlo o no → antes de Fase C.
 - [ ] Copiar scripts de investigación y CSV pequeños a `research/H-001-canal-donchian/` (sin tocar el sistema vivo).
-- [ ] Completar los números de `RISK_POLICY.md` antes de Fase C.
+- [ ] `docs/CONTRATOS.md` (tarea 0.4) — sesión propia: vela, funding, señal, experimento, evento.
+- [ ] QA de los CSV del cache (huecos/duplicados por símbolo) — primera tarea de A-02.
 - [ ] Migrar bot y observabilidad al repo **solo al cerrar la Fase A** (regla maestra de MIGRACION.md).
-- [ ] Verificar si el test de sensibilidad 384/512/640 se ejecutó; si no, decidir si se hace antes de Fase C.
