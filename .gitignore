@@ -1,6 +1,7 @@
 # Secretos — nunca versionar
 .env
 .env.*
+config.env
 *.key
 *.pem
 secrets/

@@ -27,12 +27,16 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 
 | ID | Nombre | Etapa | Veredicto |
 |---|---|---|---|
-| [H-001](INVESTIGACION/hipotesis/H-001-canal-donchian.md) | Canal de Donchian (perp USDT Binance) | Validación operativa — Fase A (dry run) | ⏳ En validación |
+| [H-001](INVESTIGACION/hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512 (perp USDT) | Fase A dry run — iniciada 2026-07-02 con acta, gobernada por su PREREG (mín. 10 días) | ⏳ En validación |
 
 ## Deuda documental abierta
 
 - [ ] Completar los números de `RISK_POLICY.md` (hoy tiene campos PENDIENTE).
-- [ ] Completar los criterios cuantitativos de `VALIDACION/CRITERIOS_FASES.md` **antes de evaluar la Fase A**.
-- [ ] Escribir el informe honesto de H-001: datos usados, cómo se eligieron los parámetros, cuántas variantes se probaron.
-- [ ] Documentar fuentes y sesgos de datos en `DATA.md`.
-- [ ] Migrar código existente con sus tests.
+- [x] Criterios de Fase A: resuelto por enmienda de gobernanza — la fase en curso se rige por el PREREG original del lab (ver `CRITERIOS_FASES.md`).
+- [x] Informe honesto de H-001: las 5 preguntas respondidas con evidencia en la ficha (2026-07-02, tras inventario del lab).
+- [x] Inventario del código existente: `docs/MIGRACION.md`.
+- [ ] Completar `DATA.md` con lo aprendido del inventario (fuente de velas, funding modelado vs. real).
+- [ ] Copiar scripts de investigación y CSV pequeños a `research/H-001-canal-donchian/` (sin tocar el sistema vivo).
+- [ ] Completar los números de `RISK_POLICY.md` antes de Fase C.
+- [ ] Migrar bot y observabilidad al repo **solo al cerrar la Fase A** (regla maestra de MIGRACION.md).
+- [ ] Verificar si el test de sensibilidad 384/512/640 se ejecutó; si no, decidir si se hace antes de Fase C.

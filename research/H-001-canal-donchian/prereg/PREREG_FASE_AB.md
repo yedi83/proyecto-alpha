@@ -1,0 +1,97 @@
+# PRE-REGISTRO — Fases A (DRY_RUN) y B (testnet)
+Escrito: 2026-07-01, ANTES de acumular los datos que evaluara.
+Regla: este documento NO se edita despues de empezar a acumular datos. Cualquier
+cambio va en una seccion "ENMIENDA" nueva, con fecha y motivo. Mover los postes
+sin dejar rastro invalida la fase (leccion NEAR).
+
+Corte de comparabilidad: el reinicio del bot que activa la observabilidad
+(eventos.csv). Fecha/hora del reinicio: 2026-07-02 03:53:46 UTC (verificado en log).
+Datos anteriores al corte: solo contexto, no evidencia de fase A.
+
+ACTA DE INICIO (decidida 2026-07-02, antes del reinicio):
+"Inicio oficial de la Fase A. Se reinicia el bot con una posicion LONG BCH ya
+abierta (trade #7, entrada 204.54 el 2026-07-01 02:45 UTC). El reinicio
+incorpora unicamente mejoras de observabilidad y prerregistro metodologico.
+No existen cambios en la logica de señales, sizing, gestion de riesgo ni
+ejecucion. La continuidad de la posicion se mantiene mediante bot_state.json."
+Tratamiento del trade #7 (cruza el corte): su ENTRADA es pre-corte (no cuenta
+para metricas de entrada de fase A); su SALIDA, gestionada por el codigo
+reiniciado, SI cuenta como evidencia de instrumentacion (evento de salida,
+latencia, coherencia stop/reversa). Verificacion adicional del reinicio: el
+primer ciclo post-reinicio debe mostrar abiertas=1 y mantener el trade #7 con
+entry=204.54, atr=1.3493, qty=0.185 intactos (si no, es corrupcion de estado
+-> criterio de aborto).
+
+## FASE A — DRY_RUN (minimo 10 dias de calendario, 5 simbolos activos)
+Objetivo: validar INSTRUMENTACION y coherencia interna. NO valida edge,
+NO valida PnL. Un mes bueno o malo de PnL aqui no significa nada (n≈5).
+
+Criterios de aprobacion (todos obligatorios):
+1. Ninguna señal generada por el modelo queda sin evento registrado
+   (ejecutada / omitida / descartada, con motivo).
+   Verificacion: replay offline — recalcular señales sobre las velas
+   descargadas del periodo y cruzar contra eventos.csv + registro_live.csv.
+2. Ninguna operacion ejecutada carece de señal previa correspondiente.
+3. Cero errores criticos de proceso: caida no recuperada por el lanzador,
+   perdida de estado no reconciliada, corrupcion de registros.
+4. Latencia mediana señal->registro < 30 segundos.
+   (Medida contra el CIERRE real de la vela = ts_señal + 15min; el campo
+   entry_time_signal usa el open de la vela por convencion Binance.)
+5. Toda vela atrasada queda explicada por los registros de eventos.
+6. Toda divergencia detectada tiene causa identificada y documentada antes
+   de iniciar la fase B.
+
+NO son criterios de fase A: PnL, tracking error, win-rate.
+Nota de interpretacion: en DRY_RUN el TE tiene sesgo positivo estructural
+(el registro lleva fees=0; el modelo del dashboard cobra taker). Se lee con
+ese descuento. No se toca codigo para "arreglarlo" durante la fase.
+
+## FASE B — testnet (1 mes)
+Objetivo: validar EJECUCION (fontaneria con ordenes reales). Sigue sin
+validar edge: con Sharpe ~0.42 harian falta años para eso, no un mes.
+
+Criterios cuantitativos (umbral + justificacion, no falsa precision):
+1. Tracking error acumulado dentro de ±5% del PnL modelado.
+   Justificacion: representa aproximadamente la variacion esperada de la
+   ejecucion respecto al modelo dado que los costes ya estan incorporados
+   en el, refinable con la variabilidad observada en fase A. NO mide
+   rentabilidad; mide que la ejecucion reproduce el modelo.
+2. Slippage de entrada: MEDIANA del exceso sobre lo modelado <= 5 bps.
+   (Exceso, no absoluto: el modelo ya incorpora slippage por simbolo.)
+   Ademas se reporta el percentil 95 para vigilar colas (metrica
+   obligatoria, no criterio de corte en esta fase).
+3. Cero señales omitidas por min_notional en BTC. Si ocurre una, la
+   decision (subir capital / aceptar cesta reducida) se toma y documenta
+   ANTES de pasar a C, no sobre la marcha.
+4. Desviacion persistente de cualquier metrica => requiere explicacion
+   documentada; sin explicacion, no se pasa a C.
+
+Metricas obligatorias del informe final de fase B (no criterios de corte):
+- Tasa de señales omitidas: % sobre señales generadas, y distribucion por
+  motivo (min_notional, kill_switch, cap_agregado, max_concurrentes, qty_cero).
+- Percentil 95 del slippage de entrada y de salida.
+- Velas atrasadas por simbolo (recuento y horas).
+- Funding real vs funding estimado por trade.
+- Fees reales vs modeladas (verifica que el campo fee de la orden llega
+  poblado; si llega vacio, es bug de registro, no ausencia de coste).
+
+## ABORTO INMEDIATO (fase A o B, sin esperar fin de fase)
+Cualquiera de estos, sin explicacion conocida, detiene la fase:
+- Operacion ejecutada que el modelo nunca señalo.
+- Corrupcion de estado (bot_state.json ilegible o inconsistente).
+- Divergencias repetidas cuya causa no puede identificarse.
+- Perdida de sincronizacion entre posiciones del bot y del exchange.
+Abortar no es fracasar: es el sistema de medicion funcionando. Se
+diagnostica, se corrige (eso SI es correccion critica permitida), se
+documenta y se reinicia la fase con nuevo corte.
+
+## REGLA DE CAMBIOS DURANTE LAS FASES
+- Permitido: correcciones criticas de bugs reales (documentadas, con fecha,
+  reinician el reloj de la fase si afectan comparabilidad).
+- Prohibido: cambios de logica, parametros, sizing, ordenes, "mejoras".
+- La capa de observabilidad queda congelada junto con el resto (2026-07-01).
+
+## PASO A FASE C (real ~$750)
+Solo si A y B aprueban TODOS sus criterios. La fase C valida supervivencia
+operativa con dinero real minimo; el edge seguira sin estar probado y el
+sizing (0.10%/trade) refleja exactamente esa confianza.
