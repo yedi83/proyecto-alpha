@@ -43,6 +43,8 @@ Fase actual: futuros perpetuos USDT en Binance (con funding). La arquitectura se
 | [`docs/INVESTIGACION/PROTOCOLO.md`](docs/INVESTIGACION/PROTOCOLO.md) | Cómo se investiga: pre-registro, lockbox, pruebas múltiples |
 | [`docs/INVESTIGACION/REGISTRO_HIPOTESIS.md`](docs/INVESTIGACION/REGISTRO_HIPOTESIS.md) | Registro de todas las hipótesis y su veredicto |
 | [`docs/VALIDACION/CRITERIOS_FASES.md`](docs/VALIDACION/CRITERIOS_FASES.md) | Criterios cuantitativos de aprobación/parada por fase |
+| [`docs/PLAN_TRABAJO.md`](docs/PLAN_TRABAJO.md) | Plan de arranque por etapas y convención de carpetas por hipótesis |
+| [`docs/AGENTES.md`](docs/AGENTES.md) | Sistema de agentes de IA: activos, principios y backlog |
 | [`docs/ADR/`](docs/ADR/) | Registro de decisiones de arquitectura |
 
 ## Estructura del repositorio
@@ -50,11 +52,13 @@ Fase actual: futuros perpetuos USDT en Binance (con funding). La arquitectura se
 ```
 proyecto-alpha/
 ├── docs/          Documentación (fuente de verdad del proyecto)
+├── agents/        Prompts de los agentes de IA (validador, auditor, investigador)
 ├── backtester/    Motor de backtesting determinista
 ├── bot/           Bot de ejecución en vivo
 ├── dashboard/     Auditoría y observabilidad
 ├── data/          Datos locales (no versionados)
-├── research/      Investigación de hipótesis
+├── research/      Laboratorio: una carpeta por hipótesis (H-XXX), validadas o no
+├── strategies/    Biblioteca de estrategias validadas y congeladas
 ├── notebooks/     Análisis exploratorio
 ├── scripts/       Utilidades y automatización
 └── tests/         Tests de toda la plataforma

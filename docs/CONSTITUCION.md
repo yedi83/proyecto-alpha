@@ -19,6 +19,7 @@ Estos principios son innegociables. Cualquier decisión que los contradiga requi
 10. **Cada mejora debe beneficiar a la plataforma, no a una estrategia.** Si una mejora solo sirve a una estrategia concreta, es sospechosa de sobreajuste.
 11. **Toda decisión importante queda documentada** como ADR, con contexto, alternativas consideradas y consecuencias.
 12. **Una sola fuente de verdad por tema.** El estado vive en `ESTADO.md`, los criterios en `CRITERIOS_FASES.md`, las hipótesis en su registro. La duplicación de información es un bug documental.
+13. **La IA no toma decisiones de trading.** Ningún agente de IA decide comprar, vender ni asignar capital. La IA investiga, audita, clasifica y documenta; los veredictos los emite el proceso y las decisiones se basan en evidencia cuantitativa. La ejecución es siempre código determinista, nunca un modelo generativo. (Ver `AGENTES.md` y ADR-0002.)
 
 ## Regla de asignación de tiempo
 
