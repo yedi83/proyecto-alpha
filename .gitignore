@@ -1,0 +1,31 @@
+# Secretos — nunca versionar
+.env
+.env.*
+*.key
+*.pem
+secrets/
+config/secrets*
+
+# Datos locales (se regeneran por script)
+data/*
+!data/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Sistema / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs y salidas
+*.log
+logs/
+outputs/
