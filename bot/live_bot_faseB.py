@@ -45,6 +45,9 @@ API_KEY       = os.getenv("API_KEY", "")
 API_SECRET    = os.getenv("API_SECRET", "")
 DRY_RUN       = os.getenv("DRY_RUN", "true").lower()=="true"
 PAPER_EQUITY  = float(os.getenv("PAPER_EQUITY", "750"))
+# CAMBIO-FRONTERA (aux): tope de equity para que el sizing refleje el capital
+# previsto ($750) aunque la cuenta demo tenga mas balance virtual. 0 = sin tope.
+EQUITY_CAP    = float(os.getenv("EQUITY_CAP", "0"))
 LEVERAGE      = int(os.getenv("LEVERAGE", "2"))
 MARGIN_MODE   = os.getenv("MARGIN_MODE", "isolated")
 
@@ -225,6 +228,7 @@ def market_order(ex, sym, side, qty):
 # ---------------- bucle principal ----------------
 def run_once(ex, st):
     eq=PAPER_EQUITY if DRY_RUN else float(ex.fetch_balance()["total"].get("USDT",0))
+    if EQUITY_CAP>0: eq=min(eq, EQUITY_CAP)
     log(f"CICLO {iso(now())} eq={eq:.2f} abiertas={sum(1 for p in st['positions'].values() if p)}")
     today=now().date().isoformat()
     if st["day"]!=today or DRY_RUN:

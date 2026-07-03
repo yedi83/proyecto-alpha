@@ -47,3 +47,4 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 - [x] **exp-002 ejecutado (2026-07-03): RECHAZA** BTC 0.15% (Calmar 84.6% < 85%; paridad con frontera verificada al centavo).
 - [x] **exp-003 ejecutado (2026-07-03): ACEPTA** BTC 0.125% (pre-registrado como intento final, N=2 declarado; Calmar 91.8%, Sharpe −0.016). M1 resuelto: $750, riesgo BTC 0.125%. Caveat: margen de volatilidad ~13% — habrá omisiones BTC en picos de ATR.
 - [ ] Riesgo vigilado: si Binance apaga el feed testnet a mitad de Fase A, bot y replay pierden velas a la vez (incidente detectable, no corrupción silenciosa).
+- [ ] **Ensayo general de Fase B disponible** (`ensayo_faseB/`): bot de frontera con órdenes reales en la cuenta demo, aislado, NO-evidencia, con reglas y compromisos escritos. Objetivo: depurar el código de frontera antes del día D. Se detiene al arrancar la B oficial.

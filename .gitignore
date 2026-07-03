@@ -30,3 +30,8 @@ Thumbs.db
 *.log
 logs/
 outputs/
+
+# Ensayo de Fase B: solo se versionan README y config.example.env
+ensayo_faseB/bot/
+ensayo_faseB/paper/
+bot_state.json
