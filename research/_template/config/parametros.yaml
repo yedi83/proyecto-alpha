@@ -1,0 +1,15 @@
+# Espacio de parámetros PRE-REGISTRADO de H-XXX.
+# Se escribe ANTES del primer backtest y se congela.
+# Todo lo que no esté aquí, no existe para esta hipótesis.
+hipotesis: H-XXX
+fecha_congelado: null
+universo: []        # lista exacta de pares
+periodo:
+  desde: null
+  hasta: null
+particiones:
+  in_sample: null
+  out_of_sample: null
+  lockbox: null     # nunca se consulta durante la investigación
+parametros:
+  # nombre: [valores a explorar]
