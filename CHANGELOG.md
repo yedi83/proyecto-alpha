@@ -2,6 +2,8 @@
 
 ## 2026-07-03
 
+- `docs/CONTRATOS.md` (tarea 0.4): vela (identidad = apertura UTC), funding (signo = contribución cobrada), señal (intención, no orden), experimento (config+datos+hash), eventos/trades (esquemas vivos adoptados tal cual). **Etapa 0 cerrada.**
+- Checklist línea base de Fase A: instrumentación OK; hallazgo real (vigía sin registrar); falsa alarma de heartbeat resuelta (caché del lector remoto, lección registrada).
 - `RISK_POLICY.md`: límites transcritos del sistema vivo (0.10%/trade, cap 0.60%, máx 5, kill diario -5% blando) + matiz documentado del kill switch + pendientes de Fase C.
 - `DATA.md`: fuentes verificadas en código (cache 15m origen Binance; bot en testnet), sesgos con tratamiento, funding real como incógnita nº 1, requisitos del Data Lake.
 - Verificado: el test de sensibilidad 384/512/640 NO se ejecutó — decisión pendiente antes de Fase C.

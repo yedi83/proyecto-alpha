@@ -39,6 +39,6 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 - [x] `RISK_POLICY.md` completado (2026-07-03): límites transcritos del sistema vivo; pendientes de Fase C marcados (criterio de retiro, kill duro vs. blando).
 - [x] Test de sensibilidad 384/512/640: **verificado que NO se ejecutó** (solo listado como test futuro en VEREDICTO.md). Decisión de hacerlo o no → antes de Fase C.
 - [ ] Copiar scripts de investigación y CSV pequeños a `research/H-001-canal-donchian/` (sin tocar el sistema vivo).
-- [ ] `docs/CONTRATOS.md` (tarea 0.4) — sesión propia: vela, funding, señal, experimento, evento.
+- [x] `docs/CONTRATOS.md` (tarea 0.4, 2026-07-03): cinco contratos codificados desde las convenciones del sistema vivo. **Con esto la Etapa 0 del PLAN_TRABAJO queda CERRADA.**
 - [ ] QA de los CSV del cache (huecos/duplicados por símbolo) — primera tarea de A-02.
 - [ ] Migrar bot y observabilidad al repo **solo al cerrar la Fase A** (regla maestra de MIGRACION.md).
