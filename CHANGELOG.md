@@ -2,6 +2,8 @@
 
 ## 2026-07-03
 
+- `docs/TRASPASO.md`: plan de trabajo para próximas sesiones con cualquier modelo — guardarraíles, tareas fechadas (cierre Fase A 07-12, día D, rutinas), y tabla de qué tarea exige qué modelo.
+- `ensayo_faseB/`: ensayo general aislado del bot de frontera (órdenes demo, EQUITY_CAP=750, reglas no-evidencia).
 - `bot/live_bot_faseB.py` (staged, NO ejecutar en Fase A): versión de frontera con los 4 cambios aprobados — demo trading, fill vía fetch_order con fallback declarado, fees desde fills, riesgo por símbolo con cap por suma real. Se aplica el día D con el checklist del paquete.
 - **exp-002 y exp-003 (riesgo por símbolo):** 0.15% RECHAZADO por umbral pre-escrito; 0.125% pre-registrado como intento final (N=2) y ACEPTADO con el mismo umbral. M1 cerrado: $750 + BTC 0.125%. Paridad del motor con la frontera original verificada (24.03/-17.8/0.42).
 - **Fontanería ejecutada + `PAQUETE_FASE_B.md`:** BTC min demo $50 vs mainnet $100 (brecha demo/producción → métrica nueva de B); bugs pre-B descubiertos: fill price None en create_order (B-fix1) y fees solo en fills (B-fix2). Decisión M1: $750 + riesgo BTC 0.15% condicionada a exp-002. Acta borrador y checklist de arranque de B listos.

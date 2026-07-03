@@ -34,6 +34,7 @@ Fase actual: futuros perpetuos USDT en Binance (con funding). La arquitectura se
 |---|---|
 | [`docs/CONSTITUCION.md`](docs/CONSTITUCION.md) | Principios innegociables del proyecto |
 | [`docs/ESTADO.md`](docs/ESTADO.md) | Estado actual — única fuente de verdad |
+| [`docs/TRASPASO.md`](docs/TRASPASO.md) | Punto de entrada de cada sesión de trabajo: tareas, orden, guardarraíles |
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | Hoja de ruta a 12 meses |
 | [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md) | Diseño del sistema: qué existe y qué está planificado |
 | [`docs/DATA.md`](docs/DATA.md) | Fuentes de datos, calidad, sesgos conocidos |
