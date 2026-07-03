@@ -2,6 +2,8 @@
 
 ## 2026-07-03
 
+- `bot/live_bot_faseB.py` (staged, NO ejecutar en Fase A): versión de frontera con los 4 cambios aprobados — demo trading, fill vía fetch_order con fallback declarado, fees desde fills, riesgo por símbolo con cap por suma real. Se aplica el día D con el checklist del paquete.
+- **exp-002 y exp-003 (riesgo por símbolo):** 0.15% RECHAZADO por umbral pre-escrito; 0.125% pre-registrado como intento final (N=2) y ACEPTADO con el mismo umbral. M1 cerrado: $750 + BTC 0.125%. Paridad del motor con la frontera original verificada (24.03/-17.8/0.42).
 - **Fontanería ejecutada + `PAQUETE_FASE_B.md`:** BTC min demo $50 vs mainnet $100 (brecha demo/producción → métrica nueva de B); bugs pre-B descubiertos: fill price None en create_order (B-fix1) y fees solo en fills (B-fix2). Decisión M1: $750 + riesgo BTC 0.15% condicionada a exp-002. Acta borrador y checklist de arranque de B listos.
 - **Hallazgo F0** (primer intento de fontanería): ccxt ≥4.5 retiró el testnet de futuros de Binance → script migrado a `enable_demo_trading` (keys de demo.binance.com); el bot necesitará la misma migración al arrancar Fase B. Registrado como bloqueante pre-B en ESTADO.
 - `fontaneria_ordenes.py` (prep. Fase B, cuenta testnet separada): límites reales por símbolo (verifica M1), round-trip con inspección de fees, firma exacta del rechazo por min_notional en BTC, funding history, limpieza verificada. Decisión M1 (capital/BTC) diferida a sus resultados, registrada.

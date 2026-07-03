@@ -4,11 +4,12 @@
 
 ## 1. Decisión M1 registrada (capital y BTC)
 
-**Decisión (2026-07-03, del investigador):** capital de Fases B y C = **$750**. BTC recibe riesgo especial **0.15%/trade** (resto 0.10%) para librar el min_notional de producción (~$100 mainnet; demo es $50).
+**Decisión final (2026-07-03, tras exp-002 y exp-003):** capital de Fases B y C = **$750**. Riesgo BTC = **0.125%/trade** (resto 0.10%).
 
-- Números: con 0.15%, notional BTC ≈ $136 al ATR actual; margen hasta ATR +36%; en picos de volatilidad BTC se omitirá igualmente (evento registrado, PnL fantasma visible). Riesgo agregado peor caso: 4×0.10% + 0.15% = 0.55% ≤ cap 0.60% ✓.
-- ⚠️ **Condición previa obligatoria:** esto modifica la estrategia validada (cesta con riesgo uniforme). Antes de adoptarlo: **experimento offline** — cesta FULL 2021-26 con BTC 0.15%, funding 0.01%/8h, comparar NET/maxDD/Sharpe/Calmar contra la base uniforme. Si degrada materialmente, la decisión se revisa. Registrar como `experiments/exp-002/` (el exp-001 queda reservado para el test de reproducibilidad del backtest).
-- La ENMIENDA correspondiente se añade al PREREG_FASE_AB (sección ENMIENDA, fechada) **antes** de que la Fase B acumule datos.
+- Historia completa (auditabilidad): la propuesta original de 0.15% fue **RECHAZADA por exp-002** (Calmar 84.6% < umbral 85%; Sharpe 2024-26 degradado un tercio). El 0.125% se pre-registró como segundo y ÚLTIMO intento (`experiments/exp-003/PREREG.md`, N=2 declarado) y fue **ACEPTADO** con el mismo umbral sin modificar (Calmar 91.8%, Sharpe −0.016).
+- Caveats vigentes, declarados: (a) margen de volatilidad de solo ~13% (notional ≈ $113) — habrá omisiones de BTC en picos de ATR, medidas por la métrica del §3; (b) multiplicidad N=2 registrada — esta evidencia es más débil que la de un intento único; (c) la degradación direccional en 2024-26 persiste (Sharpe 0.18→0.15), dentro del umbral.
+- Riesgo agregado peor caso: 4×0.10% + 0.125% = 0.525% ≤ cap 0.60% ✓.
+- La ENMIENDA correspondiente se añade al PREREG_FASE_AB (sección ENMIENDA, fechada) **antes** de que la Fase B acumule datos. exp-001 sigue reservado para el test de reproducibilidad.
 
 ## 2. Cambios del bot en la frontera de fase (los 4, juntos, con acta)
 
@@ -19,7 +20,7 @@ Descubiertos por la fontanería ANTES de que corrompieran la fase — ninguno se
 | F0 | `set_sandbox_mode` → `enable_demo_trading(True)` + keys de demo.binance.com (Binance retiró el testnet de futuros; ccxt ≥4.5 lo bloquea) | Error NotSupported al primer intento |
 | B-fix1 | **Precio de fill:** `create_order` devuelve `average=None, price=None`; el bot debe hacer `fetch_order(id)` tras crear y tomar `average` de ahí. Sin esto: entradas con precio None → estado corrupto → aborto | F2: create_order average=None; fetch_order average=0.07667 |
 | B-fix2 | **Fees:** la orden trae `fee=None`; las fees reales están en los fills (`fetch_my_trades`, sumar por order id). Sin esto: fees=0 registradas (el "bug de registro" que el PREREG anticipó) | F2: fee inline None; fills 0.00797 |
-| B-fix3 | **Riesgo por símbolo:** mapa `{BTC: 0.0015, resto: 0.001}` + cap agregado calculado como suma de riesgos reales (no n×riesgo uniforme) | Decisión M1 (condicionada al exp-002) |
+| B-fix3 | **Riesgo por símbolo:** mapa `{BTC: 0.00125, resto: 0.001}` + cap agregado calculado como suma de riesgos reales (no n×riesgo uniforme) | exp-003 ACEPTA (umbral pre-escrito; N=2 declarado) |
 
 Regla: los 4 cambios entran en un solo commit etiquetado, con el acta de inicio de Fase B, y se verifica el primer trade end-to-end contra ellos.
 
