@@ -11,9 +11,11 @@
 | Gobernanza de fases | [`PREREG_FASE_AB.md`](../../../research/H-001-canal-donchian/prereg/PREREG_FASE_AB.md) (ver enmienda en `CRITERIOS_FASES.md`) |
 | Última actualización de ficha | 2026-07-02 (tras inventario del lab original) |
 
-## Hipótesis económica (del pre-registro original)
+## Hipótesis económica
 
-Un canal de 512 velas de 15m (~5.3 días) captura tendencias grandes y, al operar poco, sobrevive al coste real por lado. Registrada antes de correr, junto con una **predicción del investigador que resultó falsada y así se documentó** ("no le ganará al B&H en la mayoría" → le ganó en 4/6; el investigador registró su error). PENDIENTE de profundizar (tarea de A-03): mecanismo causal — quién está al otro lado y por qué la ineficiencia persiste.
+**Operativa (pre-registro original, 2026-06-24, antes de correr):** un canal de 512 velas de 15m (~5.3 días) captura tendencias grandes y, al operar poco, sobrevive al coste real por lado. Incluyó una predicción del investigador que resultó falsada y así se documentó.
+
+**Económica (A-03, 2026-07-02 — formulada ex-post, con declaración de honestidad):** subreacción/rebaño en mercado dominado por flujo minorista + amplificación por cascadas de liquidación en perpetuos + límites al arbitraje conductuales (el edge lo protege el dolor del perfil de pago, no el secreto). Al otro lado pierden los que hacen fade de rupturas, los que capitulan tarde y, en términos relativos, el holder pasivo durante los colapsos. Documento completo con 5 predicciones falsables (P1 ya consistente: alfa en alts, no en BTC) y 4 señales de retiro conceptual: [`research/H-001-canal-donchian/HIPOTESIS_ECONOMICA.md`](../../../research/H-001-canal-donchian/HIPOTESIS_ECONOMICA.md).
 
 ## Definición de la señal (congelada; especificación completa en `prereg/ESPECIFICACION_OPERATIVA.md`)
 
@@ -61,3 +63,4 @@ Funding real no medido (mayor incógnita) · universo 100% cripto correlacionado
 | 2026-07-01 | Observabilidad añadida (eventos.csv) y congelada. PREREG de Fases A/B escrito antes de acumular datos. |
 | 2026-07-02 03:53 UTC | **Acta de inicio de Fase A** (trade #7 LONG BCH cruza el corte: entrada pre-corte, salida cuenta como evidencia de instrumentación). |
 | 2026-07-02 | Ficha reescrita tras inventario del lab: las 5 preguntas respondidas con evidencia; docs originales migrados al repo. |
+| 2026-07-02 | Hipótesis económica formulada por A-03 (ex-post, declarado): mecanismo, contraparte, 5 predicciones falsables, 4 señales de retiro conceptual. |
