@@ -2,6 +2,7 @@
 
 ## 2026-07-03
 
+- `replay_offline.py` (cierre de Fase A): recomputa señales con fórmulas congeladas, estado dirigido por eventos reales, criterios C1/C2/C4/C5 del PREREG, clasificación de velas saltadas (M2), selftest sin red en verde.
 - Revisión adversarial de código (bot vs. especificación vs. backtester): señal idéntica confirmada, 0 divergencias bloqueantes. Hallazgos M1 (omisión BTC por min_notional casi cierta con $750 — decisión pre-B desbloqueada), M2 (vela saltada invisible — requisito del replay), M3 (maxDD por activo del veredicto inicial subestimado; cifras válidas = cesta corregida). Informe en `research/H-001-canal-donchian/report/`.
 - `docs/CONTRATOS.md` (tarea 0.4): vela (identidad = apertura UTC), funding (signo = contribución cobrada), señal (intención, no orden), experimento (config+datos+hash), eventos/trades (esquemas vivos adoptados tal cual). **Etapa 0 cerrada.**
 - Checklist línea base de Fase A: instrumentación OK; hallazgo real (vigía sin registrar); falsa alarma de heartbeat resuelta (caché del lector remoto, lección registrada).
