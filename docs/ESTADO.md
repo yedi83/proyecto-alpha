@@ -42,3 +42,7 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 - [x] `docs/CONTRATOS.md` (tarea 0.4, 2026-07-03): cinco contratos codificados desde las convenciones del sistema vivo. **Con esto la Etapa 0 del PLAN_TRABAJO queda CERRADA.**
 - [ ] QA de los CSV del cache (huecos/duplicados por símbolo) — primera tarea de A-02.
 - [ ] Migrar bot y observabilidad al repo **solo al cerrar la Fase A** (regla maestra de MIGRACION.md).
+- [x] Fontanería ejecutada (2026-07-03): informe en `fase_B/`. Descubrió 2 bugs pre-B del bot (fill price None en create_order; fees solo en fills) además de F0. Los 4 cambios de frontera consolidados en `fase_B/PAQUETE_FASE_B.md`.
+- [x] **Decisión M1 registrada:** capital B/C = $750 con riesgo BTC 0.15% (resto 0.10%), **condicionada al exp-002** (cesta 2021-26 con riesgo por símbolo; si degrada, se revisa). Métrica nueva de B: "omisión simulada de producción" (señal BTC con notional < $100 mainnet, aunque el demo la ejecute con su mínimo de $50).
+- [ ] **exp-002 (pre-B, obligatorio):** re-correr la cesta con BTC 0.15% y comparar contra base uniforme. Delegable a sesión con modelo menor siguiendo `PAQUETE_FASE_B.md` §1.
+- [ ] Riesgo vigilado: si Binance apaga el feed testnet a mitad de Fase A, bot y replay pierden velas a la vez (incidente detectable, no corrupción silenciosa).
