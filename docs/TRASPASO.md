@@ -20,8 +20,8 @@ H-001 está en Fase A (dry run, acta 2026-07-02, mínimo 10 días → cierre ele
 
 ### YA (humano, minutos)
 - [ ] Push de las tandas pendientes de hoy (ensayo + exp-002/003 + bot frontera) si no se hizo.
-- [ ] Registrar el vigía (comando schtasks en `MONITOREO.md` del lab) y confirmar al día siguiente que `bot/logs/vigia.log` escribe OK. **Hallazgo abierto desde el 2026-07-03.**
-- [ ] Arrancar el ensayo de Fase B: seguir `ensayo_faseB/README.md` (bloque Montaje). Keys = cuenta demo de la fontanería.
+- [x] Vigía registrado y verificado (2026-07-04): tarea `vigia_donchian` (schtasks, cada 15 min, ruta completa al `pythonw` del venv para evitar fallo silencioso por PATH). `bot/logs/vigia.log` escribe `OK` a cadencia de 15 min. **H2 cerrado**; el hallazgo estaba desactualizado (el vigía ya corría antes de la sesión).
+- [x] Ensayo de Fase B arrancado (2026-07-04): montaje hecho, keys demo corregidas (−2014 formato → −1022 firma → OK), conecta a demo con `eq=750`, una sola instancia. Auto-reinicio en `ensayo_faseB/bot/lanzar_ensayo.bat` y tarea `ensayo_faseB_lanzador` (arranque al iniciar sesión, runtime ilimitado, probada). Pendiente: validar el primer trade (entry_price_fill real, fees>0, BTC ~$113).
 - [ ] Fila del diario del lab con lo de hoy (plantilla en `research/H-001-canal-donchian/fase_A/checklist_2026-07-03_linea_base.md`).
 
 ### DIARIO hasta el cierre de fase (humano + cualquier modelo)

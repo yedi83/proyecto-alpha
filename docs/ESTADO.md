@@ -1,6 +1,6 @@
 # Estado del Proyecto
 
-> Única fuente de verdad del estado. Última actualización: 2026-07-01.
+> Única fuente de verdad del estado. Última actualización: 2026-07-04.
 
 ## Fase actual
 
@@ -47,4 +47,5 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 - [x] **exp-002 ejecutado (2026-07-03): RECHAZA** BTC 0.15% (Calmar 84.6% < 85%; paridad con frontera verificada al centavo).
 - [x] **exp-003 ejecutado (2026-07-03): ACEPTA** BTC 0.125% (pre-registrado como intento final, N=2 declarado; Calmar 91.8%, Sharpe −0.016). M1 resuelto: $750, riesgo BTC 0.125%. Caveat: margen de volatilidad ~13% — habrá omisiones BTC en picos de ATR.
 - [ ] Riesgo vigilado: si Binance apaga el feed testnet a mitad de Fase A, bot y replay pierden velas a la vez (incidente detectable, no corrupción silenciosa).
-- [ ] **Ensayo general de Fase B disponible** (`ensayo_faseB/`): bot de frontera con órdenes reales en la cuenta demo, aislado, NO-evidencia, con reglas y compromisos escritos. Objetivo: depurar el código de frontera antes del día D. Se detiene al arrancar la B oficial.
+- [x] **Vigía (Nivel 1) operativo** (2026-07-04): tarea `vigia_donchian` (schtasks cada 15 min, ruta completa al `pythonw` del venv). `bot/logs/vigia.log` escribe `OK` a cadencia. H2 cerrado.
+- [x] **Ensayo general de Fase B arrancado** (2026-07-04, `ensayo_faseB/`): bot de frontera con órdenes reales en la cuenta demo, aislado, NO-evidencia. Montaje OK, keys demo corregidas (−2014/−1022 resueltos), conecta con `eq=750`, una sola instancia. Auto-reinicio (`bot/lanzar_ensayo.bat`) + tarea `ensayo_faseB_lanzador` (arranque al iniciar sesión). Se detiene al arrancar la B oficial. Pendiente: validar el primer trade (entry_price_fill real, fees>0, BTC ~$113).

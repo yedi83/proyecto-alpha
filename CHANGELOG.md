@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-04
+
+- **Vigía operativo:** tarea `vigia_donchian` (schtasks cada 15 min, ruta completa al `pythonw` del venv para evitar fallo silencioso por PATH); `vigia.log` escribiendo `OK`. H2 cerrado — el hallazgo del checklist estaba desactualizado (el vigía ya corría).
+- **Ensayo de Fase B arrancado:** montaje completado, keys demo corregidas (−2014 formato → −1022 firma → OK), conecta a demo con `eq=750`, una sola instancia. F0 confirmado en vivo (enable_demo_trading + assert de endpoint demo → se niega a operar si no es demo).
+- **Arranque automático del ensayo:** `bot/lanzar_ensayo.bat` (auto-reinicio, sleep headless-safe con `ping`) + tarea `ensayo_faseB_lanzador` (al iniciar sesión). La ruta con espacios sin comillas daba `0x80070002` (archivo no encontrado); re-registrada con `Register-ScheduledTask` (ejecutable + directorio separados, runtime ilimitado, batería) y probada OK.
+- **Rescate de git:** índice corrupto en la copia de trabajo (`bad signature`); reconstruido trasplantando el `.git` de un clon limpio, 0 pérdida de datos (working tree == HEAD, solo CRLF). `core.autocrlf=true` para cortar el conflicto CRLF Windows/Linux; pendiente `.gitattributes` commiteado (`* text=auto eol=lf`).
+
 ## 2026-07-03
 
 - `docs/TRASPASO.md`: plan de trabajo para próximas sesiones con cualquier modelo — guardarraíles, tareas fechadas (cierre Fase A 07-12, día D, rutinas), y tabla de qué tarea exige qué modelo.
