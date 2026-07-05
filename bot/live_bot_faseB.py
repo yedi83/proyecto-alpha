@@ -61,6 +61,11 @@ MAX_LEV = 3.0
 MAX_CONCURRENT = 5
 AGG_RISK_CAP = float(os.getenv("AGG_RISK_CAP", "0.006"))
 DAILY_LOSS_KILL = float(os.getenv("DAILY_LOSS_KILL", "0.05"))
+# CAMBIO-FRONTERA B-fix4 (metrica): minimo notional MAINNET por simbolo, para la
+# metrica "omision simulada de produccion". El demo ejecuta con su minimo (~$50),
+# pero si el notional queda bajo el minimo mainnet la senal se habria omitido en
+# produccion. Solo BTC instrumentado (2026-07-04). NO altera la ejecucion en demo.
+MAINNET_MIN_NOTIONAL = {"BTC/USDT:USDT": 100.0}
 
 STATE_FILE = Path(__file__).resolve().parent/"bot_state.json"
 LOG_FILE   = Path(__file__).resolve().parent.parent/"paper"/"registro_live.csv"
@@ -273,6 +278,14 @@ def run_once(ex, st):
                 log(f"[{sym}] notional {qty*c:.1f}$ < minimo {min_notional(mkt,c):.1f}$ -> SALTADO (capital insuficiente)")
                 log_event(sym,sg["ts"],"senal","omitida","min_notional",c,qty,
                           "notional=%.2f<min=%.2f"%(qty*c,min_notional(mkt,c))); continue
+            # CAMBIO-FRONTERA B-fix4 (metrica): omision simulada de produccion.
+            # El notional pasa el minimo demo pero no el mainnet -> en produccion
+            # se habria omitido. Se registra la metrica; la ejecucion en demo sigue.
+            _mn_prod = MAINNET_MIN_NOTIONAL.get(sym)
+            if _mn_prod is not None and qty*c < _mn_prod:
+                log(f"[{sym}] OMISION SIMULADA PRODUCCION: notional {qty*c:.1f}$ < min mainnet {_mn_prod:.0f}$ (demo lo ejecuta)")
+                log_event(sym,sg["ts"],"senal","omision_simulada_produccion","min_notional_mainnet",c,qty,
+                          "notional=%.2f<min_mainnet=%.2f (ejecutado en demo)"%(qty*c,_mn_prod))
             side="long" if long_sig else "short"
             fill=market_order(ex, sym, "buy" if side=="long" else "sell", qty)
             log_event(sym,sg["ts"],"senal","ejecutada",side,fill["price"],qty)

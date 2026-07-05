@@ -28,6 +28,8 @@ Regla: los 4 cambios entran en un solo commit etiquetado, con el acta de inicio 
 
 El demo tiene min_notional $50 en BTC; producción ~$100. **Toda señal BTC ejecutada en demo con notional < $100 se cuenta como "omisión simulada de producción"** en el informe de fase. Sin esta métrica, la B aprobaría B3 y la C nos daría la sorpresa. (Cero omisiones simuladas esperadas con 0.15%; si aparecen, son picos de ATR — documentar.)
 
+**Implementada 2026-07-04 (B-fix4, hallazgo del ensayo de Fase B):** el bot compara el notional contra `MAINNET_MIN_NOTIONAL = {BTC: $100}` y, cuando el demo ejecuta pero el notional < $100, emite un evento en `eventos.csv` con `resultado=omision_simulada_produccion`, `motivo=min_notional_mainnet`, **sin alterar la ejecución en demo**. Primer caso real capturado el 2026-07-04: BTC con notional ~$81.6 (0.0013 × 62797.5), ejecutado en demo pero omitible en producción. Solo BTC instrumentado; otros símbolos pendientes si se necesitan.
+
 ## 4. Borrador de acta de inicio de Fase B (rellenar y sellar el día D)
 
 > "Inicio oficial de la Fase B (demo trading). Fecha/hora del corte: ____ UTC. La Fase A cerró APROBADA el ____ (informe: replay_report_____.md, 6/6 criterios). Cambios aplicados en esta frontera y solo en ella: F0 (demo trading), B-fix1 (fill via fetch_order), B-fix2 (fees de fills), B-fix3 (riesgo BTC 0.15%, respaldado por exp-002: resultado ____). DRY_RUN=false; keys demo con retiros N/A; capital demo ajustado a $750 para reflejar C. Posiciones al corte: ____. Sin otros cambios de lógica, señales ni gestión."
