@@ -13,7 +13,8 @@ N=2 vecinos, elegidos **ex-ante** como ±25% del base: 512×0.75 = **384**, 512�
 ## Parámetros
 
 - `ENTRY_LEN` ∈ {384, 512, 640}. `EXIT_LEN` **escalado proporcional** (÷2): {192, 256, 320}. Ratio entry:exit = 2:1 constante — se prueba el *timescale* de la estrategia como un solo knob.
-- Todo lo demás **IDÉNTICO a exp-002/003**: cesta 2021-2026, código congelado, funding 0.01%/8h, `RISK_MAP` (BTC 0.00125, resto 0.001), mismas ventanas (full / 2123 / 2426), paridad de motor verificada.
+- Todo lo demás **IDÉNTICO a exp-002/003**: cesta 2021-2026, código congelado, funding 0.01%/8h, mismas ventanas (full / 2123 / 2426), paridad de motor verificada.
+- **Riesgo: uniforme 0.001** (la config validada de la cesta, misma "base" de exp-002/003 que produce Calmar 1.353). Se mantiene fijo para que la **longitud sea el único eje**. El ajuste M1 (btc0125) es un eje ortogonal, ya evaluado en exp-003, y no cambia la pregunta de robustez del lookback. (Corrección pre-corrida 2026-07-06: la versión inicial citaba btc0125 por error; se fija en uniforme para que la paridad reproduzca la base 1.353.)
 - **512/256 = base de referencia** (ya conocida): FULL Calmar 1.353, Sharpe 0.423, net +24.0%, alpha +5.1%.
 
 ## Métricas
