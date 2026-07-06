@@ -1,0 +1,21 @@
+# Normalizacion de fin de linea (durable: vive en el repo, no en cada maquina).
+# Evita que Windows (CRLF) y Linux (LF) ensucien los diffs con cambios falsos.
+
+# Por defecto: git detecta texto y lo guarda SIEMPRE con LF en el repositorio.
+* text=auto eol=lf
+
+# Scripts de Windows: forzar CRLF en el working tree (cmd / PowerShell lo esperan).
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binarios conocidos: nunca convertir (evita corrupcion).
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.pdf  binary
+*.xlsx binary
+*.xls  binary
+*.zip  binary
+*.pyc  binary
