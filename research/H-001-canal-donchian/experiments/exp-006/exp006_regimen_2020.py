@@ -8,8 +8,12 @@ Pregunta pre-registrada (exp-006/PREREG.md): ¿la firma de SEGURO de la cesta
 anterior y NO visto (2020: covid + arranque del bull)?
 
 Requiere haber corrido antes 'descargar_historia.py' (crea *_15m_84m.csv).
-Usa SOLO las velas ANTERIORES al corte 2021-07-22 (el periodo que la estrategia
-nunca uso). Las monedas sin historia pre-2021 se excluyen del basket 2020.
+Usa SOLO velas ANTERIORES al corte 2021-07-22 (periodo que la estrategia nunca uso).
+
+Corre DOS baskets (fix 2026-07-07: la interseccion de las 5 arrancaba en 2020-09
+por SOL/DOGE y se perdia el covid):
+  - cesta-covid: monedas con perp ANTES de 2020-06 (BTC/ETH/BCH) -> captura marzo 2020.
+  - cesta-todas: todas las que tengan historia pre-2021 (ventana mas corta).
 
 Criterio pre-escrito (basket combinado, ventana pre-corte):
   SOBREVIVE : (net>0 o alpha>0) Y maxDD <= 50% del maxDD del B&H equiponderado.
@@ -31,8 +35,9 @@ BARS_8H = 32
 FUNDING_8H = 0.0001
 RISK = 0.001
 SUF = "84m"
-CUT = pd.Timestamp("2021-07-22", tz="UTC")   # inicio del periodo YA usado -> el pre-corte es lo no visto
-MIN_BARS_PRE = 600                            # necesita historia real pre-2021 para contar
+CUT = pd.Timestamp("2021-07-22", tz="UTC")
+COVID_ANTES = pd.Timestamp("2020-06-01", tz="UTC")   # existir antes de esto = tener el crash de marzo 2020
+MIN_BARS_PRE = 600
 SLIP = {"BTCUSDT":0.0001,"ETHUSDT":0.0001,"SOLUSDT":0.0003,"BCHUSDT":0.0002,"DOGEUSDT":0.0004}
 CANDIDATOS = list(SLIP.keys())
 
@@ -88,10 +93,22 @@ def run_cesta(master, ind, px, basket, slipm, equity0=10000.0, entry_pen=0.0005,
     return dict(net=netv,bh=bh,alpha=netv-bh,maxdd=dd,sharpe=sh,calmar=calmar,n=len(master),start=start)
 
 def bh_dd_equiponderado(px, basket, start):
-    """maxDD de aguantar (equiponderado, rebalance implicito nulo) sobre la ventana."""
     curves=[px[s][start:]/px[s][start] for s in basket]
-    eq=np.mean(curves, axis=0)
-    ec=pd.Series(eq); return (ec/ec.cummax()-1).min()
+    ec=pd.Series(np.mean(curves, axis=0)); return (ec/ec.cummax()-1).min()
+
+def evaluar(raw, basket):
+    master=reduce(lambda a,b:a.intersection(b),[raw[s].index for s in basket])
+    ind={}; px={}
+    for s in basket:
+        d=raw[s].reindex(master); ind[s]=indicators(d); px[s]=d["close"].values
+    m=run_cesta(master, ind, px, basket, {s:SLIP[s] for s in basket})
+    bhdd=bh_dd_equiponderado(px, basket, m["start"])
+    ventaja = abs(m["maxdd"]) <= 0.5*abs(bhdd)
+    up = (m["net"]>0 or m["alpha"]>0)
+    if up and ventaja: ver="SOBREVIVE (mantiene firma de seguro)"
+    elif (m["net"]<0) and not ventaja: ver="BANDERA (sin cobertura en crash real)"
+    else: ver="INTERMEDIO (parcial)"
+    return m, bhdd, ventaja, up, ver, master
 
 def main():
     raw={}
@@ -103,41 +120,34 @@ def main():
         pre=df[df.index < CUT]
         if len(pre) >= MIN_BARS_PRE:
             raw[s]=pre
-            print(f"{s}: {len(pre)} velas PRE-2021 (desde {pre.index[0]})", flush=True)
+            print(f"{s}: {len(pre)} velas PRE-2021 (desde {pre.index[0]:%Y-%m-%d})", flush=True)
         else:
-            print(f"{s}: solo {len(pre)} velas pre-2021 -> EXCLUIDA del basket 2020", flush=True)
-    if len(raw)==0:
+            print(f"{s}: solo {len(pre)} velas pre-2021 -> EXCLUIDA", flush=True)
+    if not raw:
         print("Sin monedas con historia pre-2021. Aborta."); return
-    basket=list(raw.keys())
-    master=reduce(lambda a,b:a.intersection(b),[df.index for df in raw.values()])
-    ind={}; px={}
-    for s in basket:
-        d=raw[s].reindex(master); ind[s]=indicators(d); px[s]=d["close"].values
-    m=run_cesta(master, ind, px, basket, {s:SLIP[s] for s in basket})
-    bhdd=bh_dd_equiponderado(px, basket, m["start"])
-    # ---- criterio pre-escrito ----
-    ventaja_dd = abs(m["maxdd"]) <= 0.5*abs(bhdd)
-    if (m["net"]>0 or m["alpha"]>0) and ventaja_dd:
-        ver="SOBREVIVE el regimen 2020 (mantiene la firma de seguro)"
-    elif m["net"]<0 and not ventaja_dd:
-        ver="BANDERA (no aparecio la cobertura en un crash real)"
-    else:
-        ver="INTERMEDIO (parcial) — documentar; ni claro si ni claro no"
+    todas=list(raw.keys())
+    covid=[s for s in raw if raw[s].index[0] < COVID_ANTES]   # existian antes de marzo-2020
     L=[f"# exp-006 — regimen 2020 (OOS por tiempo) — {datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC\n",
-       f"Basket con historia pre-2021: **{', '.join(basket)}** ({len(master)} velas comunes, desde {master[0]:%Y-%m-%d} a {master[-1]:%Y-%m-%d}).\n",
-       f"Regla congelada 512/256, riesgo 0.001. Ventana = SOLO pre-corte (2021-07-22), no vista por el diseno.\n",
-       "| metrica | estrategia | buy&hold equipond. |","|---|---|---|",
-       f"| NET% | {m['net']*100:.2f} | {m['bh']*100:.2f} |",
-       f"| maxDD% | {m['maxdd']*100:.1f} | {bhdd*100:.1f} |",
-       f"| Sharpe | {m['sharpe']:.2f} | — |",
-       f"| alpha% (vs B&H) | {m['alpha']*100:.2f} | — |",
-       f"\n## VEREDICTO (criterio pre-escrito): **{ver}**\n",
-       f"- Ventaja de drawdown (maxDD estrategia <= 50% del B&H): {'SÍ' if ventaja_dd else 'NO'} ({m['maxdd']*100:.1f}% vs {bhdd*100:.1f}%)",
-       f"- net>0 o alpha>0: {'SÍ' if (m['net']>0 or m['alpha']>0) else 'NO'}",
-       "- Límite: un régimen más, cripto correlacionado, pocas monedas con historia. NO zanja significancia.",
-       f"- Monedas excluidas por no tener perp pre-2021: {', '.join(sorted(set(CANDIDATOS)-set(basket))) or 'ninguna'}."]
+       "Regla congelada 512/256, riesgo 0.001. Ventana = SOLO pre-corte (2021-07-22), no vista.\n"]
+    resumen={}
+    for etiqueta, basket in [("cesta-covid (BTC/ETH/BCH, captura marzo-2020)", covid),
+                             ("cesta-todas (ventana corta desde la ultima moneda)", todas)]:
+        if not basket:
+            L.append(f"## {etiqueta}\nSin monedas para este basket.\n"); continue
+        m,bhdd,ventaja,up,ver,master=evaluar(raw,basket)
+        resumen[etiqueta]={"ver":ver,"m":m,"bh_maxdd":bhdd,"basket":basket}
+        L += [f"## {etiqueta}",
+              f"Basket: **{', '.join(basket)}** ({len(master)} velas, {master[0]:%Y-%m-%d} → {master[-1]:%Y-%m-%d})\n",
+              "| metrica | estrategia | buy&hold equipond. |","|---|---|---|",
+              f"| NET% | {m['net']*100:.2f} | {m['bh']*100:.2f} |",
+              f"| maxDD% | {m['maxdd']*100:.1f} | {bhdd*100:.1f} |",
+              f"| Sharpe | {m['sharpe']:.2f} | — |",
+              f"| alpha% | {m['alpha']*100:.2f} | — |",
+              f"\n**VEREDICTO: {ver}** — ventaja DD (≤50% B&H): {'SÍ' if ventaja else 'NO'} ({m['maxdd']*100:.1f}% vs {bhdd*100:.1f}%); net>0 o alpha>0: {'SÍ' if up else 'NO'}\n"]
+        print(f"{etiqueta}: {ver} | net {m['net']*100:.1f}% DD {m['maxdd']*100:.1f}% (B&H {bhdd*100:.1f}%) Sharpe {m['sharpe']:.2f}", flush=True)
+    L.append("Límite: cripto correlacionado, pocas monedas, un régimen más — NO zanja significancia. La **cesta-covid** (BTC/ETH/BCH) es la que prueba de verdad el crash de marzo 2020; la cesta-todas arranca en 2020-09 y NO lo incluye.")
     (OUT/"RESULTADO.md").write_text("\n".join(L), encoding="utf-8")
-    (OUT/"metricas.json").write_text(json.dumps({"veredicto":ver,"basket":basket,"estrategia":m,"bh_maxdd":bhdd}, indent=1, default=float))
+    (OUT/"metricas.json").write_text(json.dumps(resumen, indent=1, default=float))
     print("\n".join(L))
 
 if __name__=="__main__":

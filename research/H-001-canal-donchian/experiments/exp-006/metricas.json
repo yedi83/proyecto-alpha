@@ -1,0 +1,42 @@
+{
+ "cesta-covid (BTC/ETH/BCH, captura marzo-2020)": {
+  "ver": "SOBREVIVE (mantiene firma de seguro)",
+  "m": {
+   "net": 0.11492960113931616,
+   "bh": 6.417538214779306,
+   "alpha": -6.30260861363999,
+   "maxdd": -0.10166812585323703,
+   "sharpe": 0.7154541406734178,
+   "calmar": 1.1304388683747622,
+   "n": 55741,
+   "start": 513
+  },
+  "bh_maxdd": -0.699116766092789,
+  "basket": [
+   "BTCUSDT",
+   "ETHUSDT",
+   "BCHUSDT"
+  ]
+ },
+ "cesta-todas (ventana corta desde la ultima moneda)": {
+  "ver": "SOBREVIVE (mantiene firma de seguro)",
+  "m": {
+   "net": 0.20459295121135268,
+   "bh": 16.436044360391026,
+   "alpha": -16.231451409179673,
+   "maxdd": -0.09374915109357518,
+   "sharpe": 1.2939112587183816,
+   "calmar": 2.182344574055283,
+   "n": 29828,
+   "start": 513
+  },
+  "bh_maxdd": -0.7534160649598249,
+  "basket": [
+   "BTCUSDT",
+   "ETHUSDT",
+   "SOLUSDT",
+   "BCHUSDT",
+   "DOGEUSDT"
+  ]
+ }
+}
