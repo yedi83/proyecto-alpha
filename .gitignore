@@ -35,3 +35,7 @@ outputs/
 ensayo_faseB/bot/
 ensayo_faseB/paper/
 bot_state.json
+
+# Paper-real: solo se versionan README, PREREG y config.example.env
+research/H-001-canal-donchian/paper_real/bot/
+research/H-001-canal-donchian/paper_real/paper/
