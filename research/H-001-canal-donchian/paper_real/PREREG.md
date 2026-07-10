@@ -16,6 +16,8 @@ Las fases A/B corren sobre **testnet (precios falsos)** → validan la máquina,
 
 - Datos: ccxt mainnet público (sin keys), 15m, cesta BTC/ETH/SOL/BCH/DOGE.
 - Reglas congeladas: ENTRY 512 / EXIT 256 / ATR 14×3, riesgo 0.1%/trade, cap agregado, mismo modelo de slippage+fees+funding que el backtest.
+
+> **ENMIENDA 2026-07-10 (confirmada por el investigador):** el código desplegado es el bot de frontera, que incluye el RISK_MAP con **BTC a 0.125%** (resto 0.10%) — la decisión concertada del 2026-07-03 para no sacar a BTC de la cesta por min_notional, validada por exp-003 (umbral pre-escrito, N=2 declarado). La línea de arriba quedó desactualizada al escribirse este PREREG. Se corrige sin reiniciar la instancia porque lo que este forward mide (generación y captura de señales) no depende del sizing; el sizing de BTC en el registro refleja 0.125% desde el inicio.
 - Estado persistente (`paper_state.json`), log de eventos y de trades cerrados (CSV), curva de equity.
 - Proceso cada 15 min (al cierre de vela), lanzador con reinicio + tarea del Programador.
 

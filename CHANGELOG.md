@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-10
+
+- Resumen de las 3 instancias (día 8 de Fase A): fixes de frontera validados en el ensayo (fees 10/10, 0 fills sin precio); feed mainnet cuantificado (~0.9 atrasadas/día/símbolo vs 1.5 testnet / 2.2 demo); bot_state del lab verificado OK en máquina.
+- paper_real documentado con sección de gobernanza (no-evidencia de A/B; insumo de la decisión de C; keys vacías confirmadas — el hallazgo de seguridad del resumen era falso positivo). Detectada discrepancia PREREG (0.1% uniforme) vs código (RISK_MAP BTC 0.125%): erratum del investigador pendiente.
+- `.gitignore`: `paper_real/bot/` fuera de git; `paper_real/paper/` (serie de comparación de feed) sí se versiona.
+
 ## 2026-07-04
 
 - **Vigía operativo:** tarea `vigia_donchian` (schtasks cada 15 min, ruta completa al `pythonw` del venv para evitar fallo silencioso por PATH); `vigia.log` escribiendo `OK`. H2 cerrado — el hallazgo del checklist estaba desactualizado (el vigía ya corría).

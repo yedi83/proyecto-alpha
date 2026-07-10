@@ -26,7 +26,8 @@ H-001 está en Fase A (dry run, acta 2026-07-02, mínimo 10 días → cierre ele
 
 ### DIARIO hasta el cierre de fase (humano + cualquier modelo)
 - Revisar la salida de `auditoria.py` (9:05) y mantener el diario al día ("sin incidencias" también se anota).
-- Vigilar el ensayo: primer trade con `entry_price_fill` real y `fees > 0`; si aparece el evento `orden/precio_aprox`, investigar (fallback activándose). Bugs del ensayo → corregir en `bot/live_bot_faseB.py` del repo + commit (jamás en caliente en la carpeta del ensayo).
+- Vigilar el ensayo: primer trade con `entry_price_fill` real y `fees > 0` ✓ (validado 07-10: 10/10 con fees, 0 fills sin precio, 0 `precio_aprox`); si aparece `precio_aprox`, investigar. Bugs del ensayo → corregir en `bot/live_bot_faseB.py` del repo + commit (jamás en caliente).
+- **paper_real** (tercera instancia, mainnet paper — ver su README y PREREG): heartbeat en su `bot/logs/bot.log`; revisión MENSUAL (equity paper vs buy&hold de la cesta), no diaria. Pendiente del humano: erratum en su PREREG (riesgo 0.1% declarado vs RISK_MAP corriendo).
 
 ### DOMINGO 2026-07-05 y siguientes — checklist semanal (Haiku/Sonnet basta)
 - Seguir `MONITOREO.md` §Nivel 3 (7 puntos). Informe fechado en `research/H-001-canal-donchian/fase_A/` usando como plantilla el de línea base. Recordar: el lector remoto puede ver archivos vivos con caché de >1h — las verificaciones de frescura se hacen en la máquina, no desde la sesión.

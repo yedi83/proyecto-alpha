@@ -28,5 +28,6 @@
 
 - 🔴 **Verificar bot_state.json del lab EN LA MÁQUINA** (desde la sesión se leyó con error "Extra data" — probablemente lectura a mitad de escritura vía caché, pero la corrupción de estado es criterio de ABORTO del PREREG, así que se verifica, no se asume):
   `python -c "import json;json.load(open(r'D:\ESTRATEGIA_ALEX\crypto_iid_rango\donchian512_lab\bot\bot_state.json'));print('ESTADO OK')"`
-- 🟠 **Seguridad de paper_real:** su config.env tiene API keys de mainnet que el modo DRY no necesita (solo usa endpoints públicos). Recomendado: dejarlas vacías o crear keys de solo-lectura. Está protegido por .gitignore, pero una clave innecesaria es riesgo innecesario.
-- 🟡 Documentar paper_real como instancia oficial de comparación de feed (README con reglas, como el del ensayo) y añadirla a la rutina de vigilancia.
+- ~~🟠 Seguridad de paper_real (keys)~~ **CORREGIDO 2026-07-10: falso positivo del análisis** — las keys están vacías (el grep original contó espacios y comentario tras el `=`). "Seguro por construcción" confirmado.
+- [x] paper_real documentado (2026-07-10): tenía README y PREREG propios del investigador (2026-07-07, pre-registro antes de arrancar ✓); se añadió sección de gobernanza. **Hallazgo nuevo:** discrepancia PREREG ("riesgo 0.1% uniforme") vs código corriendo (RISK_MAP con BTC 0.125%) → erratum fechado pendiente, lo escribe el humano en su PREREG.md.
+- [x] bot_state.json del lab verificado en máquina: ESTADO OK — el error era caché de lectura a mitad de escritura, como se sospechaba.

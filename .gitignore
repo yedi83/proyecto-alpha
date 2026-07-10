@@ -36,6 +36,10 @@ ensayo_faseB/bot/
 ensayo_faseB/paper/
 bot_state.json
 
+# paper_real: bot/ fuera de git (config con posibles keys, estado, logs);
+# paper/ (eventos y registro) SI se versiona: es la serie de comparacion de feed
+research/H-001-canal-donchian/paper_real/bot/
+
 # Paper-real: solo se versionan README, PREREG y config.example.env
 research/H-001-canal-donchian/paper_real/bot/
 research/H-001-canal-donchian/paper_real/paper/

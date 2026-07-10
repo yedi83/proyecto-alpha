@@ -39,3 +39,11 @@ Register-ScheduledTask -TaskName "paper_real_donchian" -Force -Action (New-Sched
 - Heartbeat: `bot\logs\bot.log` (`CICLO` cada 15 min).
 - Trades cerrados: `paper\registro_live.csv`. Eventos: `paper\eventos.csv`.
 - Mensual: comparar la curva de equity paper contra buy&hold de la cesta (¿aporta más que beta, con menos drawdown?).
+
+## Gobernanza (añadido 2026-07-10, sesión de documentación)
+
+1. **Estatus:** instancia de comparación/forward — **NO es evidencia de Fase A ni B** (esas se rigen por su PREREG propio). Sí es insumo formal de la decisión de Fase C: (a) tasa de velas atrasadas del feed real (medida al 07-10: ~0.9/día/símbolo vs ~1.5 testnet y ~2.2 demo), (b) divergencia señal-a-señal entre feeds, (c) captura de señales going-forward según su propio PREREG.
+2. **Git:** `paper/` (eventos y registro) SÍ se versiona — es la serie de comparación, append-only y pequeña. `bot/` está fuera de git (config, estado, logs).
+3. **ERRATUM pendiente del investigador (detectado 2026-07-10):** el PREREG dice "riesgo 0.1%/trade" uniforme, pero el código copiado es el bot de frontera con RISK_MAP (BTC 0.125%, exp-003). Las señales no dependen del sizing, así que la captura de señal no se contamina; el sizing de BTC en el registro difiere de lo pre-registrado. Añadir línea de erratum fechada al PREREG.md (la escribe el humano, con la decisión: aceptar el mapa o reiniciar con 0.1% uniforme).
+4. Los bugs que revele se corrigen en `bot/live_bot_faseB.py` del repo con commit, nunca en caliente aquí.
+5. Se retira solo por decisión documentada; su horizonte natural es acompañar B y C como testigo del feed real.
