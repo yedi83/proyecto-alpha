@@ -1,21 +1,27 @@
 # ADR-XXXX — Título de la decisión
 
 - **Fecha:** AAAA-MM-DD
-- **Estado:** Propuesta | Aceptada | Reemplazada por ADR-YYYY
+- **Estado:** Propuesta | Aceptada | Revisada por ADR-YYYY | Retirada
+- **Alcance:** Arquitectura | Metodología | Riesgo | Proceso
 
-## Contexto
+> Los ADR son bitácora de primera clase del laboratorio (v2, 2026-07-10): se escriben no solo para cambios grandes de arquitectura, sino para **cualquier decisión metodológica relevante** — cambios de criterios, enmiendas de protocolo, resolución de contradicciones entre normas elevadas por A-04, adopción o retiro de agentes/fases, excepciones concedidas.
 
-Qué problema o decisión se enfrenta y por qué hay que decidir ahora.
+## 1. ¿Qué problema intentábamos resolver?
 
-## Alternativas consideradas
+Contexto y por qué había que decidir ahora.
 
-1. Opción A — pros / contras
-2. Opción B — pros / contras
+## 2. ¿Qué alternativas se evaluaron?
 
-## Decisión
+Cada una con sus pros/contras reales (si solo hay una alternativa, la decisión probablemente no está madura).
 
-Qué se decidió y por qué.
+## 3. ¿Por qué se eligió esta?
 
-## Consecuencias
+El razonamiento, incluida la evidencia disponible al decidir.
 
-Qué se gana, qué se pierde, qué deuda se asume, qué habría que revisar en el futuro.
+## 4. ¿Qué consecuencias aceptamos?
+
+Lo que se gana, lo que se pierde, la deuda que se asume — declarado, no descubierto después.
+
+## 5. ¿Qué evidencia futura podría justificar revisarla?
+
+**Obligatoria y específica.** La condición observable que reabriría esta decisión (un dato, un umbral, un evento). Una decisión sin condición de revisión es un dogma con fecha. Cuando la condición ocurra, se abre el ADR de revisión — no se reinterpreta este.

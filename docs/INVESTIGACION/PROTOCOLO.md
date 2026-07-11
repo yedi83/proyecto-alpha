@@ -62,3 +62,4 @@ Definida en `../VALIDACION/CRITERIOS_FASES.md`. Los criterios cuantitativos de c
 2. Los regímenes donde funciona una estrategia se predicen antes y se verifican después — nunca se descubren mirando dónde ganó.
 3. Está prohibido re-correr una validación fallida con datos ligeramente distintos "para confirmar".
 4. El registro de hipótesis (`REGISTRO_HIPOTESIS.md`) es append-only: nada se borra, todo se fecha.
+5. **Versionado científico (añadido 2026-07-10):** los protocolos e hipótesis nunca se sobrescriben ni se editan tras un veredicto — se VERSIONAN. Nomenclatura: `H-XXX.v1` (rechazada) → `H-XXX.v2` (modificada, nuevo pre-registro que declara qué cambió y por qué) → `H-XXX.v3` (…). Cada versión conserva su ficha, su pre-registro y su veredicto íntegros. Una versión nueva repite el pipeline completo desde el inicio. El registro lista todas las versiones — el linaje completo es parte de la evidencia y hace el laboratorio auditable.

@@ -54,7 +54,19 @@ Misión · Responsabilidades · Entradas · Salidas · Límites (qué tiene proh
 | Autoridad | Ninguna sobre veredictos. Sus hipótesis entran al pipeline como cualquier otra. |
 | Métricas | Calidad de pre-registros (¿el Validador los aprueba a la primera?); honestidad de predicciones de régimen verificadas ex-post. |
 
-### Flujo entre los tres
+### A-04 · Árbitro de Metodología — adversarial de proceso (añadido 2026-07-10)
+
+| Campo | Definición |
+|---|---|
+| Misión | Responder una sola pregunta: ¿el laboratorio está siguiendo su propio protocolo? |
+| Responsabilidades | Arbitrar cierres de fase (A/B/C y fases del banco), veredictos de experimentos, enmiendas y decisiones: criterios escritos antes de los datos, alcance congelado, N declarado, lockbox íntegro, trazabilidad append-only, separación de funciones, autoridades respetadas. |
+| Entradas | El artefacto a arbitrar + las normas aplicables (CONSTITUCION, PROTOCOLO, PREREG, F0 del banco, CRITERIOS_FASES). |
+| Salidas | Dictamen CONFORME / VIOLACIÓN con norma citada textualmente, evidencia y condición de levantamiento. |
+| Límites | No opina de trading, alfa ni calidad de ideas. No propone mejoras metodológicas (perdería independencia). No resuelve contradicciones entre normas: las reporta (resolverlas es del humano vía ADR). |
+| Autoridad | Una VIOLACIÓN bloquea el cierre del artefacto arbitrado hasta su levantamiento. Distinto de A-01: A-01 valida la estadística de un experimento; A-04 valida el cumplimiento del proceso en todo el laboratorio. |
+| Métricas | Violaciones detectadas que el humano había normalizado; falsos positivos (dictámenes revertidos con razón) como contra-métrica. |
+
+### Flujo entre los agentes
 
 ```
 Investigador (A-03) → pre-registro → Auditor de Datos (A-02) valida el dataset
@@ -72,13 +84,14 @@ Investigador (A-03) → pre-registro → Auditor de Datos (A-02) valida el datas
 
 | Agente | Se crea cuando… |
 |---|---|
-| Documentalista/Gobernanza | Los PENDIENTE y las inconsistencias entre docs se acumulen más rápido de lo que se resuelven |
+| Documentalista/Gobernanza | Los PENDIENTE y las inconsistencias entre docs se acumulen más rápido de lo que se resuelven (nota: el arbitraje de proceso ya lo cubre A-04 desde 2026-07-10) |
 | Ingeniero de Datos | Arranque la construcción del Data Lake (Etapa 3) |
 | Constructor de Regímenes | Exista Data Lake auditado (ROADMAP: investigación descriptiva) |
 | Analista de Estrategias | Existan ≥2 estrategias validadas que comparar |
 | Risk Manager / Portfolio Manager | Exista ≥2 estrategias en producción y asignación de capital real |
 | Auditor Live | H-001 entre a Fase C |
 | Especialista ML | Fase de ML del roadmap (fuera de los 12 meses) |
+| **Curador del Conocimiento** | Semestral (primera corrida ~2027-01, o antes si la documentación supera lo que una sesión puede leer): lee TODO y responde una sola pregunta — *¿qué sabemos hoy que hace seis meses no sabíamos?* No crea hipótesis, no valida, no arbitra: sintetiza. Su producto alimenta la versión siguiente de TEORIA.md |
 | Analista Macro / On-chain / Derivados | El Data Lake incorpore esas fuentes (hoy fuera de alcance) |
 | Ejecutor | Nunca como IA generativa: la ejecución es código determinista (`bot/`), no un agente LLM |
 | Director de Proyecto / Arquitecto | Probablemente nunca como agentes: sus funciones verificables ya las cubren `ESTADO.md`, los ADR y el Documentalista |

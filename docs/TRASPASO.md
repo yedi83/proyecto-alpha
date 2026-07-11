@@ -46,10 +46,16 @@ Seguir al pie de la letra el checklist de 9 pasos de `research/H-001-canal-donch
 - Al cierre: informe final de Fase B contra criterios del PREREG (Opus para el juicio).
 
 ### PARALELO, ≤30% del tiempo (regla constitucional) — delegable con receta
+- **Banco de Estrategias** (`docs/INVESTIGACION/BANCO/ORQUESTADOR.md`): pipeline F0–F6 que alimenta la cola de hipótesis. Empezar por F0 (protocolo, Opus + humano); una fase por sesión; F1 exige búsqueda web. Regla de oro: su producto son fichas candidatas, jamás validaciones ni números inventados.
 - **exp-001 (reproducibilidad):** re-correr `backtest_donchian512.py` y verificar que reproduce `VEREDICTO.md` — misma mecánica de paridad que usó exp-002 (ver su script como plantilla). Informe en `experiments/exp-001/`.
 - **Copiar scripts/CSV pequeños del lab** a `research/H-001-canal-donchian/analysis/` (inventario y reglas en `docs/MIGRACION.md` — copias, no movimientos).
 - **Data Lake (Etapa 3 del PLAN_TRABAJO):** solo tras cerrar Fase A. Prioridades confirmadas por los hallazgos: funding histórico completo, open interest (lo exige la predicción P3), pares delistados.
 - **Sensibilidad 384/512/640 (pre-Fase C):** pre-registrar como exp-00X (umbral: se busca meseta, no optimizar; el PREREG del experimento debe decir qué resultado mataría a H-001) y correr con la plantilla de exp-002.
+
+### DORMIDOS CON DISPARADOR (no construir antes de tiempo — principio 16)
+- **Cementerio Científico** (documento vivo: por qué murió cada hipótesis, qué señales se ignoraron, qué se reutilizó): se crea al llegar a ~50 hipótesis en el registro. Hasta entonces, la regla 4 de TEORIA.md y el registro append-only cubren la función.
+- **Curador del Conocimiento** (agente, ver backlog en AGENTES.md): primera corrida ~2027-01.
+- **Auditoría de Simplicidad** (principio 16): anual, primera 2027-07 — ¿qué eliminaríamos si hubiera que reducir el laboratorio a la mitad? Resultado en ADR.
 
 ### ANTES DE FASE C (no urgente, no olvidar)
 - Completar los PENDIENTE de Fase C en `RISK_POLICY.md`: criterio de retiro numérico, kill duro vs. blando, stop residente en exchange, checklist de `SECURITY.md` (keys reales con retiros deshabilitados).
