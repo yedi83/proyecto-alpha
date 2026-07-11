@@ -12,6 +12,7 @@
 6. Se versiona (v0.1, v0.2, …) y nunca se edita destructivamente: cada versión nueva declara qué creencia cambió, por qué evidencia, y qué versión reemplaza. Las degradaciones (✓→△, △→✗) son tan publicables como los ascensos.
 7. Actualización: tras cada veredicto de hipótesis, cada cierre de Fase C, y revisión trimestral aunque no haya cambios ("sin cambios" también se registra).
 8. La taxonomía de mecanismos es la del árbol del Banco (F2): persistencia, sobre-reacción, prima de riesgo/carry, liquidez, microestructura, convexidad.
+9. **Auditoría anual de Creencias** (mismo día que la Auditoría de Simplicidad del principio 16; primera: 2027-07). Una sola pregunta: *¿qué damos hoy por cierto que hace un año todavía era una hipótesis?* Cada ascenso de estatus (⊘→△, △→✓) detectado debe justificar su peaje: ¿qué veredicto del pipeline lo respalda, con qué ID? **Un ascenso sin veredicto trazable se revierte de oficio** — la confianza acumulada por éxitos consecutivos no es evidencia; es exactamente el sesgo que esta auditoría existe para cazar. El momento más peligroso del laboratorio no es un experimento fallido: es la racha de aciertos que convierte el pipeline en trámite. Resultado en ADR. (Añadida 2026-07-10 a propuesta del IP.)
 
 ---
 

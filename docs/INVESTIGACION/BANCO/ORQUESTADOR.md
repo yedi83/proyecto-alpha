@@ -19,6 +19,19 @@ Lo que el banco JAMÁS produce: números calculados por LLM (robustez, retornos,
 5. Rúbricas y escalas se fijan en F0 y no cambian sin enmienda fechada.
 6. Los umbrales de éxito/rechazo que proponga el banco son **propuestas**: el humano los ratifica (o ajusta, con justificación fechada) en el pre-registro formal. El investigador principal es humano.
 7. Presupuesto: trabajo paralelo, regla del ≤30% mientras haya validación operativa abierta.
+8. **Regla de Inmutabilidad del Ciclo:** con el dictamen CONFORME de A-04 sobre F0, ningún criterio, peso, compuerta o definición metodológica se modifica durante ese ciclo. Si aparece un problema: se registra como **ADR pendiente → se incorpora en el F0 del ciclo siguiente** — nunca "v1.3 a mitad de ciclo", porque destruye la comparabilidad entre protocolos del mismo ciclo. Única excepción: defecto FATAL que invalide el ciclo → el ciclo se ABORTA (con acta) y se reinicia bajo protocolo nuevo. Continuar registrando, o abortar; jamás parchear.
+9. **Ciclos identificados y trazables:** cada ciclo del banco lleva ID (`C-001`, `C-002`, …). Todo protocolo candidato cita su ciclo de origen, y el REGISTRO_HIPOTESIS anota el ciclo del que proviene cada H-XXX — dentro de un año debe poder decirse "todo lo producido entre H-021 y H-034 pertenece al C-001".
+
+## Apertura de ciclo — punto de control administrativo (2 minutos, obligatorio antes de F1)
+
+```
+□ F0 congelada (documento fechado en fases/)
+□ ADRs del ciclo anterior incorporados o declarados pendientes
+□ Constitución y ORQUESTADOR consistentes con F0 (sin contradicciones conocidas)
+□ Dictamen A-04 sobre F0 = CONFORME (sesión separada, archivado en fases/)
+□ Versión del Banco etiquetada (git tag banco-CNNN-abierto)
+□ Acta de una línea: "Ciclo C-NNN abierto el AAAA-MM-DD bajo F0 vN"
+```
 
 ## Flujo
 
