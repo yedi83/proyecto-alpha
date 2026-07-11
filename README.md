@@ -33,6 +33,7 @@ Fase actual: futuros perpetuos USDT en Binance (con funding). La arquitectura se
 | Documento | Contenido |
 |---|---|
 | [`docs/CONSTITUCION.md`](docs/CONSTITUCION.md) | Principios innegociables del proyecto |
+| [`docs/RESUMEN_EJECUTIVO.md`](docs/RESUMEN_EJECUTIVO.md) | Resumen ejecutivo: todo lo avanzado, estado y próximos hitos (corte 2026-07-10) |
 | [`docs/ESTADO.md`](docs/ESTADO.md) | Estado actual — única fuente de verdad |
 | [`docs/TRASPASO.md`](docs/TRASPASO.md) | Punto de entrada de cada sesión de trabajo: tareas, orden, guardarraíles |
 | [`docs/TEORIA.md`](docs/TEORIA.md) | Teoría del Laboratorio (documento vivo): qué creemos hoy sobre los mercados, con evidencia y estados epistémicos |
