@@ -2,6 +2,7 @@
 
 ## 2026-07-10
 
+- **Operacionalización del flujo del Banco:** A-04 con modo VALIDADOR ESTRICTO (dieta de insumos mínima, verificación literal, plantilla fija de dictamen, calidad fuera del alcance — la juzga el IP); regla 9 artefactos estructurados (JSONL fuente de verdad + Markdown como vista, un objeto por edge enriquecido fase a fase); regla 10 compuertas objetivas (dictamen + artefacto + aprobación IP, nunca juicio informal); F1 como ejecutor puro.
 - **Auditoría anual de Creencias** (regla 9 de TEORIA.md, mismo día que la de Simplicidad): ¿qué damos por cierto que hace un año era hipótesis? Todo ascenso de estatus debe citar su veredicto del pipeline; ascenso sin veredicto trazable se revierte de oficio. Contra el riesgo humano de "esta vez ya sabemos la respuesta".
 - **Regla de Inmutabilidad del Ciclo + apertura administrativa:** F0 inmutable durante el ciclo tras CONFORME de A-04 (problemas → ADR pendiente → F0 del ciclo siguiente; defecto fatal → aborto con acta); ciclos identificados (C-001…) con checklist de apertura de 6 puntos y tag de git; hipótesis trazables a su ciclo de origen.
 - **F0 del Banco de Mecanismos cerrada (pendiente dictamen A-04):** ciclo 1 piloto por mecanismos (persistencia/carry/reversión/microestructura/régimen-como-filtro), rúbrica 35/30/20/10/5 con anclas y sensibilidad obligatoria, resiliencia como compuerta (no puntaje), salida 0-5 protocolos sin mínimo, niveles de evidencia I-VII.

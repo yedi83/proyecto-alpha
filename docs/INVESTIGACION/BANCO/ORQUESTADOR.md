@@ -20,7 +20,9 @@ Lo que el banco JAMÁS produce: números calculados por LLM (robustez, retornos,
 6. Los umbrales de éxito/rechazo que proponga el banco son **propuestas**: el humano los ratifica (o ajusta, con justificación fechada) en el pre-registro formal. El investigador principal es humano.
 7. Presupuesto: trabajo paralelo, regla del ≤30% mientras haya validación operativa abierta.
 8. **Regla de Inmutabilidad del Ciclo:** con el dictamen CONFORME de A-04 sobre F0, ningún criterio, peso, compuerta o definición metodológica se modifica durante ese ciclo. Si aparece un problema: se registra como **ADR pendiente → se incorpora en el F0 del ciclo siguiente** — nunca "v1.3 a mitad de ciclo", porque destruye la comparabilidad entre protocolos del mismo ciclo. Única excepción: defecto FATAL que invalide el ciclo → el ciclo se ABORTA (con acta) y se reinicia bajo protocolo nuevo. Continuar registrando, o abortar; jamás parchear.
-9. **Ciclos identificados y trazables:** cada ciclo del banco lleva ID (`C-001`, `C-002`, …). Todo protocolo candidato cita su ciclo de origen, y el REGISTRO_HIPOTESIS anota el ciclo del que proviene cada H-XXX — dentro de un año debe poder decirse "todo lo producido entre H-021 y H-034 pertenece al C-001".
+9. **Artefactos estructurados, no solo narrativos (añadido 2026-07-10):** desde F1, cada fase produce su registro en formato estructurado (JSONL: un objeto por entrada) **más** una vista Markdown generada a partir de él — nunca al revés. Esquema del registro de F1: `{id, mecanismo, familia, variante, nombre, mecanismo_economico_1frase, mercados_documentados, fuente:{autores, año, venue, verificada:bool}, nivel_evidencia_preliminar, reproducibilidad, observaciones}`. Las fases posteriores AÑADEN campos al mismo registro (F3: nivel_evidencia_final, robustez_reportada[]; F4: fundamento, falsacion[]; F5: transferibilidad; F7: puntuaciones) — un solo objeto por edge, enriquecido fase a fase. Razón: con cientos de registros, "todas las hipótesis nivel II sobre carry" debe ser un filtro, no una lectura.
+10. **Compuertas objetivas entre fases:** el paso de fase depende de artefactos verificables — dictamen A-04 archivado (`FN_DICTAMEN_A04.md`) + artefacto estructurado completo + aprobación del IP — nunca de juicios informales. El ejecutor de cada fase (Sonnet) ejecuta exactamente lo definido en F0: no evalúa, no concluye, no prioriza, no descarta fuera de sus criterios.
+11. **Ciclos identificados y trazables:** cada ciclo del banco lleva ID (`C-001`, `C-002`, …). Todo protocolo candidato cita su ciclo de origen, y el REGISTRO_HIPOTESIS anota el ciclo del que proviene cada H-XXX — dentro de un año debe poder decirse "todo lo producido entre H-021 y H-034 pertenece al C-001".
 
 ## Apertura de ciclo — punto de control administrativo (2 minutos, obligatorio antes de F1)
 
@@ -72,7 +74,11 @@ F0 Protocolo → F1 Mapeo PRISMA → F2 Consolidación de familias (dedup)
 
 ### F1 — Mapeo (Sonnet + búsqueda web)
 
-> Actúa como investigador académico en finanzas cuantitativas. Con F0 adjunto, construye un mapeo sistemático estilo PRISMA de estrategias en las familias en alcance. Usa búsqueda web y VERIFICA cada fuente (autor, año, venue). Lo no verificable: `[memoria del modelo — verificar]`. Reporta el flujo PRISMA (identificadas→cribadas→incluidas, con exclusiones justificadas). NO analices, NO deduplica, NO concluyas: cataloga — nombre, familia aparente, mecanismo en una frase, mercados documentados, fuentes.
+> **Ejecuta F1 exactamente como fue definida en F0 (adjunto). No evalúes. No concluyas. No priorices. No compares. No descartes fuera de los criterios de exclusión de F0. Solo construye la revisión sistemática.**
+>
+> Actúa como investigador académico en finanzas cuantitativas. Construye el mapeo sistemático estilo PRISMA de las familias en alcance de F0 §2. Usa búsqueda web y VERIFICA cada fuente (autor, año, venue). Lo no verificable: `verificada:false` + nota `[memoria del modelo — verificar]`. Reporta el flujo PRISMA (identificadas→cribadas→incluidas, con exclusiones según F0).
+>
+> **Formato de salida obligatorio (regla 9 del orquestador):** artefacto estructurado `fases/F1_catalogo.jsonl` — un objeto JSON por línea con el esquema exacto de la regla 9 — y después una vista `F1_CATALOGO.md` generada desde el JSONL (tabla resumen + flujo PRISMA). El JSONL es la fuente de verdad; el Markdown, la vista.
 
 ### F2 — Árbol genealógico por mecanismos (Opus)
 
