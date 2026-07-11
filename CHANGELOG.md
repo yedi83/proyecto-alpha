@@ -2,6 +2,7 @@
 
 ## 2026-07-10
 
+- **ADR-0004 — Moratoria de diseño hasta cerrar C-001:** toda idea/mejora → ADR pendiente para C-002; únicas excepciones, las ya definidas (defecto fatal, violación metodológica). Criterio de éxito del ciclo incorporado al acta: decisiones metodológicas respaldadas por evidencia, aun contra las expectativas. Último acto de diseño de la fase de arquitectura.
 - **Cierre de la fase de arquitectura:** ADR-0003 "Nunca optimizar antes de medir" (mejoras exigen evidencia operativa del ciclo; se aplican en el siguiente); F0 §8 instrumentación del propio ciclo (latencias, bloqueos, fricciones) inaugurando la métrica de latencia del conocimiento; acta de apertura del C-001 en borrador (texto del IP), pendiente de sellado tras dictamen A-04.
 - **Operacionalización del flujo del Banco:** A-04 con modo VALIDADOR ESTRICTO (dieta de insumos mínima, verificación literal, plantilla fija de dictamen, calidad fuera del alcance — la juzga el IP); regla 9 artefactos estructurados (JSONL fuente de verdad + Markdown como vista, un objeto por edge enriquecido fase a fase); regla 10 compuertas objetivas (dictamen + artefacto + aprobación IP, nunca juicio informal); F1 como ejecutor puro.
 - **Auditoría anual de Creencias** (regla 9 de TEORIA.md, mismo día que la de Simplicidad): ¿qué damos por cierto que hace un año era hipótesis? Todo ascenso de estatus debe citar su veredicto del pipeline; ascenso sin veredicto trazable se revierte de oficio. Contra el riesgo humano de "esta vez ya sabemos la respuesta".
