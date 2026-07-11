@@ -53,6 +53,10 @@ Encabezado (mecanismo/familia/variante del árbol, nivel de evidencia, puntuaci�
 
 **Principio (del IP, textual):** *el Banco no existe para producir candidatos; existe para filtrar rigurosamente cuáles merecen convertirse en experimentos.* Un ciclo con cero candidatos no fracasó: evitó invertir en hipótesis bajo el estándar.
 
-## 8. Cierre de fases
+## 8. Instrumentación del propio ciclo (el C-001 también experimenta con el laboratorio)
+
+El objetivo del C-001 no es maximizar hipótesis aceptadas: es ejecutar el proceso íntegro y **producir evidencia sobre el propio sistema.** Durante el ciclo se registra, por fase: (a) **latencia** (fecha apertura → fecha cierre, y acumulada del ciclo); (b) bloqueos por compuerta (¿cuáles detuvieron algo? ¿cuáles nunca actúan?); (c) campos que faltaron o sobraron en el esquema JSONL; (d) fricciones de proceso. Al cierre del ciclo, este registro alimenta los ADR pendientes del C-002. La métrica de largo plazo que esto inaugura: **latencia del conocimiento** — tiempo de hipótesis creada → veredicto → cambio en TEORIA.md. Un laboratorio impecable que aprende lento también fracasa.
+
+## 9. Cierre de fases
 
 Cada fase cierra con: documento fechado en `fases/` + dictamen CONFORME de A-04 (sesión separada, prompt en `agents/A-04`) + aprobación del IP. Sin dictamen, no se abre la siguiente.
