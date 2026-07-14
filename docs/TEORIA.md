@@ -48,4 +48,4 @@
 
 ---
 
-*Próxima revisión programada: al cierre de la Fase A de H-001 (¿qué aprendimos, apruebe o repruebe?).*
+*Revisión del 2026-07-14 (cierre de Fase A, APRUEBA 6/6): **sin cambios en las creencias de mercado** — la fase validó instrumentación, no mecanismos (36/36 señales, 0 divergencias). Refuerza con datos adicionales la creencia ✓ sobre feeds materialmente distintos (104 atrasadas testnet vs ~40% de tasa en mainnet). Aprendizajes operativos (resiliencia ante outage, valor del vigía) registrados en el informe de cierre, no aquí: no son creencias sobre mercados. Próxima revisión: veredicto de Fase B o trimestral (2026-10), lo que llegue antes.*

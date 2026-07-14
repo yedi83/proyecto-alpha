@@ -61,4 +61,4 @@ Toda decisión de aprobación/reprobación se registra aquí con fecha y evidenc
 
 | Fecha | Hipótesis | Fase | Decisión | Evidencia |
 |---|---|---|---|---|
-| — | — | — | — | — |
+| 2026-07-14 | H-001 | **Fase A (dry run)** | **APRUEBA 6/6** — sellado por el IP (ejecución material: sesión Fable 5, por instrucción explícita) | [Informe de cierre](../../research/H-001-canal-donchian/fase_A/informe_cierre_faseA.md) · replay 36/36 señales, 0 divergencias, latencia mediana 8.7 s · 12.4 días · outage 07-11 recuperado solo · diario completo |

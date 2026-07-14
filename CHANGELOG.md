@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-14 — CIERRE DE FASE A: APRUEBA 6/6
+
+- Replay de la fase completa: **36 señales del modelo = 36 eventos del bot, 0 divergencias**, latencia mediana 8.7 s (p95 14.9), 104 atrasadas con causa cerrada. Informe sellado (`informe_cierre_faseA.md`), decisión registrada en CRITERIOS_FASES, diario completado (07-11→14, con outage del 07-11 recuperado solo y blip del 07-14 verificado sano por vigía 12:27/12:42). Primera revisión de TEORIA: sin cambios de creencias de mercado. Siguiente: día D de Fase B.
+
 ## 2026-07-10
 
 - `docs/RESUMEN_EJECUTIVO.md`: síntesis de las dos etapas (lab original + proyecto-alpha), estado operativo de las 3 instancias, decisiones cerradas por experimento, hallazgos que evitaron daño, y próximos hitos.
