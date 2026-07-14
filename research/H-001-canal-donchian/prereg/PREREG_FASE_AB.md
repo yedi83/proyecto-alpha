@@ -16,7 +16,23 @@ Escrita tras el cierre APROBADO 6/6 de la Fase A (informe sellado 2026-07-14; re
 
 Sin otros cambios: logica de señales, canales, ATR, stops, kill switch y criterios de Fase B del pre-registro original permanecen identicos.
 
-ACTA DE INICIO DE FASE B: (se sella abajo tras el reinicio verificado)
+ACTA DE INICIO DE FASE B (sellada 2026-07-14):
+"Inicio oficial de la Fase B (demo trading). **Corte: 2026-07-14 15:13:16 UTC**
+(primer ciclo verificado). La Fase A cerro APROBADA 6/6 el 2026-07-14 (replay
+36/36, 0 divergencias; informe en el repo). Cambios aplicados en esta frontera
+y solo en ella: los 4 de la ENMIENDA 1 (demo trading, fill via fetch_order,
+fees de fills, riesgo BTC 0.125%) + EQUITY_CAP=750. Verificado en el arranque:
+encabezado FASE-B con demo=True DRY_RUN=False, mapa de riesgo impreso, cuenta
+isolated 2x en 5 simbolos, eq=750.00 (cap sobre balance demo), abiertas=0.
+La posicion paper abierta al corte (ETH long, sucesora de la #23 SOL citada en
+ENMIENDA §5 con vista desfasada) fue limpiada por la reconciliacion — sin
+impacto: era simulada, de Fase A. Cuenta demo: la del ensayo general, aplanada
+antes del corte (posicion ETH del ensayo cerrada a mercado por el IP).
+El ensayo general queda DETENIDO (tarea deshabilitada). paper_real continua
+como testigo del feed real. Duracion de fase: 1 mes. Criterios: los del
+pre-registro original + metrica de omision simulada (ENMIENDA §3).
+Datos anteriores al corte: Fase A, no evidencia de B."
+Ejecucion material: sesion Fable 5 por instruccion del IP; sella el IP.
 
 
 Corte de comparabilidad: el reinicio del bot que activa la observabilidad
@@ -88,25 +104,4 @@ Metricas obligatorias del informe final de fase B (no criterios de corte):
 - Velas atrasadas por simbolo (recuento y horas).
 - Funding real vs funding estimado por trade.
 - Fees reales vs modeladas (verifica que el campo fee de la orden llega
-  poblado; si llega vacio, es bug de registro, no ausencia de coste).
-
-## ABORTO INMEDIATO (fase A o B, sin esperar fin de fase)
-Cualquiera de estos, sin explicacion conocida, detiene la fase:
-- Operacion ejecutada que el modelo nunca señalo.
-- Corrupcion de estado (bot_state.json ilegible o inconsistente).
-- Divergencias repetidas cuya causa no puede identificarse.
-- Perdida de sincronizacion entre posiciones del bot y del exchange.
-Abortar no es fracasar: es el sistema de medicion funcionando. Se
-diagnostica, se corrige (eso SI es correccion critica permitida), se
-documenta y se reinicia la fase con nuevo corte.
-
-## REGLA DE CAMBIOS DURANTE LAS FASES
-- Permitido: correcciones criticas de bugs reales (documentadas, con fecha,
-  reinician el reloj de la fase si afectan comparabilidad).
-- Prohibido: cambios de logica, parametros, sizing, ordenes, "mejoras".
-- La capa de observabilidad queda congelada junto con el resto (2026-07-01).
-
-## PASO A FASE C (real ~$750)
-Solo si A y B aprueban TODOS sus criterios. La fase C valida supervivencia
-operativa con dinero real minimo; el edge seguira sin estar probado y el
-sizing (0.10%/trade) refleja exactamente esa confianza.
+  poblado; s

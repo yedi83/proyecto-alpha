@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-14 (tarde) — FASE B INICIADA (corte 15:13:16 UTC)
+
+- Día D completo en la misma jornada del cierre de A: ensayo detenido y cuenta demo aplanada; ENMIENDA 1 sellada en el PREREG (demo trading, 4 fixes de frontera, riesgo BTC 0.125% por exp-003, métrica de omisión simulada, EQUITY_CAP=750); bot de frontera aplicado al lab (con respaldo del de Fase A); arranque verificado (demo=True, DRY_RUN=False, eq=750, reconciliación limpió la posición paper); acta de inicio sellada; DIARIO_FASE_B creado. paper_real continúa como testigo. Pendientes del día: tag `H001-faseB-frontera` (usuario), adaptar auditoría programada, auditar primer trade cuando ocurra.
+
 ## 2026-07-14 — CIERRE DE FASE A: APRUEBA 6/6
 
 - Replay de la fase completa: **36 señales del modelo = 36 eventos del bot, 0 divergencias**, latencia mediana 8.7 s (p95 14.9), 104 atrasadas con causa cerrada. Informe sellado (`informe_cierre_faseA.md`), decisión registrada en CRITERIOS_FASES, diario completado (07-11→14, con outage del 07-11 recuperado solo y blip del 07-14 verificado sano por vigía 12:27/12:42). Primera revisión de TEORIA: sin cambios de creencias de mercado. Siguiente: día D de Fase B.

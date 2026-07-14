@@ -27,7 +27,7 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 
 | ID | Nombre | Etapa | Veredicto |
 |---|---|---|---|
-| [H-001](INVESTIGACION/hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512 (perp USDT) | **Fase A APROBADA 6/6 (2026-07-14**, replay 36/36 sin divergencias) → pendiente día D de Fase B (checklist PAQUETE_FASE_B §5) | ⏳ En validación — Fase B por iniciar |
+| [H-001](INVESTIGACION/hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512 (perp USDT) | Fase A APROBADA 6/6 (07-14) → **FASE B INICIADA el mismo día (corte 15:13:16 UTC**, acta sellada, ENMIENDA 1, bot de frontera + EQUITY_CAP=750, demo trading, 1 mes) | ⏳ En validación — **Fase B corriendo** |
 
 ## Deuda documental abierta
 
