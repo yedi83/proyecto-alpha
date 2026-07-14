@@ -4,6 +4,21 @@ Regla: este documento NO se edita despues de empezar a acumular datos. Cualquier
 cambio va en una seccion "ENMIENDA" nueva, con fecha y motivo. Mover los postes
 sin dejar rastro invalida la fase (leccion NEAR).
 
+## ENMIENDA 1 — Frontera A→B (2026-07-14, ANTES de acumular datos de Fase B)
+
+Escrita tras el cierre APROBADO 6/6 de la Fase A (informe sellado 2026-07-14; replay 36/36, 0 divergencias) y antes del reinicio que abre la B. Motivos y cambios:
+
+1. **"Testnet" pasa a ser DEMO TRADING de Binance** (demo.binance.com): Binance retiro el testnet de futuros y ccxt >= 4.5 lo bloquea (hallazgo F0, fontaneria 2026-07-03). Toda mencion a "testnet" en la seccion Fase B se lee como "demo trading". La cuenta demo es la ya probada en el ensayo general (decision del IP, 2026-07-14), aplanada antes del corte.
+2. **Cambios de codigo de frontera (4), validados con ordenes reales en el ensayo general (informe 2026-07-10: fees pobladas 10/10, 0 fills sin precio):** F0 enable_demo_trading; B-fix1 precio de fill via fetch_order (create_order devuelve average=None); B-fix2 fees sumadas de los fills; B-fix3 riesgo por simbolo BTC 0.125% / resto 0.10% con cap agregado por suma real (0.525% <= 0.60%). B-fix3 respaldado por exp-003 (pre-registrado como intento final, N=2 declarado, umbral pre-escrito: ACEPTA; exp-002 con 0.15% fue RECHAZADO).
+3. **Metrica nueva obligatoria de Fase B — "omision simulada de produccion":** el demo tiene min_notional $50 en BTC; produccion ~$100. Toda señal BTC ejecutada en demo con notional < $100 se cuenta como omision simulada en el informe de fase (cierra la brecha demo/produccion para el criterio B3).
+4. **EQUITY_CAP=750:** el sizing usa min(equity_demo, 750) para reflejar el capital previsto de Fase C aunque la cuenta demo tenga mas balance virtual.
+5. La posicion DRY abierta al corte (#23 SOL short, paper de Fase A) se cierra ADMINISTRATIVAMENTE al cambiar de modo: era simulada, no genera trade real ni cuenta para metricas de B.
+
+Sin otros cambios: logica de señales, canales, ATR, stops, kill switch y criterios de Fase B del pre-registro original permanecen identicos.
+
+ACTA DE INICIO DE FASE B: (se sella abajo tras el reinicio verificado)
+
+
 Corte de comparabilidad: el reinicio del bot que activa la observabilidad
 (eventos.csv). Fecha/hora del reinicio: 2026-07-02 03:53:46 UTC (verificado en log).
 Datos anteriores al corte: solo contexto, no evidencia de fase A.
