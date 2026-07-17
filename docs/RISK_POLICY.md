@@ -34,11 +34,13 @@ El kill switch actual **no cierra posiciones**: bloquea aperturas nuevas y deja 
 
 ## Pendiente para Fase C (completar ANTES de iniciarla)
 
-- [ ] Capital inicial: ~$750 según PREREG — ratificar cifra y cuenta dedicada.
-- [ ] **Criterio de retiro de la estrategia** (el número que falta): drawdown máximo aceptado desde inicio de Fase C, y/o tracking error sostenido, y/o señales de retiro conceptual de `HIPOTESIS_ECONOMICA.md` §5. Se escribe antes del primer día de Fase C.
-- [ ] Decisión kill duro vs. blando (ver matiz arriba).
-- [ ] Decisión sobre stop residente en exchange (reduce-only) vs. stop por vela cerrada — la mejora está identificada pero no desplegada; cambiarla reinicia validación según PREREG.
-- [ ] Checklist de seguridad de `SECURITY.md` (API keys de producción con retiros deshabilitados, IP restringida).
+> **Decisiones tomadas en borrador (2026-07-16):** `research/H-001-canal-donchian/fase_C/PREREG_FASE_C_BORRADOR.md`. Falta **sellarlo** antes del día 1 de C (solo si Fase B aprueba). No es evidencia hasta el sello.
+
+- [x] Capital inicial: **$750**, cuenta dedicada (ratificado; borrador §2).
+- [x] **Criterio de retiro/parada:** drawdown a **1.5× maxDD ≈ −27%** = **umbral de suspensión y revisión** (cesa la operativa + análisis completo antes de reanudar, con ADR); + divergencia de comportamiento (TE fuera de ±5% sostenido) + señales de retiro conceptual de `HIPOTESIS_ECONOMICA.md` §5 (borrador §3).
+- [x] **Kill duro vs. blando:** blando validado + disyuntor catastrófico **técnico** (no de precio); se descarta el kill duro por precio (borrador §4).
+- [x] **Stop:** vela cerrada (validado) para C; stop residente en exchange → mejora candidata a C-002 (borrador §5).
+- [x] Checklist de seguridad **redactado** en `SECURITY.md` (keys sin retiros + IP whitelist, mínimo privilegio, auditoría, validaciones pre-orden, prohibición de intervención manual no registrada §9, y Disyuntor Técnico §10). **Abierto:** decidir al sellar si §9/§10 se implementan+validan antes de C o se difieren a C-002 (implican bot nuevo, no se toca el de Fase B).
 
 ## Regla de modificación
 

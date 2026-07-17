@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-07-16 (tarde) — H-002 formalizada (hipótesis económica + ficha de pipeline)
+
+- Se aclara que el **banco de H-002 ya estaba registrado** (PREREG_BANCO + RESULTADO_BANCO, T1-T5, veredicto: overlay de tendencia reductor de DD, confianza moderada, no probado). Lo que faltaba y se completa hoy: (1) `research/H-002-ruptura-bnb-d1/HIPOTESIS_ECONOMICA.md` — el "por qué económico", con honestidad sobre que es **long-only / beta positiva** (no market-neutral), 5 predicciones falsables (incl. P3: exposición máxima a funding por ser siempre larga) y 4 señales de retiro; (2) ficha de pipeline `docs/INVESTIGACION/hipotesis/H-002-ruptura-bnb-d1.md`; (3) registro en la tabla de hipótesis de ESTADO. Nota meta capturada: el banco reusó el motor del investigador *verbatim* en ~1 jornada = primera evidencia (n=1) de que la plataforma abarató la 2ª hipótesis (prueba de fuego del roadmap §4). Sin fase operativa formal aún (decisión tras cerrar C-001, por moratoria).
+
+## 2026-07-16 (tarde) — Criterios de Fase C en borrador (decisiones del IP)
+
+- Redactado `research/H-001-canal-donchian/fase_C/PREREG_FASE_C_BORRADOR.md`, anclado en RISK_POLICY §Pendiente, el PREREG y `HIPOTESIS_ECONOMICA.md §5`. Decisiones del IP: capital **$750**; criterio de retiro = **umbral de suspensión y revisión a −27%** (1.5× maxDD; cesa operativa + análisis completo antes de reanudar, cláusula del IP) separado de la divergencia de comportamiento y de las 4 señales de retiro conceptual; kill **blando + disyuntor técnico** (se descarta kill duro por precio); stop por **vela cerrada** (el stop en exchange → C-002). **Falta sellar** antes del día 1 de C, solo si Fase B aprueba. RISK_POLICY §Pendiente actualizado.
+
+## 2026-07-16 — FASE B RE-CORTADA (incidente de contaminación resuelto)
+
+- **Incidente:** el corte de Fase B del 07-14 quedó comprometido. Causa raíz **verificada**: el ensayo (`ensayo_faseB/bot/`) tenía las **mismas API keys demo** que el bot oficial (`donchian512_lab/bot/`) → una sola cuenta, dos bots colisionando (el ensayo adoptaba las posiciones del oficial). El diario del 07-14 decía "ensayo detenido y cuenta aplanada"; fue intención no cumplida.
+- **Remediación:** máquina esterilizada (0 procesos); keys del ensayo **vaciadas** + banner RETIRADO; **lanzador blindado** (`lanzar_bot.bat` + `contar_faseB.ps1`) con guardián anti-doble-instancia (cuenta cualquier `live_bot.py` del lab, venv o sistema) + reinicio solo ante caída + rutas completas; tarea `faseB_donchian` (ONLOGON, `MultipleInstances=IgnoreNew`); `aplanar_cuenta.py` para dejar la cuenta en 0 posiciones.
+- **Evidencia:** datos del bot oficial 07-14→16 **ANULADOS** (cuenta contaminada); estado respaldado como `bot_state.pre_recorte_2026-07-16.json`. Fase A (6/6, 07-14) **intacta**. Reloj de Fase B reinicia 1 mes desde el nuevo corte. Acta: `research/H-001-canal-donchian/fase_B/ACTA_RECORTE_2026-07-16.md`.
+
 ## 2026-07-14 (tarde) — FASE B INICIADA (corte 15:13:16 UTC)
 
 - Día D completo en la misma jornada del cierre de A: ensayo detenido y cuenta demo aplanada; ENMIENDA 1 sellada en el PREREG (demo trading, 4 fixes de frontera, riesgo BTC 0.125% por exp-003, métrica de omisión simulada, EQUITY_CAP=750); bot de frontera aplicado al lab (con respaldo del de Fase A); arranque verificado (demo=True, DRY_RUN=False, eq=750, reconciliación limpió la posición paper); acta de inicio sellada; DIARIO_FASE_B creado. paper_real continúa como testigo. Pendientes del día: tag `H001-faseB-frontera` (usuario), adaptar auditoría programada, auditar primer trade cuando ocurra.

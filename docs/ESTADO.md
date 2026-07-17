@@ -1,6 +1,6 @@
 # Estado del Proyecto
 
-> Única fuente de verdad del estado. Última actualización: 2026-07-04.
+> Única fuente de verdad del estado. Última actualización: 2026-07-16.
 
 ## Fase actual
 
@@ -27,7 +27,8 @@ Leyenda: ✅ operativo y verificado en este repo · 🔄 existe fuera de este re
 
 | ID | Nombre | Etapa | Veredicto |
 |---|---|---|---|
-| [H-001](INVESTIGACION/hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512 (perp USDT) | Fase A APROBADA 6/6 (07-14) → **FASE B INICIADA el mismo día (corte 15:13:16 UTC**, acta sellada, ENMIENDA 1, bot de frontera + EQUITY_CAP=750, demo trading, 1 mes) | ⏳ En validación — **Fase B corriendo** |
+| [H-001](INVESTIGACION/hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512 (perp USDT) | Fase A APROBADA 6/6 (07-14). Fase B: corte del 07-14 **COMPROMETIDO** (contaminación: ensayo con keys idénticas operó la misma cuenta demo → doble bot). **RE-CORTE limpio 2026-07-16, corte 15:27:33 UTC** (`fase_B/ACTA_RECORTE_2026-07-16.md`): keys del ensayo neutralizadas, cuenta aplanada, tarea `faseB_donchian` (python directo, IgnoreNew), datos 07-14→16 anulados, reloj de 1 mes reiniciado. Corriendo: demo, eq=750, abiertas=0 | ⏳ En validación — **Fase B corriendo (re-cortada)** |
+| [H-002](INVESTIGACION/hipotesis/H-002-ruptura-bnb-d1.md) | Ruptura Donchian(20)+SMA200, diario, **solo largos** (majors) | **Banco APROBADO — confianza moderada** (2026-07-14, suite T1-T5 pre-registrado) → **forward en paper** multi-activo desde 07-15 (testigo, base + variante etiquetada). Hipótesis económica + ficha registradas 07-16. **Sin fase operativa formal** | ⏳ En paper/forward — overlay de tendencia reductor de DD, **no probado** (n=57); decisión de fase tras cerrar C-001 |
 
 ## Deuda documental abierta
 
