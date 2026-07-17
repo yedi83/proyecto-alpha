@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-17 (tarde) — exp-008: R0 ACEPTABLE — la incógnita nº 1 se cierra A FAVOR
+
+- Dictamen A-02: APTO (SOL 4h/2h = episodio FTX legítimo; extremos = eventos reales; hashes SHA-256 congelados en el dictamen — crítica de proceso aceptada: el recolector debe emitir hash de fábrica). Script blindado: verifica integridad 5/5 contra los hashes antes de correr.
+- **exp-008 ejecutado: R0 — el funding real 2021-26 MEJORA todas las ventanas** vs el modelo pesimista (FULL: NET 27.26% vs 24.03%, Sharpe 0.47 vs 0.42, Calmar 1.66 vs 1.35; 2426: +4.63% vs +2.79%). Paridad OK. Condición (i) del ADR-0006 CUMPLIDA: Fase C vuelve a depender solo de Fase B + cero disparos letales. TEORIA v0.2: creencia nueva ✓ sobre funding; versión fuerte de P4 refutada como efecto agregado. Registros actualizados.
+
 ## 2026-07-17 — ADR-0006 (override de exp-004 formalizado) + arranque Propuesta 1
 
 - **ADR-0006:** el veredicto letal de exp-004 (lookback) fue anulado el 07-06 por nota interpretativa — canal que la Constitución no reconoce. Se formaliza retroactivamente: H-001 degradada a **CUESTIONADA** en todos los registros; Fase C condicionada a exp-008-R0 + cero disparos letales nuevos; **un segundo disparo letal = retiro operativo automático, sin nota interpretativa**; precedente restrictivo (las notas jamás anulan umbrales). Pendiente: arbitraje A-04 en sesión separada + ratificación del IP.

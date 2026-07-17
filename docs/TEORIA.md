@@ -35,7 +35,8 @@
 
 ### Prima de riesgo / carry (funding)
 
-- ⊘ **Funding como fuente de carry cobrable:** sin investigar como estrategia (candidata natural H-002 vía Banco). Lo único establecido: como COSTE, el funding real es la mayor incógnita de magnitud del laboratorio — puede llevar el edge de tendencia 2024-26 a ≈0. [FUNDING_REAL_VEREDICTO, DATA.md]
+- ⊘ **Funding como fuente de carry cobrable:** sin investigar como estrategia (candidata H-002/banco; ADR-0005). [FUNDING_REAL_VEREDICTO]
+- ✓ **(v0.2, 2026-07-17) El funding real 2021-26 NO destruyó el edge de tendencia — lo mejoró frente al modelo pesimista.** La evidencia del laboratorio es consistente con: el coste real de funding para una cesta long/short de tendencia fue MENOR que el supuesto uniforme de 0.01%/8h (FULL: NET 27.3% real vs 24.0% modelado; todas las ventanas mejoran). Mecanismo: los promedios reales fueron menores a lo asumido (BTC 7.4%, ETH 7.0% anualizado), SOL y BCH tuvieron funding medio NEGATIVO (los longs cobraron), y los shorts de la cesta cobran los tramos positivos. Confianza alta para el período medido; el futuro puede diferir (regímenes de funding cambian). Contraste con la predicción P4 de HIPOTESIS_ECONOMICA ("el edge se comprime con funding extremo"): en episodios extremos puntuales sigue abierta, pero como efecto agregado histórico quedó refutada la versión fuerte — el funding no fue el viento en contra temido. Basado en: exp-008 (dataset APTO A-02, hashes congelados, paridad verificada). Refutaciones: ninguna a la fecha. La "mayor incógnita de magnitud" declarada desde el VEREDICTO original queda CERRADA para 2021-26.
 
 ### Microestructura / datos
 
