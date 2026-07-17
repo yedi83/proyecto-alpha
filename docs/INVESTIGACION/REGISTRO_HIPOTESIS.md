@@ -4,7 +4,7 @@
 
 | ID | Nombre | Familia | Pre-registro | Etapa actual | Veredicto | Notas |
 |---|---|---|---|---|---|---|
-| [H-001](hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512, perp USDT | Trend following | ✅ Original 2026-06-24, previo al backtest | Fase A (iniciada 2026-07-02, acta) | ⏳ EN VALIDACIÓN | Caso de prueba de la plataforma; veredicto de investigación: diversificador plausible, NO edge probado |
+| [H-001](hipotesis/H-001-canal-donchian.md) | Canal de Donchian 512, perp USDT | Trend following | ✅ Original 2026-06-24, previo al backtest | Fase A APROBADA (07-14) · Fase B corriendo (re-corte 07-16) | ⏳ EN VALIDACIÓN — **CUESTIONADA (ADR-0006)** | exp-004 disparó veredicto letal de robustez de lookback (07-06); override formalizado por ADR-0006 (07-17): criterio mal especificado para patrón monótono, sin re-optimizar. Alfa no significativa (t=0.94). **Fase C condicionada a exp-008-R0 + cero disparos letales nuevos; un 2º disparo letal = retiro operativo sin nota interpretativa.** |
 
 ## Nota sobre H-001 (corregida 2026-07-02 tras inventario del lab original)
 

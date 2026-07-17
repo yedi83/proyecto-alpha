@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-07-17 — ADR-0006 (override de exp-004 formalizado) + arranque Propuesta 1
+
+- **ADR-0006:** el veredicto letal de exp-004 (lookback) fue anulado el 07-06 por nota interpretativa — canal que la Constitución no reconoce. Se formaliza retroactivamente: H-001 degradada a **CUESTIONADA** en todos los registros; Fase C condicionada a exp-008-R0 + cero disparos letales nuevos; **un segundo disparo letal = retiro operativo automático, sin nota interpretativa**; precedente restrictivo (las notas jamás anulan umbrales). Pendiente: arbitraje A-04 en sesión separada + ratificación del IP.
+- **exp-008 pre-registrado** (funding real histórico, intento único, umbrales R0/R1/R2 ratificados por el IP con letal endurecido) + `datalake/funding/recolector_funding.py` (público, sin keys, idempotente, QA integrado). Secuencia: recolectar → dictamen A-02 → correr exp-008.
+
 ## 2026-07-16 (tarde) — H-002 formalizada (hipótesis económica + ficha de pipeline)
 
 - Se aclara que el **banco de H-002 ya estaba registrado** (PREREG_BANCO + RESULTADO_BANCO, T1-T5, veredicto: overlay de tendencia reductor de DD, confianza moderada, no probado). Lo que faltaba y se completa hoy: (1) `research/H-002-ruptura-bnb-d1/HIPOTESIS_ECONOMICA.md` — el "por qué económico", con honestidad sobre que es **long-only / beta positiva** (no market-neutral), 5 predicciones falsables (incl. P3: exposición máxima a funding por ser siempre larga) y 4 señales de retiro; (2) ficha de pipeline `docs/INVESTIGACION/hipotesis/H-002-ruptura-bnb-d1.md`; (3) registro en la tabla de hipótesis de ESTADO. Nota meta capturada: el banco reusó el motor del investigador *verbatim* en ~1 jornada = primera evidencia (n=1) de que la plataforma abarató la 2ª hipótesis (prueba de fuego del roadmap §4). Sin fase operativa formal aún (decisión tras cerrar C-001, por moratoria).
