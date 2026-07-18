@@ -1,6 +1,6 @@
 # Changelog
 
-## 2026-07-17 (noche) — Corrección de atribución causal en TEORIA v0.2 (revisión cruzada)
+## 2026-07-18 — Corrección de atribución causal en TEORIA v0.2 (revisión cruzada)
 
 - La entrada v0.2 atribuía el ahorro de funding a "cobrar carry en alts": **FALSO** — verificado contra la tabla condicional del propio exp-008: la cesta pagó en los 5 símbolos y ambos lados (−$453 total vs −$776 del modelo); el ahorro es sobrecarga del modelo uniforme. Mecanismo nuevo registrado: selección adversa de las posiciones de tendencia contra el promedio incondicional de funding. **Implicación para ADR-0005 (funding-carry):** su diseño debe usar análisis condicional, jamás promedios incondicionales. Lección de guardia: dos cazadas del auditor en un resultado favorable — la guardia baja sola cuando el resultado gusta.
 
