@@ -1,7 +1,9 @@
 # ADR-0006 — Override del veredicto letal de exp-004 (formalización retroactiva)
 
 - **Fecha:** 2026-07-17 · **v2: 2026-07-18** (enmendada tras dictamen A-04 NO CONFORME — ver §6)
-- **Estado:** Propuesta v2 — **requiere RE-arbitraje A-04 + ratificación del IP**
+- **Estado:** Propuesta v2 — **SEGUNDO DICTAMEN A-04: NO CONFORME (2026-07-18, `ADR-0006_DICTAMEN_A04_v2.md`: 4/10 puntos respondidos, 3 violaciones nuevas incl. sobre-declaración de completitud, 2 contradicciones nuevas incl. C-005: el texto constitucional propuesto haría inadmisible a este propio ADR por retroactividad). Conforme al compromiso previo: sin tercera remediación exprés — LA DECISIÓN SUBE AL IP: acatar el MATA de exp-004, o re-fundamentar desde cero por ADR-0007.**
+- **DECISIÓN FINAL DEL IP (2026-07-18): RECHAZADA — será reemplazada por ADR-0007 (acto fundacional, redactado desde cero por sesión nueva, sin reutilizar este texto).** Este documento se conserva íntegro como registro histórico del intento fallido y sus dos dictámenes. Razonamiento del IP, textual: *"Confiaría más en un laboratorio que fue capaz de reconocer públicamente un fallo de gobernanza, corregir su Constitución, imponer una excepción irrepetible y seguir adelante con reglas más fuertes, que en uno que simplemente mató una hipótesis para demostrar dureza o la salvó para demostrar pragmatismo."* Mientras ADR-0007 no sea CONFORME + ratificado: nada de lo sujeto-a-ratificación surte efectos.
+- ~~DECISIÓN DEL IP (2026-07-18): EN DELIBERACIÓN.~~ (superada el mismo día por la decisión final de arriba) El IP pausa la decisión deliberadamente (las decisiones importantes no se toman el día de dos dictámenes en contra). Mientras dure: NADA de lo "sujeto a ratificación" surte efectos — la Fase C permanece sin base normativa; la Fase B continúa (valida plataforma, no depende de esto hasta su cierre ~2026-08-16); la validez experimental de exp-008 permanece intacta. Las dos opciones sobre la mesa quedan descritas arriba. Plazo natural de decisión: antes del cierre de Fase B.
 - **Alcance:** Metodología + propuesta de enmienda constitucional (§6.4)
 
 ## 1. ¿Qué problema intentábamos resolver?

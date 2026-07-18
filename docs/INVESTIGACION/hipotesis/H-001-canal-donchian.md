@@ -6,7 +6,7 @@
 | Familia | Trend following (corto plazo: canal ~5.3 días) |
 | Mercado | Futuros perpetuos USDT. Costes modelados: Zoomex (taker 0.06%/lado + slippage por símbolo). Datos/dry run: Binance (testnet) |
 | Universo | Backtest: BTC, ETH, SOL, BCH, DOGE, HYPE · Bot (cesta operativa): BTC, ETH, SOL, BCH, DOGE |
-| Estado | ⏳ EN VALIDACIÓN — **Fase A iniciada 2026-07-02 03:53:46 UTC** (acta en PREREG) |
+| Estado | ⏳ EN VALIDACIÓN — CUESTIONADA (ver fila "Estatus epistemológico"; C-006 del dictamen A-04 v2: esta fila duplicaba estatus — queda como puntero único para cumplir la regla 12) |
 | Pre-registro | ✅ Original del 2026-06-24, ANTES de correr el backtest — migrado a [`research/H-001-canal-donchian/prereg/`](../../../research/H-001-canal-donchian/prereg/) |
 | Gobernanza de fases | [`PREREG_FASE_AB.md`](../../../research/H-001-canal-donchian/prereg/PREREG_FASE_AB.md) (ver enmienda en `CRITERIOS_FASES.md`) |
 | Última actualización de ficha | 2026-07-18 (remediación del dictamen A-04 sobre ADR-0006) |

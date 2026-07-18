@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-18 (2) — Segundo dictamen A-04: NO CONFORME. CORRECCIÓN de este changelog
+
+- **Corrección (V-102):** la entrada anterior decía "remediación completa" y "6 violaciones remediadas" — FALSO: la v2 respondió 4 de 10 puntos (V-004 y V-005 levantadas; V-003 y V-006 sin respuesta; C-002/003/004 no elevadas). Tercera sobre-declaración del redactor en 48 h, siempre autofavorable — el patrón queda registrado. Contradicciones nuevas: C-005 (el texto constitucional propuesto exige ratificación previa a efectos → haría inadmisible al propio ADR-0006) y C-006 (doble estatus en la ficha — corregido: fila Estado convertida en puntero único).
+- Por el compromiso pre-declarado: **sin tercera remediación exprés. La decisión sube al IP** — acatar el MATA de exp-004, o re-fundamentar desde cero (ADR-0007) con inventario completo, experimentos pendientes enumerados, contradicciones elevadas una a una y cláusula transitoria que resuelva C-005.
+- **DECISIÓN FINAL DEL IP (mismo día): ADR-0006 RECHAZADO → ADR-0007 como acto fundacional** — estructura de 4 partes (reconocimiento expreso sin matices; nulidad de las notas interpretativas; nueva doctrina para el caso doble criterio-mal-especificado + procedimiento-vulnerado; cláusula única: la retroactividad muere en el acto que la usa por única vez). Encargo emitido (`ADR-0007_ENCARGO.md`) a sesión redactora NUEVA con los requisitos de ambos dictámenes; el redactor del 0006 no redacta. Secuencia: borrador → arbitraje A-04 → ratificación → solo entonces, efectos.
+- ~~Decisión del IP: EN DELIBERACIÓN~~ (superada el mismo día) (pausa deliberada; plazo natural antes del cierre de Fase B ~08-16). Mientras tanto: cero efectos de lo sujeto-a-ratificación; Fase B y paper_real continúan; H-002 y C-001 no dependen de esta decisión y pueden avanzar.
+
 ## 2026-07-18 — Dictamen A-04 sobre ADR-0006: NO CONFORME → remediación completa (v2)
 
 - Las 6 violaciones verificadas como ciertas (3 del propio redactor de la sesión): ficha H-001 sin actualizar (remediada, eventos 07-06→07-18 añadidos), segunda nota-override en exp-005 sin cubrir (ADR v2 la incorpora con idéntico tratamiento), condición (i) consumida bajo ADR no ratificado (re-etiquetada "sujeta a ratificación" en REGISTRO/ESTADO/ficha), y falta de enmienda constitucional (v2 propone la excepción al principio 4, a incorporar SOLO al ratificar). **Pendiente: re-arbitraje A-04 de la v2 + decisión del IP.** El sistema de arbitraje cazó al mentor dos veces en 24h — funcionando como diseño.
