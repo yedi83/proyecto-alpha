@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-18 — Dictamen A-04 sobre ADR-0006: NO CONFORME → remediación completa (v2)
+
+- Las 6 violaciones verificadas como ciertas (3 del propio redactor de la sesión): ficha H-001 sin actualizar (remediada, eventos 07-06→07-18 añadidos), segunda nota-override en exp-005 sin cubrir (ADR v2 la incorpora con idéntico tratamiento), condición (i) consumida bajo ADR no ratificado (re-etiquetada "sujeta a ratificación" en REGISTRO/ESTADO/ficha), y falta de enmienda constitucional (v2 propone la excepción al principio 4, a incorporar SOLO al ratificar). **Pendiente: re-arbitraje A-04 de la v2 + decisión del IP.** El sistema de arbitraje cazó al mentor dos veces en 24h — funcionando como diseño.
+
 ## 2026-07-18 — Corrección de atribución causal en TEORIA v0.2 (revisión cruzada)
 
 - La entrada v0.2 atribuía el ahorro de funding a "cobrar carry en alts": **FALSO** — verificado contra la tabla condicional del propio exp-008: la cesta pagó en los 5 símbolos y ambos lados (−$453 total vs −$776 del modelo); el ahorro es sobrecarga del modelo uniforme. Mecanismo nuevo registrado: selección adversa de las posiciones de tendencia contra el promedio incondicional de funding. **Implicación para ADR-0005 (funding-carry):** su diseño debe usar análisis condicional, jamás promedios incondicionales. Lección de guardia: dos cazadas del auditor en un resultado favorable — la guardia baja sola cuando el resultado gusta.

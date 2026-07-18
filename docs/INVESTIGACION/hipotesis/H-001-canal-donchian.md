@@ -9,7 +9,8 @@
 | Estado | ⏳ EN VALIDACIÓN — **Fase A iniciada 2026-07-02 03:53:46 UTC** (acta en PREREG) |
 | Pre-registro | ✅ Original del 2026-06-24, ANTES de correr el backtest — migrado a [`research/H-001-canal-donchian/prereg/`](../../../research/H-001-canal-donchian/prereg/) |
 | Gobernanza de fases | [`PREREG_FASE_AB.md`](../../../research/H-001-canal-donchian/prereg/PREREG_FASE_AB.md) (ver enmienda en `CRITERIOS_FASES.md`) |
-| Última actualización de ficha | 2026-07-02 (tras inventario del lab original) |
+| Última actualización de ficha | 2026-07-18 (remediación del dictamen A-04 sobre ADR-0006) |
+| Estatus epistemológico | **EN VALIDACIÓN — CUESTIONADA (ADR-0006 en Propuesta):** disparo letal de exp-004 con override en formalización; alfa no significativa (t=0.94); exp-008 R0 a favor, sujeto a ratificación |
 
 ## Hipótesis económica
 
@@ -64,3 +65,7 @@ Funding real no medido (mayor incógnita) · universo 100% cripto correlacionado
 | 2026-07-02 03:53 UTC | **Acta de inicio de Fase A** (trade #7 LONG BCH cruza el corte: entrada pre-corte, salida cuenta como evidencia de instrumentación). |
 | 2026-07-02 | Ficha reescrita tras inventario del lab: las 5 preguntas respondidas con evidencia; docs originales migrados al repo. |
 | 2026-07-02 | Hipótesis económica formulada por A-03 (ex-post, declarado): mecanismo, contraparte, 5 predicciones falsables, 4 señales de retiro conceptual. |
+| 2026-07-06 | **exp-004 (sensibilidad lookback) DISPARÓ SU CRITERIO LETAL** (vecino 384: net −8.6%, alfa −28.6% → MATA). Nota interpretativa del mismo día sostuvo continuación (patrón monótono = umbral, no pico) — canal luego declarado ilegítimo. exp-005 (OOS HYPE): BANDERA débil, con segunda nota del mismo canal (lente alfa→Sharpe post-hoc). |
+| 2026-07-14→16 | Fase A APROBADA 6/6 (replay 36/36). Fase B iniciada, contaminada por keys compartidas, RE-CORTADA el 07-16 (datos 14→16 anulados). |
+| 2026-07-17 | **ADR-0006 (Propuesta):** override de exp-004 formalizado retroactivamente; estatus degradado a **CUESTIONADA**; Fase C condicionada. exp-008 (funding real, dataset APTO A-02 con hashes): **R0** — el funding real mejora todas las ventanas; condición (i) cumplida **sujeta a ratificación del ADR-0006**. |
+| 2026-07-18 | Dictamen A-04 sobre ADR-0006: **NO CONFORME** (6 violaciones — incl. esta ficha sin actualizar, la nota de exp-005 sin cubrir, condición consumida sin ratificar, falta de enmienda constitucional). Remediación aplicada: esta ficha al día, ADR-0006 v2 cubriendo ambas notas + propuesta de enmienda constitucional. Pendiente: re-arbitraje + ratificación del IP. |
