@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-07-17 (noche) — Corrección de atribución causal en TEORIA v0.2 (revisión cruzada)
+
+- La entrada v0.2 atribuía el ahorro de funding a "cobrar carry en alts": **FALSO** — verificado contra la tabla condicional del propio exp-008: la cesta pagó en los 5 símbolos y ambos lados (−$453 total vs −$776 del modelo); el ahorro es sobrecarga del modelo uniforme. Mecanismo nuevo registrado: selección adversa de las posiciones de tendencia contra el promedio incondicional de funding. **Implicación para ADR-0005 (funding-carry):** su diseño debe usar análisis condicional, jamás promedios incondicionales. Lección de guardia: dos cazadas del auditor en un resultado favorable — la guardia baja sola cuando el resultado gusta.
+
 ## 2026-07-17 (tarde) — exp-008: R0 ACEPTABLE — la incógnita nº 1 se cierra A FAVOR
 
 - Dictamen A-02: APTO (SOL 4h/2h = episodio FTX legítimo; extremos = eventos reales; hashes SHA-256 congelados en el dictamen — crítica de proceso aceptada: el recolector debe emitir hash de fábrica). Script blindado: verifica integridad 5/5 contra los hashes antes de correr.
