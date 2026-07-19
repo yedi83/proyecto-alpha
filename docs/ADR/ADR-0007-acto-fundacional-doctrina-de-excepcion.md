@@ -227,6 +227,8 @@ Esta es la lista **explícita y cerrada** a la que se refiere la condición (ii)
 | # | Prueba pendiente | Umbral letal pre-escrito | Fuente | Horizonte |
 |---|---|---|---|---|
 | P-1 | **Fase B (testnet) de H-001** | Reprobación de cualquiera de sus criterios: TE acumulado fuera de ±5% del modelo; slippage mediana de exceso > 5 bps; ≥1 omisión BTC por `min_notional` sin decisión documentada; desviación de métrica sin explicación. «Casi pasa = no pasa» | `prereg/PREREG_FASE_AB.md` + ENMIENDA 1 | Cierre previsto **≤ 2026-08-16** (un mes desde el re-corte del 07-16); se extiende solo por reinicio de reloj documentado |
+
+**Frontera reprobación / aborto, cerrada expresamente:** la reprobación de un criterio de P-1 **no puede reclasificarse como corrección crítica ni como aborto** para esquivar el disparo; en caso de duda sobre la frontera, la clasificación la arbitra **A-04 antes de reiniciar reloj alguno**.
 | P-2 | **Sello del `PREREG_FASE_C`** | No es experimento: es compuerta. Se enumera para excluirlo expresamente — **no puede disparar la cláusula**; su no-sello bloquea la Fase C por su propia regla | `fase_C/PREREG_FASE_C_BORRADOR.md` §1 | — |
 
 **Alcance real del compromiso, declarado sin adorno.** Cerrados `exp-002` a `exp-008`, **el compromiso falsable restante se reduce a un único experimento pendiente: P-1 (Fase B).** Esta circunstancia **no amplía ni modifica los requisitos de validación**; refleja el estado real del expediente. Se declara expresamente para que la brevedad de la lista no se lea como omisión. Ensanchar la enumeración con pruebas inventadas para que el compromiso «pese más» sería inflarlo, no endurecerlo. Si el IP quiere aumentar la exigencia, la vía correcta es **pre-registrar un experimento nuevo con su propio umbral letal** e incorporarlo a esta lista por ADR — nunca reinterpretar la cláusula.
@@ -251,6 +253,7 @@ Al ratificarse, y no antes:
 5. **Declaraciones a corregir**, por decir hoy algo distinto de lo verificable: toda mención a la condición (i) como «cumplida» o «sujeta a ratificación del ADR-0006» pasa a referirse a **este** ADR; y las menciones al ADR-0006 como norma viva se sustituyen por su estado real (**RECHAZADO**).
 6. **Erratum fechado adjunto a `exp-008/PREREG.md`** — el pre-registro está sellado y **no se edita**; se adjunta un erratum que hace constar que su §«Contexto de acumulación» invocaba el ADR-0006, hoy rechazado, y que la cláusula aplicable es la de este ADR. El texto original permanece.
 7. **`CHANGELOG.md`** — entrada fechada de la ratificación, sin adjetivos de completitud.
+8. **`ADR-0000-plantilla.md`** — se añade la nota aclaratoria de la resolución de C-001 (§4.7bis): «excepciones concedidas» por ADR alcanza solo a normas de rango infra-constitucional; ninguna excepción a un principio constitucional se concede por ADR simple.
 
 #### 4.7 — Secuencia de eficacia (ningún paso se adelanta)
 
@@ -263,7 +266,8 @@ Al ratificarse, y no antes:
    4.b  enmienda de PROTOCOLO.md (eje de estatus epistemológico)
    4.c  actualización de ficha / REGISTRO / ESTADO / CHANGELOG (§4.6)
    4.d  erratum adjunto a exp-008/PREREG.md
-   4.e  efectos: convalidación de Fase A y del re-corte de Fase B;
+   4.e  nota aclaratoria de C-001 añadida a ADR-0000-plantilla.md
+   4.f  efectos: convalidación de Fase A y del re-corte de Fase B;
         condición (i) vigente; cláusula del segundo disparo vigente;
         Fase C dependiente del veredicto de Fase B y del sello de su PREREG
 ```
