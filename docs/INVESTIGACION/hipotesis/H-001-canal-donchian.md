@@ -6,11 +6,11 @@
 | Familia | Trend following (corto plazo: canal ~5.3 días) |
 | Mercado | Futuros perpetuos USDT. Costes modelados: Zoomex (taker 0.06%/lado + slippage por símbolo). Datos/dry run: Binance (testnet) |
 | Universo | Backtest: BTC, ETH, SOL, BCH, DOGE, HYPE · Bot (cesta operativa): BTC, ETH, SOL, BCH, DOGE |
-| Estado | ⏳ EN VALIDACIÓN — CUESTIONADA (ver fila "Estatus epistemológico"; C-006 del dictamen A-04 v2: esta fila duplicaba estatus — queda como puntero único para cumplir la regla 12) |
+| Estado (pipeline) | ⏳ EN VALIDACIÓN — Fase B corriendo (re-corte 07-16); Fase A convalidada por ratificación del ADR-0007 |
 | Pre-registro | ✅ Original del 2026-06-24, ANTES de correr el backtest — migrado a [`research/H-001-canal-donchian/prereg/`](../../../research/H-001-canal-donchian/prereg/) |
 | Gobernanza de fases | [`PREREG_FASE_AB.md`](../../../research/H-001-canal-donchian/prereg/PREREG_FASE_AB.md) (ver enmienda en `CRITERIOS_FASES.md`) |
 | Última actualización de ficha | 2026-07-18 (remediación del dictamen A-04 sobre ADR-0006) |
-| Estatus epistemológico | **EN VALIDACIÓN — CUESTIONADA (ADR-0006 en Propuesta):** disparo letal de exp-004 con override en formalización; alfa no significativa (t=0.94); exp-008 R0 a favor, sujeto a ratificación |
+| Estatus epistemológico (fuente única) | **«CUESTIONADA (ADR-0007): sobrevivió por excepción de criterio mal especificado a un disparo letal de robustez de lookback (exp-004, 2026-07-06); alfa no significativa (t=0.94); edge no distinguible de suerte con los datos actuales.»** Condición (i) exp-008-R0: vigente desde la ratificación (2026-07-18). Cláusula de segundo disparo: armada sobre P-1 (Fase B), cierre ≤ 2026-09-30 |
 
 ## Hipótesis económica
 
@@ -69,3 +69,4 @@ Funding real no medido (mayor incógnita) · universo 100% cripto correlacionado
 | 2026-07-14→16 | Fase A APROBADA 6/6 (replay 36/36). Fase B iniciada, contaminada por keys compartidas, RE-CORTADA el 07-16 (datos 14→16 anulados). |
 | 2026-07-17 | **ADR-0006 (Propuesta):** override de exp-004 formalizado retroactivamente; estatus degradado a **CUESTIONADA**; Fase C condicionada. exp-008 (funding real, dataset APTO A-02 con hashes): **R0** — el funding real mejora todas las ventanas; condición (i) cumplida **sujeta a ratificación del ADR-0006**. |
 | 2026-07-18 | Dictamen A-04 sobre ADR-0006: **NO CONFORME** (6 violaciones — incl. esta ficha sin actualizar, la nota de exp-005 sin cubrir, condición consumida sin ratificar, falta de enmienda constitucional). Remediación aplicada: esta ficha al día, ADR-0006 v2 cubriendo ambas notas + propuesta de enmienda constitucional. Pendiente: re-arbitraje + ratificación del IP. |
+| 2026-07-18 | IP rechaza el ADR-0006 y encarga el **ADR-0007 (acto fundacional)** a sesión redactora nueva. Borrador → dictamen A-04 NO CONFORME (un punto: V-201) → cura quirúrgica v2 → **dictamen A-04 v2 CONFORME** → **RATIFICADO por el IP**. Principio 17 incorporado a la Constitución; notas interpretativas declaradas nulas de origen; retroactividad prohibida para siempre; Fase A convalidada; condición (i) vigente; cláusula de segundo disparo armada (P-1, cierre ≤ 09-30). |

@@ -1,5 +1,16 @@
 # Changelog
 
+## 2026-07-18 (4) — ADR-0007 RATIFICADO. El caso fundacional queda cerrado
+
+- Ratificación fechada del IP tras dictamen A-04 v2 CONFORME. Ejecutado el §4.7 paso 4: principio 17 incorporado íntegro a CONSTITUCION (con su transitoria autoderogable); PROTOCOLO §6 nuevo (eje de estatus epistemológico, ortogonal al pipeline) y excepción del requisito (7) anotada en §5; ficha H-001 como fuente única del estatus (literal de §4.5(6)) con REGISTRO y ESTADO en puntero; erratum adjunto a exp-008/PREREG; nota aclaratoria C-001 en la plantilla ADR; ADR-0007 → ACEPTADA.
+- Efectos vigentes desde la ratificación: notas interpretativas nulas de origen; retroactividad inadmisible para siempre; Fase A convalidada como etapa del pipeline de H-001; re-corte de Fase B convalidado; condición (i) (exp-008-R0) vigente; cláusula de segundo disparo armada sobre P-1 (Fase B, cierre ≤ 2026-09-30); Fase C dependiente del veredicto de Fase B y del sello de su PREREG.
+- V-001 y V-002 de los dictámenes del ADR-0006: cerradas por este acto (enmienda efectiva + ratificación fechada).
+
+## 2026-07-18 (3) — ADR-0007: dictamen A-04 v2 CONFORME. Correcciones de registro
+
+- **CONFORME al tercer arbitraje:** la cura de V-201/C-007 verificada a la letra (exención expresa de (9)(a)/(9)(b) en la transitoria, régimen del (9) desplazado solo para el caso fundacional, íntegro para todo caso posterior; `git show d2b975f`: exactamente dos líneas). Pendiente: ratificación del IP (§4.7 paso 3-4).
+- **Corrección de un mensaje de commit previo:** la tanda "…anexo A sincronizado, backup eliminado…" sobre-declaró — el Anexo A NO se tocó (no era necesario); el backup sí se eliminó (git es el historial, v1 en commit `5dbee73`). El texto del mensaje fue redactado por el asistente ANTES de verificar el diff — cuarta sobre-declaración del mismo origen registrada en el expediente; regla adoptada: los mensajes de commit se redactan tras verificar, nunca antes. Cabecera del ADR-0007 corregida (referencia al commit en lugar del fichero inexistente).
+
 ## 2026-07-18 (2) — Segundo dictamen A-04: NO CONFORME. CORRECCIÓN de este changelog
 
 - **Corrección (V-102):** la entrada anterior decía "remediación completa" y "6 violaciones remediadas" — FALSO: la v2 respondió 4 de 10 puntos (V-004 y V-005 levantadas; V-003 y V-006 sin respuesta; C-002/003/004 no elevadas). Tercera sobre-declaración del redactor en 48 h, siempre autofavorable — el patrón queda registrado. Contradicciones nuevas: C-005 (el texto constitucional propuesto exige ratificación previa a efectos → haría inadmisible al propio ADR-0006) y C-006 (doble estatus en la ficha — corregido: fila Estado convertida en puntero único).
