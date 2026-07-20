@@ -1,4 +1,7 @@
-# H-002 — Ruptura Donchian(20) + filtro SMA200 (diario, solo largos)
+# H-002.v1 — Ruptura Donchian(20) + filtro SMA200 (diario, solo largos)
+
+> **RECHAZADA el 2026-07-19 — disparo T1 firme (principio 17).** Esta ficha corresponde a la **v1**, conservada íntegra por `PROTOCOLO §5`. La investigación viva continúa en **[H-002.v2](H-002.v2-ruptura-bnb-d1.md)**. El análisis del banco de abajo se conserva sin editar; el veredicto mecánico (`RESULTADO_BANCO.md`) tampoco se toca (principio 17). Ver el recuadro "Disparo T1" al final.
+
 
 | Campo | Valor |
 |---|---|
@@ -6,7 +9,7 @@
 | Familia | Trend following (mediano plazo, diario) con **filtro de régimen** (SMA200), **solo largos** |
 | Mercado | Backtest y paper: **spot Binance** (klines públicas). Instrumento operativo (spot vs. perp) **por decidir** — afecta la exposición a funding (P3) |
 | Universo | Banco: BNB + generalización cruzada BTC, ETH, ADA, XRP, LTC · Paper multi-activo: BTC, ETH, BNB, ADA, XRP, LTC |
-| Estado | **Banco APROBADO — confianza moderada (2026-07-14)** → **forward en paper multi-activo desde 2026-07-15** (testigo, base + variante etiquetada). **Sin fase operativa formal declarada.** |
+| Estado | ❌ **RECHAZADA (2026-07-19) — disparo T1 firme, principio 17.** El "Banco APROBADO — confianza moderada (07-14)" quedó invalidado: se apoyaba en la anulación interpretativa de un veredicto letal pre-escrito (ver recuadro). Investigación viva → [H-002.v2](H-002.v2-ruptura-bnb-d1.md). |
 | Pre-registro | ✅ [`PREREG_BANCO.md`](../../../research/H-002-ruptura-bnb-d1/PREREG_BANCO.md) — suite T1-T5 escrito antes de correr |
 | Hipótesis económica | [`research/H-002-ruptura-bnb-d1/HIPOTESIS_ECONOMICA.md`](../../../research/H-002-ruptura-bnb-d1/HIPOTESIS_ECONOMICA.md) |
 | Última actualización de ficha | 2026-07-16 |
@@ -52,3 +55,14 @@ El banco reutilizó el motor del investigador **verbatim** y corrió el suite co
 | 2026-07-14 | Banco pre-registrado (PREREG_BANCO) corrido: T1-T5. Veredicto: overlay de tendencia reductor de DD, confianza moderada, no probada. Solo la base avanza. |
 | 2026-07-15 | Paper_real multi-activo desplegado (base + variante etiquetada), monitor diario. |
 | 2026-07-16 | Hipótesis económica formulada (ex-post, declarado): mecanismo, contraparte, 5 predicciones falsables, 4 señales de retiro; honestidad sobre beta positiva. Ficha creada y registrada en ESTADO. |
+| 2026-07-19 | **Alta tardía en el registro maestro** (nunca se había dado de alta) + **reconocimiento del disparo T1 como firme** (principio 17) por el IP. Ficha → RECHAZADA. Ordenada H-002.v2 (nuevo PREREG, pipeline completo). |
+
+## Disparo T1 — firme e inanulable (registrado 2026-07-19)
+
+**Qué se pre-declaró** (`../../../research/H-002-ruptura-bnb-d1/PREREG_BANCO.md`): T1 era "**el decisivo, matar barato**" (línea 11), con regla de muerte pre-escrita — "**MATA / es beta: la estrategia NO mejora el Sharpe ni el Calmar/MAR del hold**" (línea 12) — y compuerta necesaria — "**Solo pasa a paper-en-real quien apruebe T1**" (línea 35).
+
+**Qué pasó** (`RESULTADO_BANCO.md`): estrategia BNB Sharpe 0.89 / MAR 0.74 vs hold 0.97 / MAR 0.78 → no batió ninguna. El propio documento reconoce: "**Por la regla pre-escrita: MATA**" (línea 12). Y lo anuló en el mismo documento por vía interpretativa ("test defectuoso… el suite completo lo corrige", líneas 14 y 34), tras lo cual avanzó a paper (deploy 07-15).
+
+**Por qué es firme:** el canal usado (nota interpretativa en el propio registro) es exactamente el que el **principio 17** proscribe. Faltan los requisitos (2) ADR, (3) A-04 CONFORME y (4) ratificación previa del IP — su ausencia hace la anulación inadmisible. La transitoria del artículo se agotó con el único caso admitido (exp-004, 07-06); T1 (07-14) no está cubierto y "**ninguna anulación retroactiva es admisible bajo ninguna circunstancia**". Un ADR de rescate hoy sería inadmisible de plano por (9)(a). **Agravante (requisito 1):** el defecto de T1 estaba pre-declarado en el propio PREREG ("El riesgo #1 es que el retorno sea BETA de BNB"): riesgo previsto y elegido, luego usado como excusa — no una mala especificación descubierta de forma independiente. **Ninguna pieza de la evidencia de H-002 tiene dictamen A-01.**
+
+**Consecuencia** (`PROTOCOLO §5`): reprobación firme → la v1 se conserva íntegra y la investigación se versiona en H-002.v2. El `RESULTADO_BANCO.md` **no se edita** (principio 17: "el veredicto mecánico jamás se edita").
