@@ -24,6 +24,22 @@ Misma que la v1 (`../HIPOTESIS_ECONOMICA.md`): subreacción/rebaño amplificada 
 
 Entrada: ruptura del máximo de **20 días** (shift 1) con **precio > SMA200**, solo largos. Stop **2.5×ATR(14)**. Objetivo **2R fijo**. Riesgo **1.25%/trade**. Timeframe **diario**. Motor reutilizado *verbatim* (`../banco.py`). **La variante trailing sigue fuera** (más parámetros, autoflag dudosa). Universo: BTC, ETH, BNB, ADA, XRP, LTC (los 6, equiponderados en la cesta).
 
+## 2bis. Construcción de la cesta, rebalanceo y benchmark (especificación mecánica — sellada por ENMIENDA 1)
+
+> Fija de forma inequívoca cada decisión que la implementación debe tomar, para que cesta y benchmark sean reproducibles al bit. Aplica **igual al screen in-sample (T1-IS) y al forward decisivo (T1-OOS)**. Implementación de referencia: `v2/banco_v2_is_screen.py`, SHA-256 `581240711b8eeef5a5e757db1077b62d6894e10114b897e1ca64d0d136eb4efc` (motor `../banco.py` reutilizado verbatim).
+
+1. **Universo y parámetros:** los 6 activos (BTC, ETH, BNB, ADA, XRP, LTC) con los parámetros base congelados de §2 (N=20, ATR×2.5, SMA200, RR=2, riesgo 1.25%, fee 0.04%, lev 2.0).
+2. **Particiones por fecha:** IS = barras con `Date < 2023-01-01 00:00 UTC` (estricto). Quemado = 2023-01-01 → 2026-07-15 (excluido). Forward decisivo = `Date ≥ 2026-07-15` (cuando exista).
+3. **Curva por activo:** equity mark-to-market devuelta por `banco.backtest` con los parámetros base; el activo empieza tras el warm-up = max(N, SMA, 15) = 200 barras.
+4. **Normalización:** la curva de cada activo se normaliza a 1.0 en su primer valor (post-warm-up).
+5. **Cesta (equiponderación, rebalanceo diario):** las 6 curvas normalizadas se alinean por fecha (unión de fechas, orden ascendente, forward-fill de huecos; antes de que un activo tenga dato = 1.0, caja). La cesta es la **media aritmética diaria** de las 6 columnas → equivale a rebalanceo diario a 1/6 por activo.
+6. **Benchmark (buy&hold de cesta):** idéntica construcción usando la serie de cierre normalizada (`close/close[0]`) de cada activo, alineada al mismo inicio post-warm-up que su estrategia. Es un hold **equiponderado rebalanceado a diario** (no un hold sin rebalancear). Métrica: Sharpe y MAR de la cesta-hold.
+7. **Métricas:** `banco.stats` verbatim — Sharpe = media/desv de retornos diarios × √365; MAR = CAGR / |MDD|; MDD sobre la curva de cesta.
+8. **Exclusión:** un activo con < warm+30 barras en el tramo evaluado se excluye y se declara (en IS actual, ninguno se excluye).
+9. **T4 (concentración):** trades de los 6 activos agrupados; top-5 sobre el neto agregado; n y win-rate agregados.
+
+**Cautela declarada (honestidad):** esta especificación se sella **después** de haber visto el número in-sample del adelanto del 2026-07-19. Se congela **exactamente** lo que hizo el script, sin elegir entre alternativas para favorecer el resultado. Mitigantes: (a) para el **forward decisivo**, la mecánica queda fijada **antes** de que exista el dato forward → prospectiva y limpia; (b) el in-sample no es decisivo, así que aunque su construcción resultara favorable, no contamina la evidencia que decide (el forward).
+
 ## 3. Tests y criterios de decisión (PRE-ESCRITOS, binarios)
 
 Los tres tipos de consecuencia se mantienen **separados**: **MATA** (rechaza la hipótesis), **CAP** (limita confianza/sizing, no mata), **FLAG/descriptivo** (informa, no decide).
@@ -110,10 +126,13 @@ Esta sección no crea ninguna regla nueva; deja constancia de **por qué** los u
 | 3 | Instrumento | **Perp USDT + funding real = decisivo** (forward); **spot sin funding = diagnóstico**; screen in-sample en spot. |
 | 4 | Umbral T4 (CAP, no mata) | n<30 **o** top-5>50% del neto **o** Deflated Sharpe<0. |
 | 5 | Horizonte forward OOS | **≥30 trades cerrados Y ≥6 meses desde 2026-07-15, lo que ocurra más tarde**; evaluación mecánica en el primer cierre en que ambas se cumplen. |
+| 6 | Construcción de cesta / benchmark / rebalanceo | **§2bis (ENMIENDA 1)**: cesta = media diaria de curvas normalizadas (equiponderación rebalanceada a diario); benchmark = hold equiponderado rebalanceado a diario; particiones por fecha; métricas `banco.stats`. Congelado al script SHA-256 `5812407…`. |
 
 ## 9. Sellado
 
-**SELLADO 2026-07-19.** Umbrales congelados; a partir de aquí no se renegocian (regla 5, "casi pasa = no pasa"). El sellado se produjo tras revisión punto por punto del IP en la sesión del 2026-07-19: refundación de la conjunción a screen in-sample (pre-2023) ∧ forward OOS —sin reusar el lockbox 2023-26 quemado—, horizonte de evaluación mecánico, cláusula de "evidencia insuficiente" para la baja frecuencia, eliminación del último parámetro interpretativo ("banderas graves" en el veredicto), y verificación de cero parámetros abiertos.
+**ENMIENDA 1 — RE-SELLADO 2026-07-19.** Añadido §2bis (construcción de cesta, rebalanceo y benchmark) con la mecánica congelada al script `banco_v2_is_screen.py` (SHA-256 `5812407…`). Enmienda **pre-ejecución oficial** (el forward decisivo aún no existe; el in-sample se re-corre como ejecución oficial bajo esta versión). Cautela de honestidad declarada en §2bis. Umbrales de §3 sin cambios.
+
+**SELLADO 2026-07-19 (sello original).** Umbrales congelados; a partir de aquí no se renegocian (regla 5, "casi pasa = no pasa"). El sellado se produjo tras revisión punto por punto del IP en la sesión del 2026-07-19: refundación de la conjunción a screen in-sample (pre-2023) ∧ forward OOS —sin reusar el lockbox 2023-26 quemado—, horizonte de evaluación mecánico, cláusula de "evidencia insuficiente" para la baja frecuencia, eliminación del último parámetro interpretativo ("banderas graves" en el veredicto), y verificación de cero parámetros abiertos.
 
 Ratificado por el **Investigador Principal (Yeison Díaz)** en esa sesión. La firma en el registro inmutable se consuma con el **push (`tanda.ps1`)**, acto que ejecuta el IP; hasta ese push, este sellado consta redactado pero no versionado en git.
 
