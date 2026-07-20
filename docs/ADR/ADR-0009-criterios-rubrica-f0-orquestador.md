@@ -1,7 +1,7 @@
 # ADR-0009 — Criterios de la rúbrica de F0 en el ORQUESTADOR (propuesta de resolución de C-001)
 
 - **Fecha:** 2026-07-19
-- **Estado:** **PROPUESTA — pendiente de ratificación del IP.** Sin efectos hasta ratificar. No modifica el ORQUESTADOR ni F0 mientras no se ratifique.
+- **Estado:** **ACEPTADA — RATIFICADA por el IP el 2026-07-19.** Aplicada al ORQUESTADOR (L73: criterios puntuados + resiliencia como compuerta). El hallazgo C-001 quedó **resuelto**: la versión enmendada del ORQUESTADOR obtuvo dictamen A-04 CONFORME (`F0_DICTAMEN_A04_v2.md`, 2026-07-19). El dictamen v1 se conserva íntegro en el registro.
 - **Alcance:** Gobernanza · Rúbrica del Banco (ORQUESTADOR)
 - **Origen:** Hallazgo **C-001** (contradicción) del dictamen A-04 NO CONFORME sobre F0 (`F0_DICTAMEN_A04.md`), documentado en `F0_EXPEDIENTE_NO_CONFORME.md` (F0 auditado: SHA-256 `b99c356…`, commit `0337152`).
 - **Estructura:** mecánica de 7 puntos (a pedido del IP). ADR ordinario de metodología — no invoca el principio 17.
@@ -38,7 +38,7 @@ El diseño de F0 §3(c) es **más estricto y más correcto** que la lista origin
 
 ## 5. Impacto esperado
 
-- **C-001 se levanta** una vez ratificado este ADR **y** superado un re-arbitraje A-04 independiente.
+- **El hallazgo C-001 queda resuelto** mediante este ADR; la versión enmendada del ORQUESTADOR obtuvo dictamen A-04 CONFORME (`F0_DICTAMEN_A04_v2.md`). El dictamen v1 NO CONFORME permanece en el registro (no se borra ni se anula).
 - ORQUESTADOR y F0 quedan consistentes en la lista de criterios; la rúbrica operativa (la de F0) no cambia.
 - **Condición de revisión futura (principio 15):** en el F0 del C-002, revisar si el conjunto de criterios puntuados + compuerta sigue siendo el adecuado con la evidencia de uso del C-001.
 

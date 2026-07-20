@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-07-19 (3) — C-001 ABIERTO: ADR-0008/0009 ratificados, F0 CONFORME en re-arbitraje
+
+- **ADR-0008 ratificado** (reescrito como enmienda de política, no como "contradicción"): el mandato de modelo del ORQUESTADOR para F0 pasa de "Opus" a **"mejor modelo disponible a criterio del IP"** (alineado con el TRASPASO); se **ratifica** la F0 del C-001 ejecutada por Fable 5. Aplicado a ORQUESTADOR L60/L71/L119 + nota. Resuelve el hallazgo V-001 (la versión enmendada obtuvo A-04 CONFORME; el dictamen v1 se conserva).
+- **ADR-0009 ratificado:** ORQUESTADOR L73 alineado con F0 — criterios puntuados = falsabilidad/claridad (no resiliencia), **resiliencia = compuerta**. Resuelve el hallazgo C-001.
+- **Re-arbitraje A-04 (sesión independiente, dieta mínima) = CONFORME** (`F0_DICTAMEN_A04_v2.md`): cero violaciones, cero contradicciones; consistencia criterios y modelo verificada a la letra. F0 sin cambios (SHA-256 `b99c356…`); ORQUESTADOR nuevo hash `7594d6b…`.
+- **Acta de apertura sellada** (`ACTA_APERTURA_C001_borrador.md`): checklist de 6 puntos completa salvo el tag; acta de una línea: *"Ciclo C-001 abierto el 2026-07-19 bajo F0 v1"*. **Abrir ≠ correr F1 ya** (F1 cuando el IP quiera, ≤30%, moratoria ADR-0004 vigente).
+- **Pendiente (acto del IP):** `git tag banco-C001-abierto` + commit. Hasta entonces, la apertura consta sellada documentalmente pero no versionada.
+- Nota meta: el sistema de arbitraje independiente hizo su trabajo de punta a punta — cazó dos desviaciones (V-001, C-001), se resolvieron por el canal correcto (ADR ratificados), y confirmó la resolución en una sesión nueva. Justo el ciclo que la meta-pregunta de F0 §1.4 quería observar.
+
 ## 2026-07-19 (2) — Apertura de C-001 BLOQUEADA: dictamen A-04 sobre F0 = NO CONFORME
 
 - Dictamen A-04 producido en **sesión independiente** (subagente aislado, dieta mínima: prompt A-04 + ORQUESTADOR + F0, sin contexto de diseño). Archivado en `docs/INVESTIGACION/BANCO/fases/F0_DICTAMEN_A04.md`. **Resultado: NO CONFORME** → F0 no cierra, C-001 no abre (falla el punto "Dictamen A-04 = CONFORME" del checklist de apertura).

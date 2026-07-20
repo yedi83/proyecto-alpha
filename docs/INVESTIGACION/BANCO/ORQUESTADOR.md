@@ -57,7 +57,7 @@ F0 Protocolo → F1 Mapeo PRISMA → F2 Consolidación de familias (dedup)
 
 | # | Fase | Modelo | Producto (`fases/`) |
 |---|---|---|---|
-| F0 | Protocolo del banco | Opus + humano | `F0_PROTOCOLO.md`: preguntas, familias en alcance, rúbrica (criterios/escalas 0-5 con anclas/pesos), fuentes aceptadas, formato del protocolo candidato |
+| F0 | Protocolo del banco | Mejor modelo disponible a criterio del IP + humano | `F0_PROTOCOLO.md`: preguntas, familias en alcance, rúbrica (criterios/escalas 0-5 con anclas/pesos), fuentes aceptadas, formato del protocolo candidato |
 | F1 | Mapeo sistemático (PRISMA adaptado) | Sonnet + web | `F1_CATALOGO.md`: catálogo crudo con fuentes verificadas + flujo PRISMA |
 | F2 | Árbol genealógico por mecanismos | Opus | `F2_ARBOL.md`: mecanismo → familia → variante, con herencia de evidencia |
 | F3 | Evidencia + auditoría de robustez | Opus | `F3_EVIDENCIA.md`: matriz de calidad + qué pruebas REPORTA la literatura, cómo, resultados y limitaciones |
@@ -66,11 +66,13 @@ F0 Protocolo → F1 Mapeo PRISMA → F2 Consolidación de familias (dedup)
 | F6 | Diseño experimental | Opus (2 sesiones: diseño y adversarial separadas) | `F6_PROTOCOLOS.md`: protocolo de validación completo por candidata |
 | F7 | Priorización + complementariedad | Opus | `F7_COLA.md`: scoring transparente + sensibilidad + mapa conceptual + top-N a REGISTRO |
 
+> **Nota (ADR-0008, ratificado 2026-07-19):** el modelo de cada fase lo fija "el mejor disponible a criterio del IP" (política del TRASPASO), no un nombre clavado. La F0 del C-001 (2026-07-10) fue ejecutada por **Fable 5 + humano** y el IP la **ratifica** como ejecución válida bajo esta política (resuelve el hallazgo V-001 del dictamen A-04 sobre F0; la versión enmendada obtuvo A-04 CONFORME).
+
 ## Prompts
 
-### F0 — Protocolo (Opus + humano, sesión conjunta)
+### F0 — Protocolo (mejor modelo disponible a criterio del IP + humano, sesión conjunta)
 
-> Actúa como metodólogo de investigación cuantitativa. Definimos el protocolo del banco ANTES de recopilar nada: (1) preguntas de investigación; (2) familias en alcance (ejecutables con velas 15m–1d de perpetuos cripto + funding; OI próximo) y las excluidas; (3) rúbrica: criterios (calidad de evidencia, fundamento económico, transferibilidad, resiliencia, complementariedad conceptual con lo ya en pipeline), escala 0–5 con anclas verbales, pesos declarados; (4) **jerarquía de niveles de evidencia** (adaptada de medicina a finanzas cuantitativas): Nivel I replicación independiente multi-mercado/multi-década · II varios papers independientes revisados por pares · III un paper sólido · IV working papers/backtests públicos reproducibles · V libros de practicantes reconocidos · VI blogs/foros técnicos · VII opinión sin evidencia. **Regla: la evidencia no se promedia entre niveles** — cualquier cantidad de nivel VI no suma un nivel III; cada edge se etiqueta con el nivel MÁXIMO que alcanza y el volumen dentro de ese nivel; (5) formato exacto del PROTOCOLO CANDIDATO (ver F6). Nada cambia después sin enmienda fechada. No recopiles estrategias todavía.
+> Actúa como metodólogo de investigación cuantitativa. Definimos el protocolo del banco ANTES de recopilar nada: (1) preguntas de investigación; (2) familias en alcance (ejecutables con velas 15m–1d de perpetuos cripto + funding; OI próximo) y las excluidas; (3) rúbrica: criterios PUNTUADOS (calidad de evidencia, fundamento económico, transferibilidad, falsabilidad/claridad del protocolo, complementariedad conceptual con lo ya en pipeline), escala 0–5 con anclas verbales, pesos declarados; la RESILIENCIA adversarial NO se puntúa: es COMPUERTA (no criterio ponderado) — ver F0 §3(c); (4) **jerarquía de niveles de evidencia** (adaptada de medicina a finanzas cuantitativas): Nivel I replicación independiente multi-mercado/multi-década · II varios papers independientes revisados por pares · III un paper sólido · IV working papers/backtests públicos reproducibles · V libros de practicantes reconocidos · VI blogs/foros técnicos · VII opinión sin evidencia. **Regla: la evidencia no se promedia entre niveles** — cualquier cantidad de nivel VI no suma un nivel III; cada edge se etiqueta con el nivel MÁXIMO que alcanza y el volumen dentro de ese nivel; (5) formato exacto del PROTOCOLO CANDIDATO (ver F6). Nada cambia después sin enmienda fechada. No recopiles estrategias todavía.
 
 ### F1 — Mapeo (Sonnet + búsqueda web)
 
@@ -116,4 +118,4 @@ F0 Protocolo → F1 Mapeo PRISMA → F2 Consolidación de familias (dedup)
 
 ## Arranque
 
-Sesión F0 (Opus + humano). No se abre F1 sin F0 cerrada. Cadencia: una fase por sesión (F6 son dos), dentro del presupuesto del 30%.
+Sesión F0 (mejor modelo disponible a criterio del IP + humano). No se abre F1 sin F0 cerrada. Cadencia: una fase por sesión (F6 son dos), dentro del presupuesto del 30%.

@@ -6,6 +6,8 @@
 
 Reestructuración del proyecto sobre esta base documental + validación operativa de H-001 (Canal de Donchian).
 
+**Banco C-001: ABIERTO (2026-07-19), F0 cerrada.** F0 pasó re-arbitraje A-04 **CONFORME** (`F0_DICTAMEN_A04_v2.md`) tras ratificar ADR-0008 (mandato de modelo → "mejor disponible a criterio del IP" + ratificación de la F0 por Fable 5) y ADR-0009 (resiliencia = compuerta). Acta sellada. Falta solo el `git tag banco-C001-abierto` (acto del IP). **Abrir ≠ correr F1 ya**: F1 se ejecuta cuando el IP quiera (≤30%, moratoria ADR-0004 vigente). Prioridad sigue siendo evidencia (H-002.v2 + Fase B de H-001).
+
 ## Componentes
 
 | Componente | Estado | Notas |
