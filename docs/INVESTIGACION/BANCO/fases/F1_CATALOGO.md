@@ -46,9 +46,9 @@
 | F1-027 | Régimen | HMM/regímenes (FILTRO) | Regímenes en tipos de interés | Regime Switches in Interest Rates | Ang & Bekaert (2002), JBES | III | ✅ |
 | F1-028 | Régimen | HMM/regímenes (FILTRO) | Asignación condicionada a régimen HMM | Dynamic Portfolio Optimization Across Hidden Market Regimes | Nystrup, Madsen & Lindström (2018), Quant. Finance | III | ✅ |
 | F1-029 | Régimen | HMM/regímenes (FILTRO) | MS-GARCH + Copula HMM, volatilidad BTC | Regime-Switching in Bitcoin Volatility Under Global Uncertainty | Shakourloo & Azimli (2026), RIBF | III | ✅ |
-| F1-030 | Régimen | HMM/regímenes (FILTRO) | MCMC bayesiano + HMM, régimen de precio BTC | Bitcoin Price Regime Shifts | Autores MDPI (2025), Mathematics | III | ✅ |
+| F1-030 | Régimen | HMM/regímenes (FILTRO) | MCMC bayesiano + HMM, régimen de precio BTC | Bitcoin Price Regime Shifts | Paulavičius (2025), Mathematics | III | ✅ |
 
-**30/30 fuentes verificadas por búsqueda web (100%).** Ninguna entrada quedó etiquetada `[memoria del modelo — verificar]` como fuente completa; dos observaciones puntuales (autoría exacta de F1-030, estatus de publicación en journal de F1-023) se marcan explícitamente en el campo `observaciones` de esas entradas para seguimiento en F2/F3.
+**30/30 fuentes verificadas por búsqueda web (100%).** Ninguna entrada lleva el tag `[memoria del modelo — verificar]`. Una observación puntual (estatus de publicación en journal de F1-023, aún working paper SSRN) queda anotada para seguimiento en F2/F3. La autoría de F1-030 (Paulavičius, R.) fue confirmada vía metadatos MDPI (DOI 10.3390/math13101577) el 2026-07-20 — corrección de consistencia del dictamen A-04 (C-001).
 
 ---
 

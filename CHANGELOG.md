@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-20 (2) — C-001 F1 CERRADA: A-04 CONFORME + contradicción F1-030 resuelta
+
+- **Dictamen A-04 sobre F1 = CONFORME, 0 violaciones** (sesión independiente, dieta mínima; `fases/F1_DICTAMEN_A04.md`). Reportó una sola contradicción menor (C-001): F1-030 con `verificada:true` + el tag reservado `[memoria del modelo — verificar]` (autoría exacta no confirmada en su momento).
+- **Resolución — corrección de consistencia de metadatos, NO cambio de contenido epistemológico:** se verificaron los autores del paper de F1-030 vía metadatos MDPI (DOI 10.3390/math13101577) → autor único **Remigijus Paulavičius**; `fuente.autores` corregido del placeholder a "Paulavičius, R.", `verificada:true` ahora legítimo (autor+año+venue confirmados), tag reservado retirado. Verificado que **ninguna otra entrada** tenía la misma contradicción (solo F1-030). JSONL revalidado: 30/30 esquema, contradicciones = 0.
+- **Sin re-arbitraje** (criterio del IP): la contradicción era *reportada*, no violación; su solución no cambia el diseño ni el resultado de F1 — usar un arbitraje para esto sería desproporcionado.
+- **F1 CERRADA por aprobación del IP (2026-07-20).** **F2 (árbol genealógico por mecanismos, Opus) queda desbloqueada**, a ejecutar cuando el IP quiera (≤30%). Ejecución de F1 versionada en commit `71c7bf3`; esta corrección + cierre, en el commit siguiente.
+
 ## 2026-07-20 — C-001 F1 EJECUTADA (mapeo bibliográfico, 30 entradas verificadas)
 
 - **F1 (mapeo sistemático PRISMA) ejecutada** por sesión **Sonnet** (ejecutor puro, búsqueda web — coherente con el mandato de modelo del ORQUESTADOR). Producto: `fases/F1_catalogo.jsonl` (30 entradas, esquema de la regla 9 validado 30/30) + vista `fases/F1_CATALOGO.md`. **30/30 fuentes verificadas por web** (24 consultas). PRISMA: ~70 identificadas → ~36 cribadas → 30 incluidas.

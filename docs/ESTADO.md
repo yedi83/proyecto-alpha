@@ -6,7 +6,7 @@
 
 Reestructuración del proyecto sobre esta base documental + validación operativa de H-001 (Canal de Donchian).
 
-**Banco C-001: ABIERTO (2026-07-19), F0 cerrada.** F0 pasó re-arbitraje A-04 **CONFORME** (`F0_DICTAMEN_A04_v2.md`) tras ratificar ADR-0008 (mandato de modelo → "mejor disponible a criterio del IP" + ratificación de la F0 por Fable 5) y ADR-0009 (resiliencia = compuerta). Acta sellada. Falta solo el `git tag banco-C001-abierto` (acto del IP). **F1 EJECUTADA 2026-07-20** (mapeo PRISMA, 30 entradas 100% verificadas por web; `fases/F1_catalogo.jsonl` + `F1_CATALOGO.md`) — **pendiente de dictamen A-04 + aprobación del IP** antes de abrir F2. El Banco sigue siendo ≤30% (moratoria ADR-0004). Prioridad sigue siendo evidencia (H-002.v2 + Fase B de H-001).
+**Banco C-001: ABIERTO (2026-07-19), F0 cerrada.** F0 pasó re-arbitraje A-04 **CONFORME** (`F0_DICTAMEN_A04_v2.md`) tras ratificar ADR-0008 (mandato de modelo → "mejor disponible a criterio del IP" + ratificación de la F0 por Fable 5) y ADR-0009 (resiliencia = compuerta). Acta sellada. Falta solo el `git tag banco-C001-abierto` (acto del IP). **F1 CERRADA 2026-07-20** (mapeo PRISMA, 30 entradas 100% verificadas; A-04 **CONFORME** 0 violaciones + aprobación del IP; contradicción menor de F1-030 resuelta por corrección de metadatos, autor verificado vía MDPI). **F2 (árbol genealógico) DESBLOQUEADA**, a ejecutar cuando el IP quiera (≤30%, moratoria ADR-0004). Prioridad sigue siendo evidencia (H-002.v2 + Fase B de H-001).
 
 ## Componentes
 
