@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-07-20 — C-001 F1 EJECUTADA (mapeo bibliográfico, 30 entradas verificadas)
+
+- **F1 (mapeo sistemático PRISMA) ejecutada** por sesión **Sonnet** (ejecutor puro, búsqueda web — coherente con el mandato de modelo del ORQUESTADOR). Producto: `fases/F1_catalogo.jsonl` (30 entradas, esquema de la regla 9 validado 30/30) + vista `fases/F1_CATALOGO.md`. **30/30 fuentes verificadas por web** (24 consultas). PRISMA: ~70 identificadas → ~36 cribadas → 30 incluidas.
+- Cobertura de las 5 familias en alcance de F0 §2: trend/TS-momentum 7 (referencia H-001), carry/funding 6, mean-reversion 5, order-flow/liquidez 7, régimen-como-filtro 5. Exclusiones respetadas (Jegadeesh-Titman momentum XS y Makarov-Schoar arb multi-venue descartados explícitamente).
+- Revisión del IP-facilitador: esquema válido 30/30, familias en alcance, muestra de ~10 fuentes canónicas verificada contra datos propios (Moskowitz-Ooi-Pedersen 2012, Koijen et al. 2018, Kyle 1985, Amihud 2002, De Bondt-Thaler 1985, Hamilton 1989, Cont-Kukanov-Stoikov 2014…) — reales y bien citadas.
+- **F1 EJECUTADA, no CERRADA:** falta **dictamen A-04 (sesión independiente)** + aprobación del IP antes de abrir F2 (árbol genealógico). Reglas 4 y 10 del ORQUESTADOR.
+- Fricciones registradas para C-002 (instrumentación, F0 §8): (1) el "nivel de evidencia preliminar" por fuente choca con la definición I-II de F0 §4 (exige múltiples estudios independientes) → aclarar que el nivel de F1 es por fuente y que I/II emergen en F2/F3; (2) varias fuentes cripto-nativas son 2025-26, sin revisión por pares consolidada (nivel IV), acortan el margen de réplicas; (3) caso frontera Dobrynskaya 2023 (momentum corto / reversión largo) anotado sin forzar su familia, como pide F2.
+
 ## 2026-07-19 (3) — C-001 ABIERTO: ADR-0008/0009 ratificados, F0 CONFORME en re-arbitraje
 
 - **ADR-0008 ratificado** (reescrito como enmienda de política, no como "contradicción"): el mandato de modelo del ORQUESTADOR para F0 pasa de "Opus" a **"mejor modelo disponible a criterio del IP"** (alineado con el TRASPASO); se **ratifica** la F0 del C-001 ejecutada por Fable 5. Aplicado a ORQUESTADOR L60/L71/L119 + nota. Resuelve el hallazgo V-001 (la versión enmendada obtuvo A-04 CONFORME; el dictamen v1 se conserva).
