@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-07-20 (3) — C-001 F2 EJECUTADA (árbol genealógico, 30 entradas consolidadas)
+
+- **F2 (árbol genealógico por mecanismos) ejecutada** (Opus, coherente con el mandato del ORQUESTADOR). Producto: `fases/F2_ARBOL.md`. Reorganiza las 30 entradas de F1 en **5 mecanismos → familias → variantes** con herencia de evidencia hacia arriba. Verificado: las 30 entradas ubicadas, ninguna perdida.
+- Consolidación preliminar (F3 audita/confirma): **M1 Persistencia = el caso más fuerte, candidato a nivel I-II** (réplicas multi-siglo/multi-mercado, ≥5 grupos independientes; H-001/Donchian hereda este cuerpo por la equivalencia de Levine-Pedersen 2016); **M2 Carry II-III** (Koijen sólido + cripto-perp reciente; teoría del funding separada del edge para no inflar el nivel); **M3 Sobre-reacción II**; **M4 Microestructura III** (edge cripto reciente 2024-26); **M5 Régimen = método I-II pero alfa n/a** (es filtro, no fuente de retorno).
+- 3 casos frontera declarados con doble ubicación sin forzar (regla 3): F1-018 momentum/reversión (M1↔M3), F1-020 Amihud iliquidez (M4↔M2), F1-022 VPIN toxicidad (M4↔M5).
+- Fricciones para C-002 (F0 §8): (1) separar edge/teoría/método en el esquema de F1 (campo `tipo`); (2) los niveles I-II emergen recién en la consolidación de F2; (3) el nivel de "método" (régimen) ≠ nivel de "edge de retorno".
+- **F2 EJECUTADA, no CERRADA:** falta dictamen A-04 independiente + aprobación del IP antes de abrir F3 (evidencia + auditoría de robustez).
+
 ## 2026-07-20 (2) — C-001 F1 CERRADA: A-04 CONFORME + contradicción F1-030 resuelta
 
 - **Dictamen A-04 sobre F1 = CONFORME, 0 violaciones** (sesión independiente, dieta mínima; `fases/F1_DICTAMEN_A04.md`). Reportó una sola contradicción menor (C-001): F1-030 con `verificada:true` + el tag reservado `[memoria del modelo — verificar]` (autoría exacta no confirmada en su momento).
