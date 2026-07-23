@@ -1,5 +1,25 @@
 # Changelog
 
+## 2026-07-21 (3) — C-001 F4 CERRADA (A-04 CONFORME + aprobación del IP)
+
+- **Dictamen A-04 sobre F4 = CONFORME, 0 violaciones** (`fases/F4_DICTAMEN_A04.md`). El árbitro verificó específicamente los 7 aspectos que el IP pidió escrutar (lenguaje de alcance, no sobre-generalizar M2, no preempción de F5/F6, degradaciones vs F5, falsabilidad sustantiva, fidelidad vista↔JSONL); 6 salieron limpios.
+- Reportó **C-001** (contradicción, no violación): dos frases comparativas — (a) la contraparte de M1 con la coletilla "el holder pasivo paga el drawdown que la estrategia esquiva" (comparación de desempeño, no identificación de contraparte); (b) "nodo de evidencia más fuerte del ciclo" (superlativo cross-mecanismo, mismo patrón que fue violación en F2).
+- **Resolución del IP:** corregir ambas frases **sin re-arbitraje** (solo se retira lenguaje que A-04 señaló; no cambia veredictos ni estructura). JSONL (las 7 entradas de M1) + vista corregidos; verificado: 0 apariciones, 0 campos de F3 alterados. → **F4 CERRADA.**
+- **F5 (transferibilidad: cadena mecanismo→ingredientes→¿viaja a perpetuos cripto? + datos/infra requerida, Opus) DESBLOQUEADA.**
+
+## 2026-07-21 (2) — C-001 F4 EJECUTADA (fundamento económico + falsabilidad, filtrado por mérito)
+
+- **F4 ejecutada** (Opus). Producto: `fases/F4_economia.jsonl` (30 objetos = F3 heredado **verbatim, 0 alteraciones** + campos F4: `fundamento`{mecanismo_causal, contraparte, límites_arbitraje, regímenes}, `falsacion[]` condiciones de muerte, `f4_veredicto`, `f4_razon`) + vista `F4_ECONOMIA.md`. JSONL producido desde el inicio.
+- Análisis **a nivel de MECANISMO** (M1-M4; M5 Régimen fuera como edge). F4 filtra por fundamento + falsabilidad (**sí degrada/descarta, no rankea**):
+  - **`fundamento_solido`: 10** → M1 Persistencia (incl. Donchian/H-001, F1-007), M2 Carry (F1-008/009/013), y F1-014 (sobre-reacción de largo plazo, mecanismo conductual sólido).
+  - **`degradado`: 9** → M3 (la reversión de corto plazo se invierte a **momentum en el universo líquido** = los perpetuos; contradicción viva de varianza infinita F1-018; confounds lead-lag/bid-ask) + M4 microestructura (OFI contemporáneo, no predictivo; sin order book L2/L3).
+  - **`descartado`: 1** → F1-025 (estudio de determinantes de liquidez, no edge de retorno).
+  - **`no_procede` (teoría/método): 10.**
+- **Correcciones de asignación** (F4 confirma/corrige F2): M3 reinterpretada (parte del efecto es lead-lag/rebote bid-ask, no sobre-reacción pura); **F1-020 ILLIQ → prima de iliquidez (M2)**; **F1-022 VPIN → filtro de régimen (M5)**.
+- Verificado: **0 campos de F3 alterados; 0 edges en alcance sin condiciones de muerte** (falsabilidad obligatoria cumplida). Reserva viva `[memoria del modelo — verificar]`: F1-024 (afirmaciones OOS no re-verificadas).
+- Fricciones para C-002: subcampo `causa_degradacion`; campo `frontera_resuelta_F4`; fijar la regla operativa aplicada (F4 degrada solo cuando la evidencia contradice el fundamento operable; el veredicto "no viaja" es de F5).
+- **F4 EJECUTADA, no CERRADA:** pendiente dictamen A-04 independiente + aprobación del IP antes de abrir F5.
+
 ## 2026-07-21 — C-001 F3 CERRADA (A-04 CONFORME + aprobación del IP)
 
 - Tras una remediación —la vista subcontaba las entradas verificadas por web (10 → **11**, alineado al JSONL fuente de verdad; faltaba F1-008)— F3 obtuvo dictamen A-04 **CONFORME** (v2, `fases/F3_DICTAMEN_A04.md`; el árbitro reconció todos los agregados objeto a objeto). **Aprobada por el IP → F3 CERRADA.** Rastro conservado: v1 NO CONFORME + v2 CONFORME.
