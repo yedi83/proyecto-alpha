@@ -2,6 +2,8 @@
 
 > **Fecha: 2026-07-20 · Ejecutor: Opus (Claude) · Fase: F2 — Árbol genealógico (ORQUESTADOR §F2)**
 > Insumo: `F1_catalogo.jsonl` (30 entradas, F1 CERRADA con A-04 CONFORME). Este documento reorganiza el catálogo plano de F1 en un árbol enraizado en MECANISMOS. **De aquí en adelante, el árbol ES el catálogo del Banco:** una estrategia deja de ser "Donchian 512" y pasa a ser "implementación N de la hipótesis de persistencia".
+>
+> **Fuente de verdad: `F2_arbol.jsonl`** (30 objetos, un objeto por entrada = la entrada de F1 heredada **verbatim** + los campos F2: `tipo_F2` {edge/teoria/metodo/meta}, `nivel_consolidado_mecanismo`, `frontera:{es_frontera, ancla, ubicaciones}`, `mecanismo_provisional`). Este documento es una **VISTA** de ese JSONL — no al revés (regla dura 9). El JSONL se generó heredando F1 sin alterar ningún campo (**0 alteraciones verificadas**) y añadiendo únicamente lo que F2 ya consolidó en este documento; ninguna información nueva.
 
 ## Notas obligatorias de alcance
 
@@ -79,7 +81,7 @@
 
 | Mecanismo | Variantes | Papers de edge | Grupos independientes | Nivel máx. individual | **Nivel consolidado (prelim. F2; F3 confirma)** |
 |---|---|---|---|---|---|
-| M1 Persistencia | 7 | 6 (excl. la de equivalencia como meta) | ≥5 (Pedersen/AQR, CFM/Bouchaud, Imperial, Faber, practicantes Turtle) | III | **I–II candidato** — réplicas independientes multi-mercado y multi-siglo (1800-2016). El caso más fuerte del ciclo. |
+| M1 Persistencia | 7 | 6 (excl. la de equivalencia como meta) | ≥5 (Pedersen/AQR, CFM/Bouchaud, Imperial, Faber, practicantes Turtle) | III | **I–II candidato** — réplicas independientes multi-mercado y multi-siglo (1800-2016), ≥5 grupos; alto volumen e independencia de evidencia. (El ordenamiento entre mecanismos es F7, no F2.) |
 | M2 Carry | 6 | 3 de edge (008, 009, 013) + 3 de teoría | 3 de edge | III | **II–III** — Koijen (general, multi-activo, cerca de I-II) sólido; la parte cripto-perp específica es III pero reciente/fina. Teoría (010-012) sustenta plausibilidad, no suma como réplica. |
 | M3 Sobre-reacción | 5 | 5 | ≥4 (De Bondt-Thaler, Jegadeesh, Lo-MacKinlay, autores cripto) | III | **II** — tres seminales independientes en JF/RFS + extensión cripto; estructura por horizonte coherente. |
 | M4 Microestructura | 7 | 6 (+ Kyle como teoría) | ≥5 | III | **III** — teoría fundacional sólida (Kyle) + OFI bien documentado; como edge PREDICTIVO en cripto es reciente (2024-2026). |
@@ -110,4 +112,4 @@
 2. **Niveles I–II emergen recién aquí.** Confirmado el hallazgo de F1: ningún paper individual alcanza I-II, pero la **consolidación** de M1 (multi-siglo, multi-mercado, ≥5 grupos) sí es candidata a I-II. Es exactamente el trabajo que F2/F3 deben hacer y que F1 no podía.
 3. **Régimen no encaja en la métrica de "nivel de edge".** M5 tiene evidencia sólida como *método* pero es n/a como *fuente de alfa*. El esquema actual no distingue "nivel de evidencia del método" de "nivel de evidencia del edge de retorno"; anotado para el F0 del C-002.
 
-> **F2 EJECUTADA — no CERRADA.** Falta dictamen A-04 (sesión independiente) + aprobación del IP antes de abrir F3 (evidencia + auditoría de robustez). El cierre no se autodeclara.
+> **F2 CERRADA (2026-07-20)** — dictamen A-04 **CONFORME** (v3, `F2_DICTAMEN_A04_v2.md`) tras producir el JSONL y eliminar la frase de ranking; aprobada por el IP. Observaciones O-1 (subdivisión de familia en la vista) y C-001 (contradicción del ORQUESTADOR sobre el JSONL de F2) → pendientes para el F0 del C-002. **F3 desbloqueada.**

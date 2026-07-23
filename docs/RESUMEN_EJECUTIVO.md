@@ -1,10 +1,16 @@
 # Resumen Ejecutivo — Proyecto Alpha
 
-> Corte: **2026-07-17** — cierre de la mayor incógnita declarada de H-001 (funding real). Cubre el laboratorio original (`donchian512_lab`, junio 2026) y el repositorio `proyecto-alpha` (julio 2026).
+> Corte: **2026-07-20** — cierre fundacional de gobernanza (ADR-0007) y arranque productivo del Banco de Mecanismos (C-001: F1 y F2 cerradas). Extiende el corte previo del 2026-07-17 (funding real de H-001). Cubre el laboratorio original (`donchian512_lab`, junio 2026) y el repositorio `proyecto-alpha` (julio 2026).
 >
 > No confundir con: `research/H-001-canal-donchian/report/legacy/INFORME_EJECUTIVO.md` (informe del lab de junio, solo H-001, congelado como registro histórico — no se actualiza) ni `report/resumen_instancias_2026-07-10.md` (foto operativa de las 3 instancias). Este documento es la síntesis viva de TODO el proyecto y es el único que se actualiza en hitos mayores.
 
-## Titular del corte (2026-07-17) — la incógnita nº 1 se cierra a favor
+## Titular del corte (2026-07-20) — la gobernanza cierra su caso fundacional y el Banco empieza a producir
+
+**Tres hitos encadenados en 72 horas, guiados por un mismo principio nuevo.** (1) El **ADR-0007** cerró el caso fundacional: el **principio 17** entró en la Constitución — los veredictos de umbral pre-escrito no se anulan por nota, nunca más; la retroactividad muere en el único acto que la usó. (2) Ese mismo principio disciplinó a **H-002**: su banco del 07-14 se apoyaba en anular su test decisivo por nota (T1 disparó "MATA" y fue anulado en el mismo documento), así que **H-002.v1 quedó RECHAZADA** (disparo firme, sin rescate) y se re-diseñó como **H-002.v2** — sellada, con el test decisivo bien especificado desde el diseño; su screen in-sample oficial ya pasó, y el veredicto decisivo espera al forward (~2027). (3) El **Banco de Mecanismos abrió su C-001** y produjo sus dos primeras fases: **F1** (30 mecanismos de la literatura, 100% verificados por búsqueda web) y **F2** (árbol genealógico por ineficiencia, con **H-001 heredando la evidencia multi-siglo de la persistencia**). En las tres líneas, el arbitraje independiente A-04 cazó y forzó a corregir varias desviaciones antes de cada cierre — incluidas dos del propio mentor.
+
+**La foto en una frase:** el laboratorio pasó de *tener* reglas a *ejercerlas contra sí mismo*, repetidamente y en días — que es exactamente su criterio de éxito.
+
+## Titular previo (2026-07-17) — la incógnita nº 1 se cierra a favor
 
 **El funding real 2021-26 no destruyó el edge: lo mejoró.**
 
@@ -66,7 +72,19 @@ Siete días densos en los que el proceso se puso a prueba a sí mismo tres veces
 
 **H-002 formalizada (07-16).** Banco APROBADO con confianza moderada (suite T1-T5 pre-registrada) → forward en paper multi-activo desde 07-15. Declarada con honestidad como **long-only / beta positiva** (no market-neutral), no probada (n=57). Nota meta capturada: el banco reusó el motor del investigador *verbatim* en ~1 jornada = **primera evidencia (n=1) de que la plataforma abarató la segunda hipótesis** — la prueba de fuego del roadmap.
 
-## Estado operativo (2026-07-17)
+## Etapa 4 — Cierre fundacional de gobernanza y arranque productivo del Banco (2026-07-18 → 07-20)
+
+**ADR-0007 RATIFICADO — el caso fundacional queda cerrado (07-18).** El ADR-0006 (override de exp-004 por nota) fue **RECHAZADO** por el IP tras dos dictámenes A-04 NO CONFORME, y reemplazado por un acto fundacional redactado desde cero en sesión nueva. Su Parte III entró en la Constitución como **principio 17**: un veredicto de umbral pre-escrito es vinculante desde que se produce y solo se anula por ADR + dictamen A-04 CONFORME + ratificación del IP *antes* de surtir efecto; una **disposición transitoria autoderogable** admitió el único caso anterior (exp-004/exp-005) y **prohibió la retroactividad para siempre**. Efectos: Fase A convalidada, re-corte de Fase B convalidado, condición (i) (exp-008-R0) vigente, cláusula de segundo disparo armada sobre la Fase B.
+
+**H-002 disciplinada por el mismo principio (07-19).** Verificación del IP: el banco de H-002 (07-14) había aprobado apoyándose en anular su test decisivo pre-escrito por vía interpretativa — exactamente el canal que el principio 17 acababa de proscribir, y sin rescate posible (transitoria cerrada). **H-002.v1 → RECHAZADA** (disparo T1 firme; el RESULTADO original se conserva intacto). **H-002.v2 → SELLADA**: mismo edge, pero el test decisivo bien especificado desde el diseño (cesta multi-activo; screen in-sample pre-2023 ∧ forward OOS; "risk-matched" eliminado por invariancia de escala del Sharpe; funding real en la corrida decisiva; A-01 obligatorio; lockbox 2023-26 quemado → el OOS limpio es el forward). Screen in-sample **oficial**: la cesta bate al hold en Sharpe y MAR (1.88/1.46 vs 0.80/0.50) — *necesario, no suficiente*. El veredicto decisivo espera al forward (≥30 trades ∧ ≥6 meses; no antes de ~2027), con recordatorio mensual automático.
+
+**C-001 abierto y el Banco produce sus dos primeras fases (07-19 → 07-20).** Para abrir C-001, dos hallazgos A-04 sobre F0 se resolvieron por ADR ratificados (**ADR-0008** mandato de modelo → "mejor disponible a criterio del IP"; **ADR-0009** criterios de rúbrica → resiliencia como compuerta) y F0 obtuvo re-arbitraje CONFORME. Después:
+- **F1 (mapeo bibliográfico) — CERRADA:** catálogo de **30 mecanismos/estrategias** de la literatura, **100% verificados por búsqueda web** (autor/año/venue), en las 5 familias en alcance; JSONL como fuente de verdad. A-04 CONFORME (una contradicción menor de un flag resuelta verificando el autor real, no redefiniendo).
+- **F2 (árbol genealógico) — CERRADA:** las 30 entradas reorganizadas por *ineficiencia subyacente* con herencia de evidencia hacia arriba. Hallazgo clave: **H-001 (Donchian) hereda el cuerpo de evidencia de la persistencia** — réplicas multi-siglo (1800-2016), ≥5 grupos independientes, candidato a nivel I-II — porque Levine-Pedersen (2016) demuestra que Donchian, cruce de medias y TSM son el mismo edge. Régimen queda marcado como *filtro*, no fuente de alfa; 3 casos frontera declarados sin forzar. A-04 CONFORME tras dos remediaciones (produjo el JSONL que faltaba; eliminó una frase de ranking impropia de F2).
+
+*Nota meta:* en estas fases el arbitraje independiente cazó **cinco desviaciones distintas** (2 en F0, 1 en F1, 2 en F2) antes de cada cierre — dos de ellas del propio mentor. La maquinaria del Banco validándose a sí misma es la meta-pregunta declarada de F0.
+
+## Estado operativo (2026-07-20)
 
 | Instancia | Modo | Rol | Estado |
 |---|---|---|---|
@@ -78,13 +96,11 @@ Siete días densos en los que el proceso se puso a prueba a sí mismo tres veces
 
 ## Cómo seguimos — en orden
 
-1. **Hoy: nada urgente salvo la tanda de git** (commit de exp-008 con veredicto, dictamen A-02 y TEORIA v0.2).
-2. **La Fase B sigue sola hasta ~16 de agosto.** El único trabajo es la rutina: **auditoría diaria, diario al día, checklist semanal**. Ella decide lo que falta — no hay nada que "acelerar".
-3. **Pendiente de gobernanza (esta semana, sesión aparte): arbitraje A-04 sobre el ADR-0006.** El override de exp-004 sigue formalmente en estado **"Propuesta"** hasta ese dictamen y la ratificación del IP.
-4. **Trabajo paralelo del mes (≤30%, con receta escrita):** H-002 por el pipeline de investigación (backtest / OOS / lockbox — su ficha ya existe) y el **C-001** del Banco (dictamen A-04 de F0 → apertura). Ambos delegables a sesiones siguiendo `TRASPASO.md`.
-5. **Si la Fase B aprueba en agosto:** se sella el `PREREG_FASE_C` — las decisiones ya están en borrador y solo queda la **elección §9/§10**: implementar detección de intervención manual y disyuntor por anomalía *antes* de C (bot nuevo, hay que validarlo) o **diferirlos a C-002** con vigilancia manual reforzada. Entonces H-001 toca **dinero real por primera vez — $750**, con todo lo que este mes construyó vigilándolo.
+1. **Corriendo solas, sin acción del IP:** la **Fase B de H-001** (demo, cierre elegible **~16-ago** — el próximo hito real) y el **forward de H-002.v2** (evidencia decisiva ~2027, con recordatorio mensual automático ya puesto). El único trabajo es la rutina de Fase B: **auditoría diaria, diario al día, checklist semanal**. Nada que acelerar.
+2. **Banco C-001, abierto y productivo:** F0, F1 y F2 cerradas (todas con A-04 CONFORME + aprobación del IP). Siguiente fase natural = **F3** (evidencia + auditoría de robustez reportada, Opus), cuando el IP quiera (≤30%). Pendientes anotados para el F0 del **C-002**: aclarar el JSONL de F2 en la regla 9 (contradicción tabla/prompt) y la granularidad de sub-familias; más las fricciones de F1/F2 (campo `tipo` edge/teoría/método, niveles I-II que emergen recién en la consolidación).
+3. **Si la Fase B aprueba en agosto:** se sella el `PREREG_FASE_C` — decisiones en borrador; queda la **elección §9/§10** (detección de intervención manual y disyuntor *antes* de C, o diferirlos a C-002 con vigilancia reforzada). Entonces H-001 toca **dinero real por primera vez — $750**, con todo lo que estos días construyeron vigilándolo.
 
-**Deuda técnica viva:** QA de los CSV del cache de velas (huecos/duplicados) sigue abierta — el dictamen A-02 del 07-17 cubrió el funding, no el cache. Y el recolector debe emitir hash y metadatos de intervalo **de fábrica** (crítica de proceso aceptada: esta vez las huellas las congeló el auditor, no el recolector).
+**Deuda técnica viva:** QA de los CSV del cache de velas (huecos/duplicados) sigue abierta; y el recolector de datos debe emitir hash y metadatos de intervalo **de fábrica**.
 
 ## La foto grande
 
@@ -95,5 +111,7 @@ El arco de estas horas es el laboratorio entero en miniatura: una hipótesis cue
 ## El criterio de éxito vigente (del Investigador Principal)
 
 El C-001 — y el laboratorio — se juzgan por una sola cosa: *producir decisiones metodológicas respaldadas por evidencia, incluso cuando esa evidencia contradiga las expectativas previas.* Ya ocurrió **siete veces**: 0.15% rechazado (exp-002), crisis-alpha falsada, predicción original fallada y documentada, el override por nota interpretativa revertido contra el propio interés (ADR-0006), la contaminación de Fase B declarada y sus datos anulados en vez de aprovechados, **P4 refutada en su versión fuerte por exp-008** — una expectativa previa contradicha, esta vez a favor — y, el mismo día, **la atribución causal de ese resultado favorable corregida contra sí misma** (el ahorro de funding no era "cobrar carry en alts"; la cesta pagó en los 5 símbolos y ambos lados). Ese historial, no el PnL, es el activo.
+
+**Actualización al 2026-07-20:** el historial creció sin cambiar de naturaleza. **H-002.v1 fue rechazada acatando su disparo firme** — contra el deseo de conservar una segunda hipótesis que parecía prometedora — en cuanto se vio que su banco se apoyaba en anular un umbral por nota. Y el arbitraje del propio Banco **corrigió al mentor dos veces más** en F2 (un JSONL omitido y una frase de ranking impropia), cada una detectada por una sesión independiente. La regla se mantiene: la evidencia y el proceso ganan a la conveniencia, también cuando la conveniencia es de quien redacta.
 
 > **Nota de calibración (07-17):** las cinco primeras entradas corrigieron al laboratorio *en contra* de su deseo; la sexta lo hizo *a favor* — y la séptima es la más instructiva, porque corrigió la *explicación* de un resultado que ya gustaba. El riesgo cambia de signo pero no desaparece: cuando el número es favorable nadie audita el mecanismo. Dos hallazgos del auditor en un mismo resultado a favor (el hash omitido y la atribución falsa) son el recordatorio de que **la guardia baja sola cuando el resultado gusta**. Un R0 con umbrales sellados y dataset auditado es evidencia legítima, y precisamente por eso no debe usarse para relajar lo que sigue abierto: H-001 CUESTIONADA, cláusula del 2º disparo vigente, ADR-0006 aún en "Propuesta", Fase B sin cerrar.

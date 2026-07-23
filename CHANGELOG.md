@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-07-20 (5) — C-001 F2 CERRADA (A-04 CONFORME v3 + aprobación del IP)
+
+- Tras dos remediaciones —(1) producir el registro estructurado `F2_arbol.jsonl`; (2) eliminar la frase de ranking "el caso más fuerte del ciclo" (violación de alcance: F2 no prioriza, eso es F7)— F2 obtuvo dictamen A-04 **CONFORME** (v3, `fases/F2_DICTAMEN_A04_v2.md`). **Aprobada por el IP → F2 CERRADA.**
+- Rastro append-only conservado íntegro: v1 NO CONFORME (falta JSONL) + v2 NO CONFORME (frase de ranking) + v3 CONFORME. El sistema de arbitraje independiente cazó dos desviaciones distintas en F2 antes del cierre.
+- **Pendientes anotados para el F0 del C-002** (regla de inmutabilidad — no se parchea la norma a mitad de ciclo): **O-1** (la vista subdivide FAMILIA más fino que el campo `familia` del JSONL) y **C-001** (contradicción del ORQUESTADOR: la regla 9 exige JSONL a toda fase desde F1, pero la tabla de Fases y el prompt de F2 nombran solo el `.md` y la enumeración de campos omite F2).
+- **F3 (evidencia + auditoría de robustez reportada, Opus) DESBLOQUEADA** para cuando el IP quiera (≤30%).
+
+## 2026-07-20 (4) — C-001 F2: dictamen A-04 NO CONFORME (V-001) → JSONL producido, pendiente re-arbitraje
+
+- **Dictamen A-04 sobre F2 (sesión independiente) = NO CONFORME** (`fases/F2_DICTAMEN_A04.md`). Única violación **V-001**: faltaba el registro estructurado JSONL que la **regla dura 9** exige a toda fase desde F1. Todo el fondo de F2 (árbol, herencia, casos frontera, fidelidad a F1) verificado CONFORME — el bloqueo era de FORMATO.
+- Reportó **contradicción interna del ORQUESTADOR (C-001):** la regla 9 exige JSONL a "cada fase desde F1", pero la tabla de Fases y el prompt de F2 nombran solo el `.md` y la enumeración de campos de la regla 9 omite F2.
+- **Expediente** (`fases/F2_EXPEDIENTE_NO_CONFORME.md`, procedimiento del IP): identificación por hash, norma literal, confirmación de que el único bloqueo es el JSONL, y **auditoría de expresabilidad** → F2 **sí** es expresable en el esquema JSONL (el árbol ya está codificado por-registro en `mecanismo/familia/variante` de F1; F2 añade enriquecimiento por-registro; la tabla de herencia es un agregado/vista). Por la regla de decisión del IP: JSONL obligatorio **y** expresable → producirlo, no exención.
+- **`F2_arbol.jsonl` producido** heredando F1 **verbatim (0 campos alterados, verificado programáticamente)** + campos F2 trazables a la tabla de F2_ARBOL.md: `tipo_F2` (edge 20 / teoría 4 / método 5 / meta 1, coincide con los conteos de la tabla de herencia), `nivel_consolidado_mecanismo`, `frontera` (F1-018/020/022), `mecanismo_provisional`. Precaución del IP respetada: **cero información nueva.** `F2_ARBOL.md` redeclarada como VISTA del JSONL.
+- **Contradicción C-001 del ORQUESTADOR → ADR pendiente para el F0 del C-002** (regla de inmutabilidad, regla 8: no se parchea la norma a mitad de ciclo; se aclara en C-002 que F2 produce JSONL y se añade a la enumeración de la regla 9).
+- Pendiente: **re-arbitraje A-04** de F2 con el JSONL presente.
+
 ## 2026-07-20 (3) — C-001 F2 EJECUTADA (árbol genealógico, 30 entradas consolidadas)
 
 - **F2 (árbol genealógico por mecanismos) ejecutada** (Opus, coherente con el mandato del ORQUESTADOR). Producto: `fases/F2_ARBOL.md`. Reorganiza las 30 entradas de F1 en **5 mecanismos → familias → variantes** con herencia de evidencia hacia arriba. Verificado: las 30 entradas ubicadas, ninguna perdida.
