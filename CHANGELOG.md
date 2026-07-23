@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-07-21 — C-001 F3 CERRADA (A-04 CONFORME + aprobación del IP)
+
+- Tras una remediación —la vista subcontaba las entradas verificadas por web (10 → **11**, alineado al JSONL fuente de verdad; faltaba F1-008)— F3 obtuvo dictamen A-04 **CONFORME** (v2, `fases/F3_DICTAMEN_A04.md`; el árbitro reconció todos los agregados objeto a objeto). **Aprobada por el IP → F3 CERRADA.** Rastro conservado: v1 NO CONFORME + v2 CONFORME.
+- **Pendiente para el F0 del C-002:** C-001 — la escala de niveles I-VII (definida "por edge") no encaja con las entradas tipo `metodo`/`teoria` (Régimen, teóricas), que igualmente portan `nivel_evidencia_final`. Ya declarada por F3 como fricción, confirmada por A-04, no bloqueante (regla 8 de inmutabilidad).
+- **F4 (fundamento económico + falsabilidad popperiana, Opus) DESBLOQUEADA** para cuando el IP quiera (≤30%). F4 es donde se decide, con el análisis económico, cuáles de estos mecanismos merecen de verdad convertirse en hipótesis.
+
+## 2026-07-20 (6) — C-001 F3 EJECUTADA (evidencia + auditoría de robustez, 30 edges)
+
+- **F3 ejecutada** (Opus + búsqueda web). Producto: `fases/F3_evidencia.jsonl` (30 objetos = F2 heredado **verbatim, 0 alteraciones** + campos F3: `nivel_evidencia_final`, `estudios_independientes`, `riesgos`{overfitting/data-snooping/publication-bias/survivorship, reportado vs inferible}, `contradicciones`, `reproducibilidad_detalle`, `robustez_reportada[]`, `verificacion_web`) + vista `F3_EVIDENCIA.md`. **JSONL producido desde el inicio** (lección de F2 / regla 9).
+- **Niveles vs F1:** 29 mantienen, 1 baja (Faber III→IV por venue de práctica), 0 suben (no-promediado respetado — la acumulación es del nodo, no de la entrada). Régimen confirmado nivel III "(método)", alfa de retorno n/a.
+- **Robustez reportada: 36 "reportado" / 127 "no reportado"** (walk-forward 0/30, bootstrap 0/30). La mayoría de edges NO tiene publicadas las pruebas más exigentes → esas pruebas caen del lado del pipeline PIC. "No reportado" es dato. 41 campos con `[memoria del modelo — verificar]` en 21 de 30 entradas (verificación web parcial; 9 entradas núcleo trend/carry/reversión cripto totalmente verificadas).
+- **Hallazgos para F4/F5:** reversión de 1 día NO sobrevive en monedas líquidas (F1-017; crítico porque los perpetuos son el universo líquido); contradicción viva verificada en F1-018 (varianza posiblemente infinita → Sharpe/t-stat mal definidos); microestructura depende de order book L2/L3 no disponible hoy.
+- **Resumen legible para el IP:** `docs/INVESTIGACION/BANCO/RESUMEN_ESTRATEGIAS.md` (estrategias por mecanismo + explicación de los niveles).
+- Fricciones para C-002 (5, del ejecutor): granularidad entrada vs nodo en `nivel_evidencia_final`; la escala I-VII no encaja con `metodo`/`teoria`; `robustez_reportada` con tipos fijos infla filas "no reportado"; verificar 30 fuentes excede el presupuesto de una sesión; las contradicciones vivas carecen de campo de estado.
+- **F3 EJECUTADA, no CERRADA:** pendiente dictamen A-04 independiente + aprobación del IP antes de abrir F4.
+
 ## 2026-07-20 (5) — C-001 F2 CERRADA (A-04 CONFORME v3 + aprobación del IP)
 
 - Tras dos remediaciones —(1) producir el registro estructurado `F2_arbol.jsonl`; (2) eliminar la frase de ranking "el caso más fuerte del ciclo" (violación de alcance: F2 no prioriza, eso es F7)— F2 obtuvo dictamen A-04 **CONFORME** (v3, `fases/F2_DICTAMEN_A04_v2.md`). **Aprobada por el IP → F2 CERRADA.**
