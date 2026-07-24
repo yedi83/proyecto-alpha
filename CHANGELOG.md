@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-07-23 (2) — Candidata ILLIQ-MR-001 (H-003) registrada en cola (no ejecutar)
+
+- Del insight del IP (reversión de corto plazo **condicional a la iliquidez**; Zaremba et al., >3.600 criptoactivos: reversión en ilíquidas, momentum en líquidas). Consistente con la frontera M2/M4 de ILLIQ y F1-017 que el Banco ya marcó en F2/F4, y con el veredicto de F5 (ILLIQ `viaja_con_condiciones`: requiere universo amplio). Ficha: `docs/INVESTIGACION/BANCO/COLA_CANDIDATAS/ILLIQ-MR-001.md`.
+- **Precisión central (IP):** NO asumir que ILLIQ *causa* la reversión. Null por defecto = **artefacto** (bid-ask bounce, stale prices, microestructura, sesgos de medición); la carga de la prueba es demostrar un edge real por encima. Compuertas de diseño: **cosechabilidad neta de impacto por quintil** (la iliquidez que crea la señal la come); controles de artefacto; ILLIQ **rolling** (no etiqueta fija); sin sesgo de supervivencia (incluye delistados); OOS. Universo estratificado A-D; extremo-ilíquido (D) solo como sensibilidad.
+- **Decisión del IP:** candidata **en cola post-C-001** + **prioridad de Data Lake** (universo amplio estratificable + delistados + QA). **NO ejecutar** sobre el universo actual; **NO modificar F4/F5 ni abrir ADR**; formalizar como H-003 en C-002 solo tras definir universo + PREREG. F5 no se toca — la candidata es coherente con su veredicto (`viaja_con_condiciones`), no lo contradice. Valor si prospera: M3 no se descarta, se reconceptualiza como **edge condicional a la liquidez** (condicionador de régimen momentum↔reversión).
+
 ## 2026-07-23 — C-001 F5 EJECUTADA (transferibilidad a perpetuos cripto)
 
 - **F5 ejecutada** (Opus, **directamente en la sesión principal** por límite de presupuesto de la cuenta — el subagente web se cortó a mitad; se ejecutó sin él. Afirmaciones estructurales apoyadas en conocimiento establecido + la evidencia ya verificada por web en F1-F4; lo dudoso etiquetado `[memoria del modelo — verificar]`). Producto: `fases/F5_transferencia.jsonl` (30 objetos = F4 heredado **verbatim, 0 alteraciones** + campo `transferibilidad{ingredientes, ingredientes_en_cripto, costes_liquidez, veredicto, condiciones, datos_infra, esfuerzo}`) + vista `F5_TRANSFERENCIA.md`. JSONL desde el inicio.
