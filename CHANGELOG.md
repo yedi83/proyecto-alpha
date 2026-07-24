@@ -1,5 +1,15 @@
 # Changelog
 
+## 2026-07-23 — C-001 F5 EJECUTADA (transferibilidad a perpetuos cripto)
+
+- **F5 ejecutada** (Opus, **directamente en la sesión principal** por límite de presupuesto de la cuenta — el subagente web se cortó a mitad; se ejecutó sin él. Afirmaciones estructurales apoyadas en conocimiento establecido + la evidencia ya verificada por web en F1-F4; lo dudoso etiquetado `[memoria del modelo — verificar]`). Producto: `fases/F5_transferencia.jsonl` (30 objetos = F4 heredado **verbatim, 0 alteraciones** + campo `transferibilidad{ingredientes, ingredientes_en_cripto, costes_liquidez, veredicto, condiciones, datos_infra, esfuerzo}`) + vista `F5_TRANSFERENCIA.md`. JSONL desde el inicio.
+- **Veredictos: 8 viaja · 2 viaja_con_condiciones · 9 no_viaja · 11 n/a.**
+  - **VIAJA:** persistencia (F1-001..007; ya es H-001, con OHLCV+funding que tienes) y carry (F1-008/009; el funding ES el carry, nativo del instrumento).
+  - **VIAJA c/ condiciones:** F1-013 (arb funding CEX/DEX → requiere infra DEX inexistente); F1-020 ILLIQ (computable con volumen sin order book, pero requiere universo amplio).
+  - **NO VIAJA:** M3 sobre-reacción (horizonte 3-5a incompatible con perp; la reversión de corto plazo se **invierte a momentum en el universo líquido**; varianza infinita en F1-018) y M4 microestructura (requiere order book L2/L3 que el laboratorio NO tiene; F0 §2 lo anticipó).
+- Lectura del embudo (F5, **no** priorización): viajan limpiamente **persistencia** (=H-001, redundante) y **carry/funding** (el más nativo y el más distinto de H-001). La selección la decide F7.
+- **F5 EJECUTADA, no CERRADA:** pendiente dictamen A-04 independiente + aprobación IP antes de F6. **El A-04 exige un subagente independiente (sesión aparte, dieta mínima) → requiere el presupuesto desbloqueado.**
+
 ## 2026-07-21 (3) — C-001 F4 CERRADA (A-04 CONFORME + aprobación del IP)
 
 - **Dictamen A-04 sobre F4 = CONFORME, 0 violaciones** (`fases/F4_DICTAMEN_A04.md`). El árbitro verificó específicamente los 7 aspectos que el IP pidió escrutar (lenguaje de alcance, no sobre-generalizar M2, no preempción de F5/F6, degradaciones vs F5, falsabilidad sustantiva, fidelidad vista↔JSONL); 6 salieron limpios.
