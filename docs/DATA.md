@@ -8,7 +8,7 @@
 |---|---|---|---|
 | Velas 15m (backtest) | Cache local de CSVs (`../backtest/cache/{SYM}_15m_24m.csv` y ficheros de ventanas históricas), origen Binance | Ventanas usadas: 2024-07→2026-06 (in-sample+lockbox) y 2021-2023 (no vista); FULL 2021-26 para cesta | ✅ Verificado en código |
 | Velas 15m (bot, Fase A) | `fetch_ohlcv` vía ccxt contra **Binance testnet** (`testnet.binancefuture.com`) | Solo velas cerradas (`df.iloc[:-1]`); las velas atrasadas del feed testnet se registran como eventos y NO son extrapolables a producción (anotado en diario de fase) | ✅ Verificado |
-| Funding (backtest) | **Modelado**: 0.01%/8h uniforme; variante pesimista probada | **El funding real es la mayor incógnita de magnitud declarada** — Binance solo expone el último tramo histórico; con funding alto, 2024-26 queda ≈ 0 | ⚠️ Abierta; Fase B lo mide por trade |
+| Funding (backtest) | **Modelado** 0.01%/8h uniforme (baseline) **+ funding REAL 2021-26 recolectado** (exp-008, `datalake/funding/`, 5 símbolos de H-001, dictamen A-02 APTO, hashes SHA-256 congelados) | **Actualizado 2026-07-23:** el funding real 2021-26 **ya no es incógnita** para los 5 símbolos de H-001 — exp-008 dio **R0 ACEPTABLE** (mejora todas las ventanas vs. el modelo uniforme). Un universo de carry más amplio requeriría recolección adicional | ✅ Recolectado (5 símbolos H-001); ⚠️ pendiente ampliar universo |
 | Costes | Modelo Zoomex: taker 0.06%/lado + slippage por símbolo (BTC/ETH 0.01% … HYPE 0.05%) | Fills del backtest optimistas en stops (declarado); variante con fills pesimistas probada | ✅ Documentado |
 | Universo | BTC, ETH, SOL, BCH, DOGE (+HYPE solo backtest, descartado) | Elegido en 2026 entre majors vivos → **survivorship en la selección, declarado en la ficha** | ⚠️ Limitación aceptada |
 
@@ -33,4 +33,4 @@
 
 ## Data Lake (Etapa 3 — requisitos que este inventario confirma)
 
-Recolección automatizada desde endpoint real (no testnet) · funding rate histórico completo por símbolo (la carencia nº 1 detectada) · open interest (lo exige la predicción P3 de la hipótesis económica) · inclusión de pares delistados · QA de integridad automatizado.
+Recolección automatizada desde endpoint real (no testnet) · funding rate histórico por símbolo (**recolectado para los 5 símbolos de H-001 por exp-008, 2026-07; pendiente ampliar a un universo más amplio**) · open interest (lo exige la predicción P3 de la hipótesis económica) · inclusión de pares delistados · QA de integridad automatizado.

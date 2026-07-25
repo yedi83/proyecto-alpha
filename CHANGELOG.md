@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-07-23 (3) — C-001 F5 CERRADA (A-04 CONFORME v2) + DATA.md actualizado
+
+- Dictamen A-04 sobre F5 = **NO CONFORME (v1):** F5 afirmaba "funding real 2021-26 ✅" citando `DATA.md`, pero `DATA.md` (07-03, desactualizado) lo marcaba como modelado/incógnita/"carencia nº 1". El árbitro cazó la incoherencia entre F5 y su propia fuente.
+- **Resolución (Camino 1, IP):** (1) **`DATA.md` actualizado** para reflejar exp-008 (funding real 2021-26 recolectado para los 5 símbolos de H-001, A-02 APTO, hashes congelados, R0 ACEPTABLE) — corrige una **deuda documental real** (llevaba stale desde el 07-03); (2) afirmación de F5 **afinada** (recolectado para los 5 símbolos; universo de carry más amplio requeriría recolección adicional). 0 campos de F4 alterados. Re-arbitraje A-04 = **CONFORME** (v2, `fases/F5_DICTAMEN_A04.md`; rastro v1+v2 conservado). Aprobado por el IP → **F5 CERRADA.**
+- Efecto colateral valioso: al exigir coherencia F5↔fuente, el arbitraje destapó que `DATA.md` estaba desactualizado. El sistema encontró un error del ejecutor (F5, sesión directa) y una deuda de documentación a la vez.
+- **F6 (diseño experimental: protocolo de validación completo por candidata, en DOS sesiones —diseñador + adversarial sin contexto del diseñador—, regla anti-autoengaño) DESBLOQUEADA.** Filtro F1-F5: viajan persistencia (=H-001, redundante) y carry (nativo del instrumento, candidato natural).
+
 ## 2026-07-23 (2) — Candidata ILLIQ-MR-001 (H-003) registrada en cola (no ejecutar)
 
 - Del insight del IP (reversión de corto plazo **condicional a la iliquidez**; Zaremba et al., >3.600 criptoactivos: reversión en ilíquidas, momentum en líquidas). Consistente con la frontera M2/M4 de ILLIQ y F1-017 que el Banco ya marcó en F2/F4, y con el veredicto de F5 (ILLIQ `viaja_con_condiciones`: requiere universo amplio). Ficha: `docs/INVESTIGACION/BANCO/COLA_CANDIDATAS/ILLIQ-MR-001.md`.

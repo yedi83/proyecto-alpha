@@ -8,7 +8,7 @@
 
 Se evalúa la transferibilidad de los **supervivientes de F4** (10 `fundamento_solido` + 9 `degradado`). Los `descartado`/`no_procede` quedan `na` (fuera de alcance). Esto **NO es priorización ni scoring** (eso es F7); F5 solo juzga si el mecanismo *viaja* a perpetuos cripto y con qué datos/esfuerzo.
 
-**Realidad de datos del laboratorio (de `DATA.md`):** OHLCV 15m ✅ · funding real 2021-26 ✅ · open interest ❌ (planeado, lo exige P3) · order book L2/L3 ❌.
+**Realidad de datos del laboratorio (de `DATA.md`):** OHLCV 15m ✅ · funding real 2021-26 ✅ (recolectado para los **5 símbolos de H-001** por exp-008, dictamen A-02 APTO; un universo de carry más amplio requeriría recolección adicional) · open interest ❌ (planeado, lo exige P3) · order book L2/L3 ❌.
 
 ---
 
@@ -45,7 +45,7 @@ Se evalúa la transferibilidad de los **supervivientes de F4** (10 `fundamento_s
 - **Ingredientes:** un carry cobrable.
 - **¿En perp cripto?** Sí, de forma directa: **el funding ES el carry**, observable y cobrable cada 8h.
 - **Costes/liquidez:** el funding es la señal; riesgo de cola (carry crashes / de-peg) señalado en F4.
-- **Veredicto: VIAJA** (F1-008 general como mecanismo, F1-009 la implementación cripto). Datos: funding (ya recolectado 2021-26) + OHLCV; OI recomendable. Esfuerzo: **bajo-medio**.
+- **Veredicto: VIAJA** (F1-008 general como mecanismo, F1-009 la implementación cripto). Datos: funding (real 2021-26 recolectado para los 5 símbolos de H-001; ampliar el universo de carry requeriría recolección adicional) + OHLCV; OI recomendable. Esfuerzo: **bajo-medio**.
 - **F1-013 (arb funding CEX/DEX): VIAJA CON CONDICIONES** — requiere infraestructura DEX (gas, latencia, custodia) que hoy no existe. Esfuerzo alto.
 
 ### M3 · Sobre-reacción (reversión) — **NO VIAJA**
@@ -66,4 +66,4 @@ De los 30 candidatos de la literatura, los que **viajan limpiamente a tu instrum
 
 **Esto es transferibilidad, no selección.** Cuál merece convertirse en la próxima hipótesis —y cómo pesa la redundancia de persistencia con H-001— lo decide **F7**, no F5.
 
-> **F5 EJECUTADA — no CERRADA.** Falta dictamen A-04 (sesión independiente) + aprobación del IP antes de abrir F6. El cierre no se autodeclara.
+> **F5 CERRADA 2026-07-23** — A-04 CONFORME (v2, `F5_DICTAMEN_A04.md`) tras una remediación (se afinó el estado del funding real y se actualizó `DATA.md`, que estaba desactualizado respecto de exp-008) + aprobación del IP. **F6 (diseño experimental) desbloqueada.**
