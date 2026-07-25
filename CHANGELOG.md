@@ -1,5 +1,20 @@
 # Changelog
 
+## 2026-07-23 (5) — C-001 F6 CERRADA (A-04 CONFORME + aprobación del IP)
+
+- **Dictamen A-04 sobre F6 = CONFORME, 0 violaciones** (`fases/F6_DICTAMEN_A04.md`). El árbitro verificó explícitamente los **10 aspectos** que el IP pidió escrutar: amenazas incorporadas (no neutralizadas cosméticamente), pruebas ejecutables/falsables, limitaciones bloqueantes separadas de pruebas, **no adelanta F7**, **mecanismo ≠ edge demostrado ≠ estrategia ejecutable**, **evidencia insuficiente ≠ refutación**, fidelidad JSONL↔MD y a F5 (0 alteraciones), **sin ranking encubierto** (las correcciones de lenguaje previas —"mejor candidato", "mecanismo es real"— quedaron limpias).
+- **C-001 (contradicción reportada):** etiquetas de AC-11/14/15 inconsistentes MD↔JSONL + "AJUSTE" fuera del binario prueba/limitación de F0 §3c. **Resuelta** alineando las tres como PRUEBA (16 = 11 pruebas + 5 limitaciones), sin re-arbitraje, sin tocar veredictos ni contenido. Aprobado por el IP → **F6 CERRADA.**
+- **F7 (priorización con la rúbrica de F0 + mapa de complementariedad + top-N a la cola del REGISTRO) DESBLOQUEADA — última fase del ciclo C-001.** Ahí se pesa la redundancia carry vs H-001 (persistencia) y se decide qué pasa a la cola de hipótesis. Nota: con el bloqueo por Data Lake y la moratoria, es probable que el output sea "candidata(s) en cola pendientes de Data Lake", no una hipótesis lista para correr hoy.
+
+## 2026-07-23 (4) — C-001 F6 EJECUTADA (diseño experimental, doble pasada 6a+6b)
+
+- **F6 en dos sesiones separadas** (regla anti-autoengaño del ORQUESTADOR): **6a diseñador** (`fases/F6_PROTOCOLOS_6a.md`) + **6b adversarial** (`fases/F6_AMENAZAS_6b.md`, revisor hostil **sin el contexto de 6a**). Fusión: `fases/F6_PROTOCOLOS.md` + `fases/F6_protocolos.jsonl` (F5 enriquecido con campo `f6`; **0 alteraciones**).
+- **Protocolo principal: CARRY / funding** (M2, F1-008/009) — cartera **delta-neutral spot/perp, market-neutral, larga de la prima de funding / corta de la volatilidad del carry, beta≈0**. 7 puntos completos (formato F0 §6) + compuerta neto-de-costes (G1) + condiciones de retiro de F4.
+- **Compuerta adversarial (F0 §3c): las 16 amenazas de 6b incorporadas** — 10 como PRUEBAS a añadir (crítica **AC-7**: la señal debe usar el funding **conocido en t**, no el realizado, para evitar lookahead), 6 como LIMITACIONES declaradas.
+- **Veredicto honesto (no priorización — eso es F7):** el protocolo está completo **como diseño** y su **mecanismo económico es plausible** (≠ edge demostrado ≠ estrategia ejecutable), pero la **validación *limpia* está BLOQUEADA por prerrequisitos de datos** — sobre todo **AC-8** (survivorship censura la cola del carry-crash: LUNA/UST fuera del universo = el riesgo exacto por el que la estrategia cobra prima **no está en los 5 símbolos**), **AC-9** (si el espejo spot es sintético, la descomposición funding/base es no identificable → A-02 debe verificar spot real), **AC-10** (lockbox posiblemente contaminado por exp-008/H-002), **AC-4** (capacidad no estimable sin order book). El **Data Lake** (universo amplio + delistados + su funding + spot real) emerge como el **cuello de botella crítico** — el mismo que bloquea `ILLIQ-MR-001`.
+- Bocetos **CEX-DEX** (F1-013, infra DEX) e **ILLIQ** (F1-020, Data Lake) quedan bloqueados por prerrequisito, con sus amenazas anotadas.
+- **F6 EJECUTADA, no CERRADA:** pendiente dictamen A-04 independiente + aprobación del IP antes de abrir F7 (priorización + cola).
+
 ## 2026-07-23 (3) — C-001 F5 CERRADA (A-04 CONFORME v2) + DATA.md actualizado
 
 - Dictamen A-04 sobre F5 = **NO CONFORME (v1):** F5 afirmaba "funding real 2021-26 ✅" citando `DATA.md`, pero `DATA.md` (07-03, desactualizado) lo marcaba como modelado/incógnita/"carencia nº 1". El árbitro cazó la incoherencia entre F5 y su propia fuente.
