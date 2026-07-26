@@ -84,7 +84,10 @@ def apply_account_config(ex):
 
 def make_exchange():
     ex=getattr(ccxt, EXCHANGE_ID)({"apiKey":API_KEY,"secret":API_SECRET,
-        "enableRateLimit":True,"options":{"defaultType":"future"}})
+        "enableRateLimit":True,
+        # CAMBIO-FRONTERA 2026-07-26: robustez de timestamp ante drift de reloj (InvalidNonce -1021).
+        # Neutral a la estrategia: solo afecta la firma temporal, no senales ni sizing.
+        "options":{"defaultType":"future","adjustForTimeDifference":True,"recvWindow":10000}})
     # CAMBIO-FRONTERA F0: demo trading en lugar del testnet retirado
     if EXCHANGE_TESTNET:
         if hasattr(ex, "enable_demo_trading"):
@@ -94,7 +97,7 @@ def make_exchange():
             assert "demo" in fapi.lower(), f"endpoint no parece demo trading: {fapi}"
         else:
             raise RuntimeError("ccxt sin enable_demo_trading: actualizar ccxt (>=4.5)")
-    ex.load_markets(); return ex
+    ex.load_markets(); ex.load_time_difference(); return ex  # CAMBIO-FRONTERA 2026-07-26: calibra offset vs servidor
 
 def now(): return datetime.now(timezone.utc)
 def iso(t):
@@ -311,10 +314,37 @@ def _close_log(ex, st, sym, pos, sg, fill, exit_px_signal):
         "qty":pos["qty"],"fees":fees,"funding":funding,"gross_pnl":gross,"net_pnl":net})
     log(f"[{sym}] SALIDA {side} @ {fill['price']} | net {net:.2f}$ (funding {funding:.2f})")
 
+# ---------------- CAMBIO-FRONTERA 2026-07-26: marcador de downtime (integridad Fase B) ----------------
+# Al arrancar, si hubo un hueco desde el ultimo evento registrado, escribe una fila DOWNTIME en
+# eventos.csv para poder CENSURAR esa ventana en el analisis forward (distingue "mercado sin senal"
+# de "bot caido"). Neutral a la estrategia: no toca senales, sizing ni ordenes.
+def _tf_seconds():
+    tf=str(TIMEFRAME).strip(); mult={"m":60,"h":3600,"d":86400}
+    try: return int(tf[:-1])*mult.get(tf[-1].lower(),60)
+    except Exception: return 900
+
+def mark_downtime_on_startup():
+    try:
+        if not EVENTS_FILE.exists(): return
+        last=None
+        with open(EVENTS_FILE, newline="", encoding="utf-8") as f:
+            for row in csv.reader(f):
+                if row and row[0] and row[0]!="ts_utc": last=row[0]
+        if not last: return
+        t_last=pd.to_datetime(last, utc=True); t_now=now()
+        gap_s=(t_now - t_last).total_seconds()
+        if gap_s > 2*_tf_seconds():
+            log_event("", "", "downtime", "gap", motivo="reinicio_tras_hueco",
+                      detalle="desde=%s hasta=%s gap_min=%.1f"%(last, iso(t_now), gap_s/60))
+            log("[DOWNTIME] hueco de %.1f min desde %s -> marcado en eventos.csv"%(gap_s/60, last))
+    except Exception as e:
+        log("mark_downtime:", e)
+
 def main():
     log(f"BOT Donchian512 FASE-B | exchange={EXCHANGE_ID} demo={EXCHANGE_TESTNET} DRY_RUN={DRY_RUN}")
     log(f"riesgo/trade={{'BTC':0.125, 'resto':0.10}}% | cap agregado={AGG_RISK_CAP*100}% | kill diario={DAILY_LOSS_KILL*100}%")
     ex=make_exchange(); apply_account_config(ex); st=load_state(); reconcile_positions(ex, st)
+    mark_downtime_on_startup()   # CAMBIO-FRONTERA 2026-07-26: marca hueco forward si lo hubo
     last_bar=0
     while True:
         try:
