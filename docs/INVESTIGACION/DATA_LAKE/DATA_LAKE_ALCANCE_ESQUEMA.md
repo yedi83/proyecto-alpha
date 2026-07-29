@@ -1,6 +1,6 @@
 # Data Lake — Alcance y esquema (documento de diseño)
 
-> **Fecha: 2026-07-26 · v2 (incorpora decisiones del IP) · Autor: Opus (Claude) sobre el plan del IP · Estado: DISEÑO / CONTRATO PROPUESTO.**
+> **Fecha: 2026-07-26 · v2 · Autor: Opus (Claude) sobre el plan del IP · Estado: CONTRATO CONGELADO por aprobación del IP (2026-07-26).** No se modifica el alcance; cambios futuros = nueva versión con justificación.
 > **Esto NO es código, NO es un recolector, NO es una hipótesis nueva.** Es el contrato de datos a **congelar antes** de construir nada (generalización de ADR-0010: fuente y esquema primero, código después).
 > **Gobernanza:** el C-001 está cerrado; este diseño es material para el **F0 del C-002** (moratoria ADR-0004). No modifica ningún experimento en curso.
 
@@ -18,6 +18,7 @@
 7. **A-02:** no basta validar archivos sueltos. Debe verificar **integridad + coherencia + cobertura**, incluyendo una **auditoría contra un censo externo** para detectar survivorship.
 8. **Separación de capas:**
    `Data Lake` (almacena evidencia histórica) → `QA/A-02` (certifica integridad, cobertura, trazabilidad) → `F0 C-002` (formula la pregunta) → `F1–F7` (investiga y filtra).
+9. **Regla de uso vs. promoción (COMPUERTA DURA):** el Data Lake **puede usarse como infraestructura de investigación antes de estar certificado**, pero **ningún resultado experimental que dependa de él puede considerarse evidencia válida para promoción hasta que el slice de datos utilizado tenga QA/A-02 CONFORME y su manifiesto esté pineado.** Explorar con datos no certificados: permitido. Promover con ellos: prohibido. Así el entusiasmo por el C-002 no puede presionar a la infraestructura para producir datos "suficientemente buenos".
 
 ## 1. Principio rector
 
@@ -120,7 +121,7 @@ Construir el esquema completo **no obliga** a llenar el lago completo de una. Es
 
 1. **Congelar** alcance/esquema (este doc). 2. **Especificar** QA/A-02 en detalle. 3. **Construir** el recolector V1 contra el contrato congelado. 4. **Recolectar** V1. 5. **Ejecutar** QA/A-02 (integridad + cobertura). 6. **Con datos certificados**, retomar el **F0 del C-002**.
 
-> **Regla de paralelismo:** el F0 del C-002 **no tiene que esperar** a que exista todo el Data Lake — puede formularse en paralelo. Pero **ninguna hipótesis que dependa de datos aún no certificados por A-02 avanza a ejecución.** Así infraestructura e investigación avanzan sin contaminarse.
+> **Regla de paralelismo (decisión #9):** el F0 del C-002 **no tiene que esperar** a que exista todo el Data Lake — puede formularse y explorar en paralelo. Pero **ningún resultado que dependa de datos aún no certificados por A-02 (con manifiesto pineado) puede presentarse como evidencia de promoción.** Explorar sí; promover no. Así infraestructura e investigación avanzan sin contaminarse.
 
 ## 11. Lo que este documento NO hace (honestidad)
 
