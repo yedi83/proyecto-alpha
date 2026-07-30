@@ -73,3 +73,29 @@ Firma: Revisor adversarial · 2026-07-29 · sesión independiente
 
 ## Nota de transición
 v1 (NO CONFORME, circularidades) → v2 (rediseño de anclas, censo de dos rutas) → **v2 NO CONFORME**: el ataque de proveniencia revela un límite que no es un bug del contrato sino de la realidad de datos (todo deriva de Binance). Pendiente decisión estratégica del IP antes de v3.
+
+---
+
+# Dictamen adversarial — Contrato QA/A-02 (v3)
+
+> 3er pase, sesión independiente (dieta: alcance v2 + QA/A-02 v3 + DATA.md) el 2026-07-29. Append-only. **Resultado: NO CONFORME.** Convergencia de 3 pases: sin fuente externa genuinamente independiente, el survivorship no se CONTROLA, solo se DECLARA/ACOTA — y la cota es solo sobre ausentes-conocidos. El revisor expone; no corrige.
+
+```
+DICTAMEN ADVERSARIAL — Contrato QA/A-02 v3
+VECTOR 1 "material/cota razonable": VULNERABLE — §11 confiesa que no fija valores ("los ubica y les asigna dueño"). Placeholders de v2 con nombres nuevos; el dueño fija el umbral sin anclaje externo.
+VECTOR 2 APTO-ACOTADO puerta de escape: VULNERABLE — el puente §2 colapsa 4 estados a binario: APTO y APTO-ACOTADO pasan. La frontera ACOTADO↔NO APTO usa "cota razonable" (indefinida) y "sigue mostrando evidencia" (sin umbral estadístico → cualquier edge no-nulo pasa). Casi todo lo defectuoso entra como ACOTADO.
+VECTOR 3 test de cota (§3): VULNERABLE (fatal) — (a) "plausible" elegible a gusto; (b) AUTODESTRUCCIÓN: para un ausente ilíquido, −100% sin liquidez = no operable = PnL≈0 → el edge sobrevive trivialmente; el peor caso es benigno para justo los símbolos más sospechosos; (c) enumerar ausentes exige censo completo que §8 admite que puede fracasar → cota solo sobre ausentes-conocidos, presentada como cota del universo.
+VECTOR 4 censo medible: VULNERABLE/circular — denominador Binance-derivado; 99% de un denominador sesgado sigue sesgado. Criterio de fracaso circular: medir "fracción faltante" exige conocer el universo verdadero, que es lo que el censo incompleto no da.
+VECTOR 5 wash-trading (§4): VULNERABLE — solo se MENCIONA, no se GATEA. La tabla de estados §2 no tiene condición de wash; el template lo imprime informativo. Dataset con wash masivo pasa QA (wash no es control QA), sobrevive §3, y obtiene APTO con edge inflado por trades falsos.
+VECTOR 6 caducidad/responsable: VULNERABLE — "responsable nombrado" sin exigir independencia; la parte que promueve puede fijar "material/cota" y renovar la revisión → juez y parte por la puerta de gobernanza.
+VECTOR 7 estados↔compuerta: VULNERABLE — mapeo por prosa holística, no función total. Solo integridad tiene regla dura, pero nada mapea "INTEGRIDAD NO CONFORME"→NO APTO global; un 🔴 puede convivir con APTO-ACOTADO global.
+VECTOR 8 survivorship de selección (§5): VULNERABLE por admisión — se nombra, no se controla; ungated por diseño (caso vivo: BTC/ETH/SOL elegidos entre majors vivos).
+VECTOR 9 circularidad residual: VULNERABLE — §3←§8-censo←raw(binance.vision)←mismo origen que las fuentes del censo (anuncios Binance, exchangeInfo). Único ancla externa = Tardis, OPCIONAL/condicional; sin comprarlo, lazo cerrado sin ancla externa.
+ADICIONALES: 1 certificación depende de estrategia (APTO = propiedad dato+estrategia, no dato → certification-shopping); 2 fracaso del censo se vuelve vía de promoción (§8→§3 sobre censo incompleto); 3 "suficientemente verificado" sin % mínimo; 4 restatement depende de anclas opcionales; 5 "nivel de confianza" del censo sin escala.
+SOBRE-BLOQUEO SIMÉTRICO: dataset completo con proveniencia única y sin Tardis → CONDICIONADO injusto (reintroduce el over-blocking de v2); edge legítimo pequeño puede morir bajo −100% no representativo → NO APTO injusto.
+VEREDICTO: NO CONFORME
+Firma: Revisor adversarial · 2026-07-29 · sesión independiente
+```
+
+## Convergencia de los tres pases (nota para el IP)
+v1 (circularidades) → v2 (rediseño de anclas) → v3 (censo + cota + 4 estados) → **los tres NO CONFORME por la misma raíz**: no existe ancla externa a Binance en datos gratuitos. La cota de survivorship (el escape "inteligente") es autodestructiva para los símbolos que importan. Decisión estratégica pendiente del IP: **comprar el ancla externa (Tardis) o aceptar el survivorship como limitación declarada+acotada de alcance, no controlada.** No es un problema de redacción de v4.
