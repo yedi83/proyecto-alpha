@@ -99,3 +99,58 @@ Firma: Revisor adversarial · 2026-07-29 · sesión independiente
 
 ## Convergencia de los tres pases (nota para el IP)
 v1 (circularidades) → v2 (rediseño de anclas) → v3 (censo + cota + 4 estados) → **los tres NO CONFORME por la misma raíz**: no existe ancla externa a Binance en datos gratuitos. La cota de survivorship (el escape "inteligente") es autodestructiva para los símbolos que importan. Decisión estratégica pendiente del IP: **comprar el ancla externa (Tardis) o aceptar el survivorship como limitación declarada+acotada de alcance, no controlada.** No es un problema de redacción de v4.
+
+---
+
+# Dictamen adversarial — Contrato QA/A-02 (v4, alcance B)
+
+> 4º pase, sesión independiente (dieta: alcance v2 + QA/A-02 v4 + DATA.md) el 2026-07-29. Append-only. **Resultado: NO CONFORME.** Naturaleza DISTINTA a v1–v3: v4 acertó el ALCANCE (B, no afirma controlar survivorship) pero falla en ENFORCEMENT — la arquitectura honesta no se auto-obliga. El revisor expone; no corrige.
+
+```
+DICTAMEN ADVERSARIAL — Contrato QA/A-02 v4
+FLANCO 1 (Declaración honesta vs fuga):
+ 1 Declaración decorativa — VULNERABLE: nada obliga a F0 a leer/actuar la Declaración; la compuerta dura (ALCANCE §0.9/regla 5) solo exige "calidad CONFORME + manifiesto", no acuse ni acción sobre §4. Dataset con calidad CONFORME y puntos ciegos enormes promueve igual.
+ 2 "depende de la cola ausente" sin criterio — VULNERABLE (núcleo): §2 hace descansar la disciplina C en esa distinción, sin definición/test/umbral. La arbitrariedad no salió; se RELOCALIZÓ de "material/plausible" (v1–v3) a "depende de la cola ausente", igual de indefinida y ahora load-bearing (§7 falsamente dice que se eliminó).
+ 3 Re-etiquetado tail→no-dependiente — VULNERABLE: F0 juzga la dependencia (§2) Y promueve, pero NO está en la tríada de independencia §5. Juez-y-parte sobre la clasificación que abre el carril barato; re-etiquetar "no depende" es trivial y no policiado.
+ 4 Declaración incompleta/optimista — VULNERABLE: v4 degradó silenciosamente el censo de EXTERNO (ALCANCE §5) a binance-derivado (§1B/§4) y cruza censo↔raw de misma proveniencia. No revela símbolos que Binance nunca publicó → el punto ciego (a) es sistemáticamente mayor que lo que "cobertura observada" sugiere. Sin control de completitud.
+FLANCO 2 (calidad realmente gateada):
+ 5 WASH no gateado — VULNERABLE (clave): heurísticas sin un solo valor (§3/§7 placeholder); "grueso" indefinido; y el sub-grueso se declara punto ciego. Un wash calibrado bajo el umbral indefinido que INFLA el edge no dispara → 🟢 → CONFORME → promueve. El gate no gatea justo el wash que importa.
+ 6 Agregación — VULNERABLE: sin tope/escalado por acumulación (N 🟠 graves nunca suman 🔴); y no se define si "CONFORME CON OBSERVACIONES" cuenta como "CONFORME" para la compuerta. PIT solo emite 🟠 (nunca bloquea).
+ 7 "artefacto independiente" (duplicados) — VULNERABLE parcial: excluye la nota del recolector pero no define qué SÍ vale ni quién valida su independencia → discreción del certificador reabre juez-y-parte.
+ 8 REPRO — VULNERABLE: el pin (raw+parser+a02) no consta que cubra los VALORES de umbrales ni el censo de la Declaración; umbral cambia sin bump → veredicto no caduca. Determinismo "por corrida repetida" es auto-certificación.
+ 9 Independencia §5 — VULNERABLE: enuncia sin mecanismo; y omite a F0 (que juzga dependencia y promueve) de la tríada.
+ 10 Recaída residual — VULNERABLE parcial: (i) "cobertura observada vs censo" binance-derivado presentada como evidencia = optimismo residual (regresión vs ALCANCE §5); (ii) grado CONFORME anunciado "incluyendo wash detectable" comunica una garantía de wash insostenible. PIT (borde→observación) SÍ resiste.
+RECAÍDAS v1–v3: cifra de "cobertura" de proveniencia única como evidencia (§4); etiqueta "wash detectable" en el grado (§0/§8).
+RUTAS DE PROMOCIÓN INDEBIDA: (1) tail-dependiente re-etiquetada "no depende" por F0 juez-y-parte → CONFORME basta → promueve; (2) wash bajo umbral indefinido infla edge → CONFORME → promueve; (3) 🟠 graves acumulados → CONFORME CON OBSERVACIONES → si la compuerta lo lee como CONFORME → promueve.
+VEREDICTO: NO CONFORME (por (b) Declaración eludible + F0 juez-y-parte de la tail-dependencia; (c) wash no gateado; (a) parcial: residuos optimistas).
+Firma: Revisor adversarial · 2026-07-29 · sesión independiente
+```
+
+## Lectura (nota para el IP): converge, no hace loop
+v1→v3 fallaban por la MISMA raíz (survivorship no controlable) = loop sobre un imposible. v4→ falla por raíz DISTINTA: el alcance B es correcto, pero la arquitectura honesta **no se auto-obliga**. Todos los fallos son de ENFORCEMENT y fixables SIN sobre-afirmar: (1) la Declaración no tiene dientes; (2) "depende de la cola" es el nuevo término indefinido load-bearing, juzgado por quien promueve; (3) el wash se grada en vez de declararse; (4) huecos de mapeo (OBSERVACIONES vs CONFORME, acumulación); (5) cifra de cobertura optimista. Decisión del IP: v5 con dientes, o congelar con observaciones.
+
+---
+
+# Dictamen adversarial — Contrato QA/A-02 (v5, enforcement)
+
+> 5º pase (final bajo regla de parada), sesión independiente (dieta: alcance v2 + QA/A-02 v5 + DATA.md) el 2026-07-29. Append-only. **Resultado: NO CONFORME.** Los huecos restantes son de DOS clases: (A) coordinación entre documentos (la compuerta con dientes de v5 no está cableada en el ALCANCE frozen), y (B) gobernanza de independencia (el contrato asume roles independientes que un lab pequeño puede no tener). El revisor expone; no corrige.
+
+```
+DICTAMEN ADVERSARIAL — Contrato QA/A-02 v5
+DIENTES:
+ (a) IGNORAR — ABIERTO: §1 (3 requisitos) NO deroga la COMPUERTA DURA frozen del ALCANCE §0.9 ("solo CONFORME+pin") ni DATA.md regla 5 ("APTO"). Coexisten 2-3 compuertas y vale la más laxa; se puede promover con solo CONFORME+pin, saltándose Declaración/acuse y dictamen de dependencia. Además "acuse" (§1.2) es auto-emitido por el promotor, sin firma ni testigo → no verificable.
+ (b) ELUDIR — ABIERTO: "evidencia positiva" que voltea el default TAIL-DEPENDIENTE (§2) sin criterio; screen mecánico sin umbral de "materialidad" ni de "superado"; nadie tiene autoridad asignada para NOMBRAR al evaluador → reciprocidad cruzada (A evalúa a B, B a A) no prohibida. Independencia "declarada", no forzada.
+ (c) MALINTERPRETAR — ABIERTO (residual): internamente v5 lo cierra (§7 sin %, §3 wash fuera del grado), pero el ALCANCE §5/§2 frozen SIGUE exigiendo "cobertura X% demostrada" como entregable; v5 no enmienda el frozen → la cifra-evidencia sobrevive aguas abajo.
+CONTROLES ALCANZABLES:
+ 4 Calidad/acumulación — CON HUECO: "N observaciones graves → NO CONFORME" con N indefinido = placeholder que decide promoción; "🟠 aceptadas por parte independiente" sin criterio de aceptación.
+ 5 Reproducibilidad — CON HUECO: el pin no cubre el dictamen de dependencia (§1.3) ni las aceptaciones de 🟠 (§4) → promoción no reproducible.
+ 6 Duplicados/gaps — GATEADO con observación (artefacto definido + separación triple; residual: suficiencia de la explicación es discreción del validador).
+ 7 Independencia — CON HUECO: F0-promotor excluido es verificable, pero "lab pequeño/rotatoria/se declara cómo se logra" es divulgación, no enforcement; admite back-scratching sin autoridad de nombramiento.
+UMBRALES PENDIENTES: N de acumulación [ARQUITECTÓNICO]; criterio de "evidencia positiva" [ARQUITECTÓNICO]; screen mecánico + materialidad [ARQUITECTÓNICO]; criterio de aceptación de 🟠 [ARQUITECTÓNICO]; WASH-FLAG número [implementación]; cutpoints QUAL [implementación].
+HUECOS ARQUITECTÓNICOS: (1) §1 sin precedencia sobre §0.9 frozen / DATA.md regla 5; (2) "cobertura % demostrada" reinstalada por el frozen no enmendado; (3) "evidencia positiva" sin criterio + nombramiento del evaluador sin autoridad; (4) N y aceptación de 🟠 sin criterio; (5) pin no cubre dictamen de dependencia ni aceptaciones; (6) "acuse" auto-emitido no verificable.
+VEREDICTO: NO CONFORME
+Firma: Revisor adversarial · 2026-07-29 · sesión independiente
+```
+
+## Aplicación de la regla de parada (nota para el IP)
+Los huecos de v5 se agrupan en: **(A) coordinación de documentos** — la compuerta con dientes de v5 no está cableada en el ALCANCE §0.9 frozen, y el frozen aún pide "cobertura % demostrada" (FIXABLE: enmendar el ALCANCE en nueva versión con justificación); y **(B) gobernanza de independencia** — evaluador independiente, autoridad de nombramiento, acuse verificable, aceptación de 🟠: todos asumen ≥2-3 partes independientes que un lab pequeño puede no tener. **(B) no se arregla con redacción** — es el hallazgo de la regla de parada: A-02 fue concebido como compuerta de enforcement con árbitro independiente; si el lab no puede dotar árbitros independientes, A-02 debe reconcebirse como instrumento de DIVULGACIÓN + certificación mecánica de calidad, cuyo enforcement es el juicio documentado del IP + el proceso adversarial, honestamente etiquetado como tal — no fingir una independencia que no se tiene. Decisión estratégica del IP pendiente; no v6.

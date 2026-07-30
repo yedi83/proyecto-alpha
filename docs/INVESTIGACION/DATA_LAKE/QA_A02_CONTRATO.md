@@ -1,84 +1,79 @@
-# QA / A-02 — Contrato de validación del Data Lake (v4, alcance B)
+# QA / A-02 — Contrato de validación del Data Lake (v5, alcance B — enforcement)
 
-> **Fecha: 2026-07-29 · v4 · Autor: Opus (Claude) sobre la decisión del IP · Estado: PROPUESTA para 4º pase adversarial.**
-> **v1, v2, v3 → NO CONFORME** (archivadas en `QA_A02_DICTAMEN_ADVERSARIAL.md`; decisión en `QA_A02_v3_NO_CONFORME_FORK.md`). v4 recorta el alcance a **B**: A-02 certifica **lo alcanzable con datos de proveniencia única** (binance.vision) y **DECLARA** el survivorship en vez de afirmar controlarlo.
+> **Fecha: 2026-07-29 · v5 · Autor: Opus (Claude) sobre la decisión del IP · Estado: PROPUESTA para el 5º pase adversarial (bajo regla de parada §10).**
+> **v1–v4 → NO CONFORME** (archivadas en `QA_A02_DICTAMEN_ADVERSARIAL.md`; bifurcación en `QA_A02_v3_NO_CONFORME_FORK.md`). v4 acertó el alcance (B) pero falló en ENFORCEMENT. v5 cierra los dientes.
 
-## 0. Principio de alcance (lo que vuelve al contrato inmune)
+## 0. MANDATO de v5 (el límite auto-impuesto — condición del IP)
 
-**Certificar lo detectable; DECLARAR lo que no.** A-02 certifica **integridad, calidad y reproducibilidad** —propiedades alcanzables con proveniencia única— y **gatea lo detectable** (incl. wash-trading grueso). Lo que un solo origen **no puede demostrar** (cota completa de survivorship, wash sutil de venue, restatement no observado) **no se certifica: se declara con evidencia y límites explícitos.**
+**A-02 NO intenta demostrar que el survivorship esté controlado. No lo demuestra, no lo afirma, no lo grada.** Respecto al survivorship, el único deber de A-02 es que **la limitación declarada NO pueda:**
+- **(a)** ser **ignorada** en la ruta de promoción,
+- **(b)** ser **eludida** por re-etiquetado,
+- **(c)** ser **malinterpretada** como control.
 
-> **La propiedad "survivorship controlado / cota completa" está FUERA de alcance** y requiere una fuente point-in-time externa (Tardis — Opción A, expansión futura). **Un ataque no puede disolver una afirmación que el contrato no hace.** Ahí murieron v1–v3; v4 no la hace.
+Todo lo **alcanzable** con proveniencia única (integridad, calidad, reproducibilidad) se **certifica**. Lo **no demostrable** (survivorship, wash sutil, restatement no observado) se **declara**. v5 solo añade **dientes de enforcement** a esa frontera; no mueve la frontera.
 
-## 1. Dos salidas independientes de A-02
+## 1. Dos salidas + la compuerta que las obliga
 
-- **(A) Veredicto de calidad del dato** — CONFORME / CONFORME CON OBSERVACIONES / NO CONFORME, sobre integridad + calidad + reproducibilidad + wash-trading detectable. **Es un grado.**
-- **(B) Declaración de survivorship** — un **documento de divulgación**, NO un grado: evidencia (censo binance-derivado + raw), cobertura observada, y los **puntos ciegos declarados**. F0 la usa para decidir; A-02 no la convierte en pase/bloqueo.
+- **(A) Veredicto de calidad** — `CONFORME` / `NO CONFORME` (binario; ver §4). Solo integridad + calidad + reproducibilidad.
+- **(B) Declaración** — survivorship + wash residual + restatement: **divulgación, no grado** (§7).
+- **Compuerta de promoción (los dientes):** promover exige **las TRES**, no una:
+  1. Veredicto de calidad **CONFORME**;
+  2. **Declaración pineada + acuse explícito** de quien promueve;
+  3. **Dictamen de dependencia-de-cola firmado por parte independiente del promotor** (§2).
+  Falta cualquiera → **no promueve**. La compuerta **consume la Declaración**, no solo el grado — cierra (a) "decorativa".
 
-## 2. Regla de promoción (disciplina C) — dónde se decide el survivorship
+## 2. Dependencia-de-cola: screen mecánico + default conservador + independencia
 
-A-02 **no decide** si el survivorship es tolerable; lo hace **F0/metodología** leyendo la Declaración (§4). Regla dura:
+Cierra (b) elusión y el juez-y-parte de v4.
 
-- Hipótesis cuyo edge **NO depende de la cola ausente** → veredicto de calidad CONFORME **basta** para promover.
-- Hipótesis que **SÍ dependen de una cota completa de survivorship** → **NO se certifican con este contrato**; requieren fuente point-in-time externa (Opción A). Se difieren.
+- **Screen mecánico** (a fijar en implementación): ¿el universo elegible incluye instrumentos en las bandas de **liquidez baja / vida corta** donde se concentra el delisting? ¿**Remover la cohorte delisting-elegible** mueve la señal materialmente?
+- **Default conservador: TAIL-DEPENDIENTE** salvo **evidencia positiva** en contra. La **carga de la prueba** recae en quien quiere el carril barato; la aserción no basta.
+- **Independencia:** el dictamen de dependencia lo firma/revisa **alguien independiente del promotor**. **F0-promotor ≠ evaluador-de-dependencia** para su propia hipótesis (§8).
+- **Tail-dependiente → NO se certifica con este contrato** (requiere Opción A / fuente point-in-time externa). No re-etiquetable por aserción.
 
-Esto **elimina** la puerta APTO-ACOTADO y la cota autodestructiva de v3: no hay grado de survivorship que gamear; hay una **dependencia de hipótesis** que F0 juzga contra una Declaración honesta.
+## 3. Wash: de grado a DECLARACIÓN (aplica el principio de B, que v4 violó)
 
-## 3. Controles de calidad del dato (lo alcanzable — gateado de verdad)
+- **"Wash detectable" SALE del grado de calidad.** El grado ya no comunica ninguna garantía de wash.
+- **WASH-FLAG:** solo un umbral **grueso concreto** (número, §implementación) marca el dataset **en la Declaración**; **no abre ni cierra el grado**.
+- El wash **sub-umbral** se **declara** como punto ciego que **alimenta la decisión de dependencia/tamaño**, no un pase.
 
-Severidad 🔴 BLOQUEANTE · 🟠 OBSERVACIÓN · 🟢 CONFORME. **Agregación TOTAL y DETERMINISTA** (no prosa): cualquier 🔴 en cualquier familia → **veredicto de calidad = NO CONFORME**; ≥1 🟠 sin 🔴 → **CONFORME CON OBSERVACIONES** (cada una con ID + responsable independiente + fecha de revisión); solo 🟢 → **CONFORME**.
+## 4. Veredicto de calidad: binario, con acumulación, sin fugas de mapeo
 
-- **INT (integridad):** SHA-256 vs `.CHECKSUM` de origen; ruta alternativa (cross-read / 2º espejo) si el origen no publica checksum. **Se declara** que byte-identidad prueba transporte, no corrección.
-- **QUAL (calidad):** OHLCV lógico (`high≥max(o,c)`, `low≤min(o,c)`, `vol≥0`); funding **interval real por evento** (no 8h asumido); mapeo `perp→spot→multiplicador` (`1000SHIB`…); escala temporal ms vs µs; duplicados (**degradan 🔴→🟠 solo con artefacto corroborante independiente**, no nota del recolector); continuidad.
-- **WASH (wash-trading) — GATEADO:** heurísticas definidas (volumen/nº-trades anómalo, patrones precio-tiempo, proxies de self-trade). Wash **grueso detectable → 🔴**. **Se declara** el límite: el wash **sutil** de venue no lo detecta *ninguna* fuente — es un punto ciego residual **divulgado**, no "controlado".
-- **REPRO:** pin de `raw + parser_version + a02_version`; determinismo por corrida repetida registrada; caducidad si cambia **cualquier** insumo.
-- **PIT (calidad de ventana, NO control de survivorship):** coherencia de ventana viva; un **hueco de borde → OBSERVACIÓN declarada**, nunca una afirmación de listing/delisting (corrige el colapso de v3).
+- Solo propiedades **alcanzables**. **Cualquier 🔴 → NO CONFORME.**
+- **`CONFORME CON OBSERVACIONES` NO satisface la compuerta** por sí solo (§1): las 🟠 deben **resolverse** o ser **aceptadas explícitamente por la parte independiente** (§8), no por el promotor.
+- **Acumulación:** N observaciones graves → **NO CONFORME** (N a fijar en implementación). Ningún montón de 🟠 promueve.
+- **Todo control mapea a severidad** — incluido el marcador de survivorship-de-contrato (§6). Sin controles sin mapear.
 
-## 4. La Declaración de survivorship (el corazón de B — divulgación, no grado)
+## 5. Reproducibilidad con dientes
 
-Documento estructurado, verificable y **honesto sobre lo que NO se ve**:
+- **Pin completo:** `raw + parser_version + a02_version + valores de umbrales (dentro de a02_version) + snapshot del censo + hash de la Declaración`. **Caducidad si cambia cualquiera** (cierra el hueco de v4: umbral o censo mutan sin caducar).
+- **Reproducible por re-corrida independiente**, no auto-atestada.
 
-- **Censo observado** (fuentes binance-derivadas listadas) + **cobertura observada** vs ese censo.
-- **Ausentes conocidos** (en censo y no en raw, y viceversa por cruce censo↔raw).
-- **Puntos ciegos DECLARADOS** (lo indetectable): (a) símbolos ausentes de raw **Y** censo → invisibles; (b) sesgo de **momento-de-consulta** (REST retroactivo); (c) delistados **antes** del inicio de captura → invisibles sin fuente point-in-time externa.
-- **Frase fija obligatoria:** *"Esto es una DECLARACIÓN basada en datos de proveniencia única (binance.vision); NO es un control de survivorship. Una cota completa requiere una fuente point-in-time externa (p.ej. Tardis)."*
+## 6. Controles de calidad (lo alcanzable — mapeos cerrados)
 
-No hay umbral aquí que decida promoción. La Declaración es **insumo para F0**.
+- **INT:** SHA-256 vs `.CHECKSUM` de origen; ruta alternativa (cross-read / 2º espejo) si no hay checksum. Se **declara** que byte-identidad prueba transporte, **no** corrección de contenido.
+- **QUAL:** OHLCV lógico; funding interval real por evento; `perp→spot→multiplicador`; escala ms/µs; continuidad. **Duplicados/gaps:** una "explicación" degrada 🔴→🟠 **solo con artefacto independiente DEFINIDO** (aviso oficial de venue **o** ≥2º registro independiente), **validado por parte ≠ recolector ≠ promotor**.
+- **WASH-FLAG:** §3 — a la Declaración, no al grado.
+- **Survivorship-de-contrato** (spec/liquidación/coin-m→USDT): **marcado con severidad** (no solo "en metadatos").
+- **REPRO:** §5.
 
-## 5. Independencia y gobernanza (cierra juez-y-parte)
+## 7. La Declaración (divulgación honesta — sin cifra-evidencia)
 
-Mutuamente independientes: **recolector · certificador A-02 · responsable de observaciones/caducidad**. Toda 🟠 lleva **fecha de revisión + responsable nombrado independiente de quien promueve**. El pase adversarial de este contrato: sesión independiente (patrón A-04/F6b).
+- Reporta el censo como **conteo de MISMA PROVENIENCIA que NO acota el universo verdadero** — explícito. **Se elimina toda "% de cobertura" presentada como evidencia** (corrige la recaída de v4).
+- **Puntos ciegos declarados:** ausentes de raw **Y** censo (invisibles); sesgo de momento-de-consulta; delistados pre-captura.
+- **Wash residual** y **restatement no observado** declarados.
+- **Frase fija:** *"Esto es una DECLARACIÓN basada en datos de proveniencia única; NO es un control de survivorship. Una cota completa requiere una fuente point-in-time externa (Opción A)."*
+- La Declaración se **pinea** (hash en manifest, §5) y es de **consumo obligatorio** en la compuerta (§1).
 
-## 6. Survivorship de selección y de contrato
+## 8. Independencia (mecanismo, no aspiración)
 
-- **De selección** (BTC/ETH/SOL elegidos entre majors vivos): responsabilidad de **F0**; se **declara** como contexto en la Declaración (§4), no lo gatea A-02.
-- **De contrato** (cambios de spec, tiers de liquidación, migración coin-margined→USDT): **A-02 lo marca** en los metadatos del instrumento.
+- Roles mutuamente independientes con separación verificable: **recolector · certificador A-02 · evaluador-de-dependencia-de-cola · responsable de observaciones**. **El F0-promotor NO puede ocupar ninguno de estos roles para su propia hipótesis.**
+- **Honestidad de lab pequeño:** si la independencia es temporal/rotatoria por tamaño del equipo, **se declara cómo se logra** (p.ej. rotación, sesión aislada tipo A-04) — no se finge una separación que no existe.
 
-## 7. Umbrales — ahora SÍ fijables (porque ya no deciden survivorship)
+## 9. Lo que v5 NO hace (por mandato §0)
 
-Sin "material/razonable/plausible" decidiendo promoción, los umbrales restantes son de **calidad** y son concretos: rangos OHLCV, cota numérica de funding, heurísticas de wash (valores), tolerancia de duplicados, unidad temporal. Se fijan con justificación en implementación. **Ninguno decide survivorship** — esa palanca salió del contrato.
+NO demuestra survivorship controlado; NO gradúa wash; NO presenta cobertura como evidencia; NO certifica hipótesis tail-dependientes (Opción A). **Solo cierra las vías por las que una limitación declarada se ignora (§1), se elude (§2) o se malinterpreta (§3, §7).**
 
-## 8. Entregables + dictamen
+## 10. Regla de parada (acordada con el IP)
 
-```
-A02_REPORT.md/.json · MANIFEST.json (raw+parser+a02) · SURVIVORSHIP_DECLARATION.md ·
-ANOMALIES.csv · WASH_FLAGS.csv · HASHES.sha256
-```
-```
-A-02 DICTAMEN
-Dataset / Versión / Manifest / a02_version / parser_version / Fecha
-──────────────
-VEREDICTO DE CALIDAD:  CONFORME / CONFORME CON OBSERVACIONES / NO CONFORME   (función total §3)
-  OBSERVACIONES: [ID · responsable independiente · fecha de revisión]
-DECLARACIÓN DE SURVIVORSHIP:  adjunta (§4) — divulgación, NO grado
-──────────────
-Nota: este contrato NO certifica "survivorship controlado". Hipótesis tail-dependientes → fuente externa (Opción A).
-Firma: A-02 · <fecha> · <a02_version>
-```
-
-## 9. Lo que este contrato NO hace / NO afirma
-
-**NO** afirma survivorship controlado; **NO** afirma detectar todo el wash; **NO** certifica hipótesis tail-dependientes (van a Opción A); **NO** reemplaza a F0 en juzgar dependencia de cola. Afirma **solo** lo que un origen único puede sostener, y **declara** el resto. **No está congelado:** debe pasar el 4º pase adversarial — cuyo ataque válido ahora es *"¿la Declaración es honesta y completa en sus límites, y los controles de calidad están realmente gateados?"*, no *"¿está controlado el survivorship?"* (que v4 ya no afirma).
-
-## 10. Orden + 4º pase adversarial
-
-1. Spike de censo (para poblar la Declaración, no para "probar cobertura") con su time-box. 2. Fijar los umbrales de calidad (§7). 3. **4º pase adversarial independiente de v4.** 4. Si sobrevive → congelar; si no → v5. El revisor expone, no corrige.
+5º pase adversarial independiente de v5. **Si CONFORME o CONFORME CON OBSERVACIONES** (solo quedan umbrales numéricos de implementación) → **congelar** y registrar observaciones. **Si NO CONFORME por un hueco arquitectónico NUEVO** → **parar** y reconsiderar si A-02 tal como se concibió es el instrumento correcto — no seguir puliendo. El revisor expone, no corrige.
